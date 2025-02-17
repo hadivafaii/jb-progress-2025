@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>(10) leapfrog &#8212; Research Progress [2025]</title>
+    <title>(10) leapfrog: (T, beta) = (16x2, 32.0x4.0) &#8212; Research Progress [2025]</title>
   
   
   
@@ -199,14 +199,31 @@
 <li class="toctree-l2"><a class="reference internal" href="10_grad-yo-0.html">(10) grad: (T, beta) = (32, 32.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_grad-yo-1-Copy1.html">(10) grad: (T, beta) = (32, 64.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_grad-yo-1.html">(10) grad: (T, beta) = (32, 48.0)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">(10) leapfrog</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">(10) leapfrog: (T, beta) = (16x2, 32.0x4.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_leapfrog-ch-1.html">(10) leapfrog: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_leapfrog-schedulefree-ch-0.html">(10) leapfrog + schedulefree: (16x4, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_leapfrog-schedulefree-ch-1.html">(10) leapfrog + schedulefree: (32x2, 64.0x1.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10_vib-jake.html">(10) VIB: Jake notebook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_fit-ma-2-Copy1.html">(11) fit w/ schedulefree + warmup — (T, beta) = (8, 10.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_fit-ma-2.html">(11) fit w/ schedulefree + warmup — (T, beta) = (16, 20.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_fit-ma-3.html">(11) fit w/ grad — (T, beta) = (16, 20.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_jobs-betas.html">(11) Jobs: betas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12_leapfrog-tst.html">(12) leapfrog, load, analyze: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_tbptt-leapfrog-ch-0.html">(12) leapfrog: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_tbptt-leapfrog-ch-1.html">(12) leapfrog + tbptt: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_tbptt-ch-0.html">(13) tbptt: (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_tbptt-ch-1.html">(13) tbptt: (T, beta) = (128[32], 256.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_tbptt-yo-0.html">(14) tbptt: (128[32], 256.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_tbptt-yo-1.html">(14) tbptt: (128[32], 512.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_tbptt-ch-0.html">(15) best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_tbptt-ch-1.html">(15) another good fit: (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16_drifting-grating-ch-0.html">(16) drifting grating analysis w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16_white-noise-ch-1.html">(16) white noise analysis w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17_tight-clamp-ch-0.html">(17) clamp = 2.0, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17_tight-clamp-ch-1.html">(17) clamp = 0.0, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-feb25-Copy1.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-feb25-Copy2.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-feb25-Copy3.html">tmp — feb25 (DEL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tmp-feb25.html">tmp — feb25</a></li>
 </ul>
 </li>
@@ -395,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>(10) leapfrog</h1>
+    <h1>(10) leapfrog: (T, beta) = (16x2, 32.0x4.0)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -418,8 +435,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="leapfrog">
-<h1>(10) leapfrog<a class="headerlink" href="#leapfrog" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="leapfrog-t-beta-16x2-32-0x4-0">
+<h1>(10) leapfrog: (T, beta) = (16x2, 32.0x4.0)<a class="headerlink" href="#leapfrog-t-beta-16x2-32-0x4-0" title="Permalink to this heading">#</a></h1>
 <p>project = <code class="docutils literal notranslate"><span class="pre">iP-VAE</span></code>, host = <code class="docutils literal notranslate"><span class="pre">chewie</span></code>, device = <code class="docutils literal notranslate"><span class="pre">cuda:0</span></code></p>
 <p><strong>Motivation</strong>: <br></p>
 <p>Use leapfrog to fit vH16 w/ leared dt</p>
