@@ -1,0 +1,2278 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Fig: balls &#8212; Research Progress [2025]</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/2025-03/fig-balls';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fig: convergence &amp; rate-distortion" href="fig-converge-ratedist.html" />
+    <link rel="prev" title="(12) Resume fits: play" href="12_resume-fits.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../md/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Research Progress [2025] - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Research Progress [2025] - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../md/intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">February 2025</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-02.html">Summary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../md/2025-02_updates.html">Updates</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/01_eyemovies-dataset.html">(01) EyeMovies: save npy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/01_eyemovies-explore.html">(01) EyeMovies: explore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/02_mnist-pvae-replication.html">(02) MNIST: P-VAE test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/02_mnist-vib-to-vae.html">(02) VIB: reduce to VAE, test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-debug.html">(06) iP-VAE debug, etc.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-0.html">(06) fit w/ grad, T=32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-1.html">(06) fit w/ grad, T=64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-2.html">(06) fit w/ grad — (T, beta) = (10, 15.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-3.html">(06) fit w/ grad — (T, beta) = (10, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/08_ipvae-fit-0.html">(08) iP-VAE: fit w/ grad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/08_ipvae-fit-1.html">(08) iP-VAE: fit w/ grad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/09_mnist-so-0.html">(09) iP-VAE: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/09_vH32-save.html">(09) vH — save 32x32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_feeders-test.html">(10) Feeder test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0-Copy1.html">(10) grad w/ schedulefree: (T, beta) = (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0.html">(10) grad: (T, beta) = (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1-Copy1.html">(10) grad: (T, beta) = (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1.html">(10) grad: (T, beta) = (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-ch-0.html">(10) leapfrog: (T, beta) = (16x2, 32.0x4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-ch-1.html">(10) leapfrog: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-schedulefree-ch-0.html">(10) leapfrog + schedulefree: (16x4, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-schedulefree-ch-1.html">(10) leapfrog + schedulefree: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_vib-jake.html">(10) VIB: Jake notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2-Copy1.html">(11) fit w/ schedulefree + warmup — (T, beta) = (8, 10.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2.html">(11) fit w/ schedulefree + warmup — (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-3.html">(11) fit w/ grad — (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_jobs-betas.html">(11) Jobs: betas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_leapfrog-tst.html">(12) leapfrog, load, analyze: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_tbptt-leapfrog-ch-0.html">(12) leapfrog: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_tbptt-leapfrog-ch-1.html">(12) leapfrog + tbptt: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/13_tbptt-ch-0.html">(13) tbptt: (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/13_tbptt-ch-1.html">(13) tbptt: (T, beta) = (128[32], 256.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/14_tbptt-yo-0.html">(14) tbptt: (128[32], 256.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/14_tbptt-yo-1.html">(14) tbptt: (128[32], 512.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/15_tbptt-ch-0.html">(15) best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/15_tbptt-ch-1.html">(15) another good fit: (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/16_drifting-grating-ch-0.html">(16) drifting grating analysis w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-standard-ch-0.html">(17) clamp = 8.0, (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-tight-ch-0.html">(17) clamp = 5.0, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-tight-ch-1.html">(17) clamp = 5.0, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_drifting-grating-ch-0.html">(17) drifting grating w/ n_exp p = 1e-3, t_final = 0.01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-ch-1.html">(17) leapfrog: (16x8, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-yo-0.html">(17) leapfrog: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-yo-1.html">(17) leapfrog: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_less-strict-nexp-ch-0.html">(17) n_exp p = 1e-3, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_lower-beta-ch-0.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_obst-long-ch-1.html">(17) long obs time w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_obst-short-ch-0.html">(17) short obs time w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_reproduce-ch-1.html">(17) reproduce best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/18_low-temp-ch-0.html">(18) temp=0.01 w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/18_low-temp-ch-1.html">(18) temp=0.001 w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_higher-beta-ch-0.html">(17) higher beta: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_higher-beta-ch-1.html">(17) higher beta: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_lower-beta-ch-0.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_lower-beta-ch-1.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-ch-0.html">(23) gaussian: (16, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-ch-1.html">(23) gaussian: (16, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-ch-0.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-ch-1.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-yo-0.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-yo-1.html">(23) gaussian-relu: (4, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-sigmoid-ma-2.html">(24) gaussian-sigmoid: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-sigmoid-ma-3.html">(24) gaussian-sigmoid: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-softplus-yo-0.html">(24) gaussian-softplus: (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-softplus-yo-1.html">(24) gaussian-softplus: (16, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_poisson-ch-0.html">(24) reproduce: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_poisson-nonwhitened-ma-0.html">(24) non-whitened poisson: (16, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_gaussian-exp-yo-1.html">(25) gaussian-exp: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_gaussian-square-yo-0.html">(25) gaussian-square: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_white-noise-ch-1.html">(25) white noise analysis w/ best fit: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_white-noise-gaus-relu-ch-0.html">(25) white noise w/ gaus relu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-gaus-relu-ch-0.html">(26) Gaus-ReLu + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-gaus-sigmoid-ch-1.html">(26) Gaus-Sigmoid + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-ch-0.html">(26) poisson + BALLS16: (64, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-ch-1.html">(26) poisson + BALLS16: (8, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-yo-0.html">(26) poisson + BALLS16: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-yo-1.html">(26) poisson + BALLS16: (64, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-pvae-ma-3.html">(26) P-VAE + BALLS16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto-jitter-ch-0.html">(26) Kyoto32-jitter, gaussian-sigmoid: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto-jitter-ch-1.html">(26) Kyoto32-jitter, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0-Copy1.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-1.html">(26) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_Kyoto16-save.html">(26) Kyoto — save 16x16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-balls-yo-0.html">(26) poisson + BALLS16: (32, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-balls-yo-1.html">(26) poisson + BALLS16: (128, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-Kyoto16-ma-1.html">(26) poisson + Kyoto16: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_white-noise-gaus-sigm-ch-0.html">(26) white noise w/ gaus sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_balls-tst-ch-0.html">(27) BALLS: Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_balls-tst-yo-0.html">(27) BALLS: Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_gaus-sigmoid-Kyoto16-ma-2.html">(27) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_gaus-sigmoid-vH16-ma-3.html">(27) vH16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_balls-poisson-ch-0.html">(28) poisson + BALLS16: (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_balls-poisson-ch-1.html">(28) poisson + BALLS16: (32, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_jitter-poisson-Kyoto-ch-0.html">(28) Kyoto32-jitter, poisson: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_jitter-poisson-vH-ch-1.html">(28) vH32-jitter, poisson: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy1.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy2.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy3.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy4.html">tmp — feb25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25.html">tmp — feb25</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">March 2025</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-03.html">Summary</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../md/2025-03_updates.html">Updates</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_balls16-poisson-yo-0.html">(01) poisson + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls16-poisson-yo-1.html">(01) poisson + BALLS16: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-ch-0.html">(01) poisson + BALLS64: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-ch-1.html">(01) poisson + BALLS64: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-yo-0.html">(01) poisson + BALLS64: (32, 128.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-yo-1.html">(01) poisson + BALLS64: (32, 96.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-ch-0.html">(01) reproduce: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-ch-1.html">(01) reproduce: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-yo-0.html">(01) reproduce: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-yo-1.html">(01) larger T: (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_drifting-grating-ch-0.html">(02) drifting grating: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-exp-ch-1.html">(02) gaussian-exp, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-ma-0.html">(02) gaussian, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-relu-ma-1.html">(02) gaussian-relu, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-sigmoid-ma-2.html">(02) gaussian-sigmoid, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-softplus-ma-3.html">(02) gaussian-softplus, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-ch-0.html">(03) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-ch-1.html">(03) Kyoto16, gaussian-sigmoid: z-256, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-yo-0.html">(03) Kyoto16, gaussian-sigmoid: z-512, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-yo-1.html">(03) Kyoto16, gaussian-sigmoid: (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_additive-play-yo-0.html">(04) additive decoder play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_jobs-rate-distort-amort.html">(05) Jobs: rate-dist curve, amortized P-VAE fits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_jobs-rate-distort.html">(05) Jobs: rate-dist curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_param-grid-play.html">(06) pairwise corrs: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_pairwise-ch-0.html">(07) pairwise corrs: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-ch-t%3D16.html">(08) Jobs: BALLS (T=16)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-ma-t%3D8.html">(08) Jobs: BALLS (T=8)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-yo-t%3D32.html">(08) Jobs: BALLS (T=32)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_gaus-sigmoid-Kyoto16-ma-1.html">(10) Kyoto16, gaussian-sigmoid: <code class="docutils literal notranslate"><span class="pre">z-100/128/192/256</span></code>, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Kyoto16-dog-fit.html">(10) Kyoto16: diff of gaussians</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_white-noise-gaus-sigm-ma-2.html">(10) white noise w/ gaus sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_process-fits-amort-ma-1.html">(11) process fits, save results (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_process-fits-ma-1.html">(11) process fits, save results (iterative)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_fashmnist-ma-1.html">(12) FashionMNIST: (16, 8.0/16.0/32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_fashmnist-ma-2.html">(12) FashionMNIST: <span class="math notranslate nohighlight">\(T \in 32, 64, 128\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_mnist-ch-0.html">(12) MNIST: (128, 48.0/72.0/64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_mnist-ch-1.html">(12) MNIST: (64/128, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_resume-fits.html">(12) Resume fits: play</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Fig: balls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-converge-ratedist.html">Fig: convergence &amp; rate-distortion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-mnist.html">Fig: mnist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy1.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy2.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy3.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25.html">tmp — mar25</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/hadivafaii/jb-progress-2025" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/hadivafaii/jb-progress-2025/issues/new?title=Issue%20on%20page%20%2Fnb/2025-03/fig-balls.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/nb/2025-03/fig-balls.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fig: balls</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-figs-dir">Results &amp; Figs dir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balls-dataset">BALLS dataset</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fig-balls">
+<h1>Fig: balls<a class="headerlink" href="#fig-balls" title="Permalink to this heading">#</a></h1>
+<p>project = <code class="docutils literal notranslate"><span class="pre">iP-VAE</span></code>, host = <code class="docutils literal notranslate"><span class="pre">any</span></code>, device = <code class="docutils literal notranslate"><span class="pre">any</span></code></p>
+<p><strong>Motivation</strong>: <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDE CODE</span>
+
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="c1"># tmp &amp; extras dir</span>
+<span class="n">git_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">],</span> <span class="s1">&#39;Dropbox/git&#39;</span><span class="p">)</span>
+<span class="n">extras_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/_extras&#39;</span><span class="p">)</span>
+<span class="n">fig_base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/figs&#39;</span><span class="p">)</span>
+<span class="n">tmp_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/tmp&#39;</span><span class="p">)</span>
+
+<span class="c1"># GitHub</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;_IterativeVAE&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">figures.convergence</span> <span class="kn">import</span> <span class="n">plot_convergence</span>
+<span class="kn">from</span> <span class="nn">figures.imgs</span> <span class="kn">import</span> <span class="n">plot_weights</span>
+<span class="kn">from</span> <span class="nn">figures.fighelper</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">main.train</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># warnings, tqdm, &amp; style</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">rich.jupyter</span> <span class="kn">import</span> <span class="nb">print</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">set_style</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">device_idx</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">device</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;cuda:</span><span class="si">{</span><span class="n">device_idx</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;device: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">  ———  host: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">uname</span><span class="p">()</span><span class="o">.</span><span class="n">nodename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:1</span>  ———  host: mach
+</pre>
+</div></div>
+</div>
+<section id="results-figs-dir">
+<h2>Results &amp; Figs dir<a class="headerlink" href="#results-figs-dir" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pal_models</span> <span class="o">=</span> <span class="n">get_palette_models</span><span class="p">()</span>
+
+<span class="n">results_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="s1">&#39;results_2025-03&#39;</span><span class="p">)</span>
+<span class="n">figs_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">fig_base_dir</span><span class="p">,</span> <span class="s1">&#39;results_2025-03&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">results_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">figs_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">results_dir</span><span class="p">)),</span> <span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">figs_dir</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(369, 0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="balls-dataset">
+<h2>BALLS dataset<a class="headerlink" href="#balls-dataset" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">results_dir</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;BALLS&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">]</span>
+<span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">alphanum_sort_key</span><span class="p">)</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>213
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">info_keys</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;dataset&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;latent_act&#39;</span><span class="p">,</span> <span class="s1">&#39;model_str&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;seq_len&#39;</span><span class="p">,</span> <span class="s1">&#39;kl_beta&#39;</span><span class="p">,</span> <span class="s1">&#39;n_latents&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+    <span class="n">is_amortized</span> <span class="o">=</span> <span class="s1">&#39;amort&#39;</span> <span class="ow">in</span> <span class="n">f</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">load</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+            <span class="n">pjoin</span><span class="p">(</span><span class="n">results_dir</span><span class="p">,</span> <span class="n">f</span><span class="p">),</span>
+            <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">EOFError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;EOFError:</span><span class="se">\n</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">continue</span>
+
+    <span class="n">info</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">load</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">],</span> <span class="n">load</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">]</span>
+    <span class="n">info</span><span class="p">[</span><span class="s1">&#39;n_latents&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;n_latents&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># info</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">info_keys</span><span class="p">:</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;amort&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_amortized</span><span class="p">)</span>
+
+    <span class="c1"># results</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="c1"># &#39;%-zeros_vld&#39;: np.mean(results[&#39;results_xtract&#39;][&#39;vld&#39;][&#39;samples&#39;][:, -1, :] == 0.0),</span>
+        <span class="c1"># &#39;r2_recon_vld&#39;: results[&#39;results_xtract&#39;][&#39;vld&#39;][&#39;r2&#39;][-1],</span>
+        <span class="c1"># &#39;r2_untangle_vld&#39;: results[&#39;r2_zg&#39;][&#39;vld&#39;][1000].mean(),</span>
+        <span class="c1"># &#39;r2_untangle_vld_0&#39;: results[&#39;r2_zg&#39;][&#39;vld&#39;][1000][0],</span>
+        <span class="c1"># &#39;r2_untangle_vld_1&#39;: results[&#39;r2_zg&#39;][&#39;vld&#39;][1000][1],</span>
+        <span class="c1"># &#39;r_untangle_vld&#39;: results[&#39;corr_zg&#39;][&#39;vld&#39;][1000].mean(),</span>
+        <span class="c1"># &#39;r_untangle_vld_0&#39;: results[&#39;corr_zg&#39;][&#39;vld&#39;][1000][0],</span>
+        <span class="c1"># &#39;r_untangle_vld_1&#39;: results[&#39;corr_zg&#39;][&#39;vld&#39;][1000][1],</span>
+        <span class="s1">&#39;r2_recon_tst&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;results_xtract&#39;</span><span class="p">][</span><span class="s1">&#39;tst&#39;</span><span class="p">][</span><span class="s1">&#39;r2&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s1">&#39;r2_untangle_tst&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;r2_zg&#39;</span><span class="p">][</span><span class="s1">&#39;tst&#39;</span><span class="p">][</span><span class="mi">1000</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;r_untangle_tst&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;corr_zg&#39;</span><span class="p">][</span><span class="s1">&#39;tst&#39;</span><span class="p">][</span><span class="mi">1000</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;%-zeros_tst&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;results_xtract&#39;</span><span class="p">][</span><span class="s1">&#39;tst&#39;</span><span class="p">][</span><span class="s1">&#39;samples&#39;</span><span class="p">][:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">),</span>
+        <span class="s1">&#39;r2_untangle_tst_0&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;r2_zg&#39;</span><span class="p">][</span><span class="s1">&#39;tst&#39;</span><span class="p">][</span><span class="mi">1000</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+        <span class="s1">&#39;r2_untangle_tst_1&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;r2_zg&#39;</span><span class="p">][</span><span class="s1">&#39;tst&#39;</span><span class="p">][</span><span class="mi">1000</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s1">&#39;r_untangle_tst_0&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;corr_zg&#39;</span><span class="p">][</span><span class="s1">&#39;tst&#39;</span><span class="p">][</span><span class="mi">1000</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+        <span class="s1">&#39;r_untangle_tst_1&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;corr_zg&#39;</span><span class="p">][</span><span class="s1">&#39;tst&#39;</span><span class="p">][</span><span class="mi">1000</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vals</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████| 213/213 [04:05&lt;00:00,  1.15s/it]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(213, 16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;seq_len&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">32</span><span class="p">)</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;n_latents&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">96</span><span class="p">)</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BALLS64&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dataset</th>
+      <th>type</th>
+      <th>latent_act</th>
+      <th>model_str</th>
+      <th>seq_len</th>
+      <th>kl_beta</th>
+      <th>n_latents</th>
+      <th>amort</th>
+      <th>r2_recon_tst</th>
+      <th>r2_untangle_tst</th>
+      <th>r_untangle_tst</th>
+      <th>%-zeros_tst</th>
+      <th>r2_untangle_tst_0</th>
+      <th>r2_untangle_tst_1</th>
+      <th>r_untangle_tst_0</th>
+      <th>r_untangle_tst_1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BALLS64</td>
+      <td>gaussian</td>
+      <td>relu</td>
+      <td>gaussian+relu</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.338011</td>
+      <td>-0.262225</td>
+      <td>0.668500</td>
+      <td>0.880439</td>
+      <td>-0.410636</td>
+      <td>-0.113815</td>
+      <td>0.642906</td>
+      <td>0.694093</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BALLS64</td>
+      <td>gaussian</td>
+      <td>None</td>
+      <td>gaussian</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.966763</td>
+      <td>0.937432</td>
+      <td>0.985006</td>
+      <td>0.000000</td>
+      <td>0.904382</td>
+      <td>0.970483</td>
+      <td>0.980146</td>
+      <td>0.989865</td>
+    </tr>
+    <tr>
+      <th>204</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>24.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.994131</td>
+      <td>0.985870</td>
+      <td>0.994700</td>
+      <td>0.763405</td>
+      <td>0.981176</td>
+      <td>0.990563</td>
+      <td>0.993747</td>
+      <td>0.995653</td>
+    </tr>
+    <tr>
+      <th>206</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>48.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.993593</td>
+      <td>0.942868</td>
+      <td>0.991724</td>
+      <td>0.733747</td>
+      <td>0.982674</td>
+      <td>0.903062</td>
+      <td>0.994272</td>
+      <td>0.989177</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.993327</td>
+      <td>0.990167</td>
+      <td>0.995994</td>
+      <td>0.751850</td>
+      <td>0.988992</td>
+      <td>0.991342</td>
+      <td>0.995841</td>
+      <td>0.996147</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_to_process</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;r2_recon_vld&#39;</span><span class="p">,</span> <span class="s1">&#39;r2_recon_tst&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;r2_untangle_vld&#39;</span><span class="p">,</span> <span class="s1">&#39;r2_untangle_vld_0&#39;</span><span class="p">,</span> <span class="s1">&#39;r2_untangle_vld_1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;r2_untangle_tst&#39;</span><span class="p">,</span> <span class="s1">&#39;r2_untangle_tst_0&#39;</span><span class="p">,</span> <span class="s1">&#39;r2_untangle_tst_1&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns_to_process</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;avg_perf&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;r2_untangle_tst&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;r2_recon_tst&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dataset</th>
+      <th>type</th>
+      <th>latent_act</th>
+      <th>model_str</th>
+      <th>seq_len</th>
+      <th>kl_beta</th>
+      <th>n_latents</th>
+      <th>amort</th>
+      <th>%-zeros_vld</th>
+      <th>%-zeros_tst</th>
+      <th>r2_recon_vld</th>
+      <th>r2_recon_tst</th>
+      <th>r2_untangle_vld</th>
+      <th>r2_untangle_vld_0</th>
+      <th>r2_untangle_vld_1</th>
+      <th>r2_untangle_tst</th>
+      <th>r2_untangle_tst_0</th>
+      <th>r2_untangle_tst_1</th>
+      <th>avg_perf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BALLS64</td>
+      <td>gaussian</td>
+      <td>relu</td>
+      <td>gaussian+relu</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.874103</td>
+      <td>0.880439</td>
+      <td>0.513077</td>
+      <td>0.338011</td>
+      <td>0.873904</td>
+      <td>0.876920</td>
+      <td>0.870889</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BALLS64</td>
+      <td>gaussian</td>
+      <td>None</td>
+      <td>gaussian</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.976597</td>
+      <td>0.966763</td>
+      <td>0.997010</td>
+      <td>0.997084</td>
+      <td>0.996937</td>
+      <td>0.937432</td>
+      <td>0.904382</td>
+      <td>0.970483</td>
+      <td>0.952098</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BALLS16</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>4.0</td>
+      <td>8</td>
+      <td>False</td>
+      <td>0.179037</td>
+      <td>0.160960</td>
+      <td>0.722468</td>
+      <td>0.536938</td>
+      <td>0.941976</td>
+      <td>0.927955</td>
+      <td>0.955997</td>
+      <td>0.637630</td>
+      <td>0.536667</td>
+      <td>0.738592</td>
+      <td>0.587284</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BALLS16</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>4.0</td>
+      <td>16</td>
+      <td>False</td>
+      <td>0.396294</td>
+      <td>0.448500</td>
+      <td>0.836406</td>
+      <td>0.844588</td>
+      <td>0.989995</td>
+      <td>0.991556</td>
+      <td>0.988433</td>
+      <td>0.937603</td>
+      <td>0.939815</td>
+      <td>0.935391</td>
+      <td>0.891095</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BALLS16</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>4.0</td>
+      <td>24</td>
+      <td>False</td>
+      <td>0.590977</td>
+      <td>0.567368</td>
+      <td>0.910668</td>
+      <td>0.910017</td>
+      <td>0.994232</td>
+      <td>0.994898</td>
+      <td>0.993566</td>
+      <td>0.962905</td>
+      <td>0.967815</td>
+      <td>0.957995</td>
+      <td>0.936461</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>64</td>
+      <td>False</td>
+      <td>0.649978</td>
+      <td>0.626374</td>
+      <td>0.991294</td>
+      <td>0.991112</td>
+      <td>0.998350</td>
+      <td>0.998530</td>
+      <td>0.998170</td>
+      <td>0.989804</td>
+      <td>0.990533</td>
+      <td>0.989074</td>
+      <td>0.990458</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.725450</td>
+      <td>0.751850</td>
+      <td>0.993546</td>
+      <td>0.993327</td>
+      <td>0.998713</td>
+      <td>0.998739</td>
+      <td>0.998687</td>
+      <td>0.990167</td>
+      <td>0.988992</td>
+      <td>0.991342</td>
+      <td>0.991747</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>8.0</td>
+      <td>32</td>
+      <td>False</td>
+      <td>0.630808</td>
+      <td>0.590924</td>
+      <td>0.969510</td>
+      <td>0.969814</td>
+      <td>0.997763</td>
+      <td>0.998181</td>
+      <td>0.997346</td>
+      <td>0.983284</td>
+      <td>0.986977</td>
+      <td>0.979591</td>
+      <td>0.976549</td>
+    </tr>
+    <tr>
+      <th>211</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>4.0</td>
+      <td>256</td>
+      <td>False</td>
+      <td>0.882506</td>
+      <td>0.869603</td>
+      <td>0.992897</td>
+      <td>NaN</td>
+      <td>0.997898</td>
+      <td>0.997961</td>
+      <td>0.997836</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>16.0</td>
+      <td>512</td>
+      <td>False</td>
+      <td>0.938119</td>
+      <td>0.940236</td>
+      <td>0.989191</td>
+      <td>0.957721</td>
+      <td>0.996486</td>
+      <td>0.996275</td>
+      <td>0.996698</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>213 rows × 19 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;r2_untangle_tst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;r2_recon_tst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9901668550934274, 0.994131326675415)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dataset</th>
+      <th>type</th>
+      <th>latent_act</th>
+      <th>model_str</th>
+      <th>seq_len</th>
+      <th>kl_beta</th>
+      <th>n_latents</th>
+      <th>amort</th>
+      <th>%-zeros_vld</th>
+      <th>%-zeros_tst</th>
+      <th>r2_recon_vld</th>
+      <th>r2_recon_tst</th>
+      <th>r2_untangle_vld</th>
+      <th>r2_untangle_vld_0</th>
+      <th>r2_untangle_vld_1</th>
+      <th>r2_untangle_tst</th>
+      <th>r2_untangle_tst_0</th>
+      <th>r2_untangle_tst_1</th>
+      <th>avg_perf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BALLS64</td>
+      <td>gaussian</td>
+      <td>relu</td>
+      <td>gaussian+relu</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.874103</td>
+      <td>0.880439</td>
+      <td>0.513077</td>
+      <td>0.338011</td>
+      <td>0.873904</td>
+      <td>0.876920</td>
+      <td>0.870889</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BALLS64</td>
+      <td>gaussian</td>
+      <td>None</td>
+      <td>gaussian</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.976597</td>
+      <td>0.966763</td>
+      <td>0.997010</td>
+      <td>0.997084</td>
+      <td>0.996937</td>
+      <td>0.937432</td>
+      <td>0.904382</td>
+      <td>0.970483</td>
+      <td>0.952098</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BALLS16</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>4.0</td>
+      <td>8</td>
+      <td>False</td>
+      <td>0.179037</td>
+      <td>0.160960</td>
+      <td>0.722468</td>
+      <td>0.536938</td>
+      <td>0.941976</td>
+      <td>0.927955</td>
+      <td>0.955997</td>
+      <td>0.637630</td>
+      <td>0.536667</td>
+      <td>0.738592</td>
+      <td>0.587284</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BALLS16</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>4.0</td>
+      <td>16</td>
+      <td>False</td>
+      <td>0.396294</td>
+      <td>0.448500</td>
+      <td>0.836406</td>
+      <td>0.844588</td>
+      <td>0.989995</td>
+      <td>0.991556</td>
+      <td>0.988433</td>
+      <td>0.937603</td>
+      <td>0.939815</td>
+      <td>0.935391</td>
+      <td>0.891095</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BALLS16</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>4.0</td>
+      <td>24</td>
+      <td>False</td>
+      <td>0.590977</td>
+      <td>0.567368</td>
+      <td>0.910668</td>
+      <td>0.910017</td>
+      <td>0.994232</td>
+      <td>0.994898</td>
+      <td>0.993566</td>
+      <td>0.962905</td>
+      <td>0.967815</td>
+      <td>0.957995</td>
+      <td>0.936461</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>64</td>
+      <td>False</td>
+      <td>0.649978</td>
+      <td>0.626374</td>
+      <td>0.991294</td>
+      <td>0.991112</td>
+      <td>0.998350</td>
+      <td>0.998530</td>
+      <td>0.998170</td>
+      <td>0.989804</td>
+      <td>0.990533</td>
+      <td>0.989074</td>
+      <td>0.990458</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.725450</td>
+      <td>0.751850</td>
+      <td>0.993546</td>
+      <td>0.993327</td>
+      <td>0.998713</td>
+      <td>0.998739</td>
+      <td>0.998687</td>
+      <td>0.990167</td>
+      <td>0.988992</td>
+      <td>0.991342</td>
+      <td>0.991747</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>8.0</td>
+      <td>32</td>
+      <td>False</td>
+      <td>0.630808</td>
+      <td>0.590924</td>
+      <td>0.969510</td>
+      <td>0.969814</td>
+      <td>0.997763</td>
+      <td>0.998181</td>
+      <td>0.997346</td>
+      <td>0.983284</td>
+      <td>0.986977</td>
+      <td>0.979591</td>
+      <td>0.976549</td>
+    </tr>
+    <tr>
+      <th>211</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>4.0</td>
+      <td>256</td>
+      <td>False</td>
+      <td>0.882506</td>
+      <td>0.869603</td>
+      <td>0.992897</td>
+      <td>NaN</td>
+      <td>0.997898</td>
+      <td>0.997961</td>
+      <td>0.997836</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>16.0</td>
+      <td>512</td>
+      <td>False</td>
+      <td>0.938119</td>
+      <td>0.940236</td>
+      <td>0.989191</td>
+      <td>0.957721</td>
+      <td>0.996486</td>
+      <td>0.996275</td>
+      <td>0.996698</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>213 rows × 19 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="n">_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BALLS16&#39;</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;n_latents&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;seq_len&#39;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;muted&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;r2_untangle_tst&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BALLS64&#39;</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;n_latents&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;seq_len&#39;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;muted&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;r2_untangle_tst&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1">#  ax.set(ylim=(0, 1))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;n_latents&#39;, ylabel=&#39;r2_untangle_tst&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/0e82fa46e27d2168c7a9e6adbe7baf7ff06db55e1f5c028b8ff9843f9a8c1493.png" src="../../_images/0e82fa46e27d2168c7a9e6adbe7baf7ff06db55e1f5c028b8ff9843f9a8c1493.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BALLS64&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;avg_perf&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dataset</th>
+      <th>type</th>
+      <th>latent_act</th>
+      <th>model_str</th>
+      <th>seq_len</th>
+      <th>kl_beta</th>
+      <th>n_latents</th>
+      <th>amort</th>
+      <th>%-zeros_vld</th>
+      <th>%-zeros_tst</th>
+      <th>r2_recon_vld</th>
+      <th>r2_recon_tst</th>
+      <th>r2_untangle_vld</th>
+      <th>r2_untangle_vld_0</th>
+      <th>r2_untangle_vld_1</th>
+      <th>r2_untangle_tst</th>
+      <th>r2_untangle_tst_0</th>
+      <th>r2_untangle_tst_1</th>
+      <th>avg_perf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>209</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.725450</td>
+      <td>0.751850</td>
+      <td>0.993546</td>
+      <td>0.993327</td>
+      <td>0.998713</td>
+      <td>0.998739</td>
+      <td>0.998687</td>
+      <td>0.990167</td>
+      <td>0.988992</td>
+      <td>0.991342</td>
+      <td>0.991747</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>64</td>
+      <td>False</td>
+      <td>0.649978</td>
+      <td>0.626374</td>
+      <td>0.991294</td>
+      <td>0.991112</td>
+      <td>0.998350</td>
+      <td>0.998530</td>
+      <td>0.998170</td>
+      <td>0.989804</td>
+      <td>0.990533</td>
+      <td>0.989074</td>
+      <td>0.990458</td>
+    </tr>
+    <tr>
+      <th>203</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>24.0</td>
+      <td>64</td>
+      <td>False</td>
+      <td>0.653123</td>
+      <td>0.664990</td>
+      <td>0.993813</td>
+      <td>0.992571</td>
+      <td>0.998423</td>
+      <td>0.998407</td>
+      <td>0.998440</td>
+      <td>0.987884</td>
+      <td>0.988625</td>
+      <td>0.987143</td>
+      <td>0.990227</td>
+    </tr>
+    <tr>
+      <th>204</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>24.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.742707</td>
+      <td>0.763405</td>
+      <td>0.995165</td>
+      <td>0.994131</td>
+      <td>0.998745</td>
+      <td>0.998719</td>
+      <td>0.998772</td>
+      <td>0.985870</td>
+      <td>0.981176</td>
+      <td>0.990563</td>
+      <td>0.990000</td>
+    </tr>
+    <tr>
+      <th>182</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>16</td>
+      <td>8.0</td>
+      <td>64</td>
+      <td>False</td>
+      <td>0.623729</td>
+      <td>0.619955</td>
+      <td>0.992346</td>
+      <td>0.991346</td>
+      <td>0.997785</td>
+      <td>0.997680</td>
+      <td>0.997890</td>
+      <td>0.986831</td>
+      <td>0.987326</td>
+      <td>0.986335</td>
+      <td>0.989088</td>
+    </tr>
+    <tr>
+      <th>188</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>16</td>
+      <td>16.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.766865</td>
+      <td>0.748902</td>
+      <td>0.992864</td>
+      <td>0.991853</td>
+      <td>0.997904</td>
+      <td>0.997823</td>
+      <td>0.997984</td>
+      <td>0.984894</td>
+      <td>0.983428</td>
+      <td>0.986359</td>
+      <td>0.988374</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>16</td>
+      <td>12.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.766661</td>
+      <td>0.756925</td>
+      <td>0.991910</td>
+      <td>0.991287</td>
+      <td>0.998218</td>
+      <td>0.998232</td>
+      <td>0.998204</td>
+      <td>0.984741</td>
+      <td>0.985825</td>
+      <td>0.983658</td>
+      <td>0.988014</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>48</td>
+      <td>False</td>
+      <td>0.635566</td>
+      <td>0.637222</td>
+      <td>0.987000</td>
+      <td>0.985912</td>
+      <td>0.998443</td>
+      <td>0.998121</td>
+      <td>0.998764</td>
+      <td>0.989842</td>
+      <td>0.989140</td>
+      <td>0.990543</td>
+      <td>0.987877</td>
+    </tr>
+    <tr>
+      <th>192</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>16</td>
+      <td>24.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.772927</td>
+      <td>0.776578</td>
+      <td>0.991924</td>
+      <td>0.990936</td>
+      <td>0.997784</td>
+      <td>0.997694</td>
+      <td>0.997873</td>
+      <td>0.983512</td>
+      <td>0.987287</td>
+      <td>0.979737</td>
+      <td>0.987224</td>
+    </tr>
+    <tr>
+      <th>183</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>16</td>
+      <td>12.0</td>
+      <td>64</td>
+      <td>False</td>
+      <td>0.660209</td>
+      <td>0.654875</td>
+      <td>0.991607</td>
+      <td>0.990487</td>
+      <td>0.997698</td>
+      <td>0.997644</td>
+      <td>0.997753</td>
+      <td>0.982977</td>
+      <td>0.980906</td>
+      <td>0.985048</td>
+      <td>0.986732</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>4.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.732445</td>
+      <td>0.730745</td>
+      <td>0.988718</td>
+      <td>0.988399</td>
+      <td>0.997166</td>
+      <td>0.997315</td>
+      <td>0.997018</td>
+      <td>0.984041</td>
+      <td>0.985318</td>
+      <td>0.982764</td>
+      <td>0.986220</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>4.0</td>
+      <td>192</td>
+      <td>False</td>
+      <td>0.837406</td>
+      <td>0.836111</td>
+      <td>0.991679</td>
+      <td>0.989296</td>
+      <td>0.997958</td>
+      <td>0.998046</td>
+      <td>0.997870</td>
+      <td>0.982951</td>
+      <td>0.985760</td>
+      <td>0.980142</td>
+      <td>0.986123</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>6.0</td>
+      <td>128</td>
+      <td>False</td>
+      <td>0.789831</td>
+      <td>0.790303</td>
+      <td>0.989650</td>
+      <td>0.989129</td>
+      <td>0.997136</td>
+      <td>0.996696</td>
+      <td>0.997577</td>
+      <td>0.982690</td>
+      <td>0.981273</td>
+      <td>0.984106</td>
+      <td>0.985909</td>
+    </tr>
+    <tr>
+      <th>187</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>16</td>
+      <td>16.0</td>
+      <td>64</td>
+      <td>False</td>
+      <td>0.682252</td>
+      <td>0.676168</td>
+      <td>0.990966</td>
+      <td>0.989690</td>
+      <td>0.997589</td>
+      <td>0.997427</td>
+      <td>0.997751</td>
+      <td>0.981687</td>
+      <td>0.983453</td>
+      <td>0.979921</td>
+      <td>0.985689</td>
+    </tr>
+    <tr>
+      <th>185</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>16</td>
+      <td>12.0</td>
+      <td>128</td>
+      <td>False</td>
+      <td>0.792937</td>
+      <td>0.809006</td>
+      <td>0.992283</td>
+      <td>0.992100</td>
+      <td>0.998237</td>
+      <td>0.998376</td>
+      <td>0.998098</td>
+      <td>0.978553</td>
+      <td>0.987097</td>
+      <td>0.970008</td>
+      <td>0.985327</td>
+    </tr>
+    <tr>
+      <th>181</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>16</td>
+      <td>8.0</td>
+      <td>32</td>
+      <td>False</td>
+      <td>0.577641</td>
+      <td>0.579476</td>
+      <td>0.982148</td>
+      <td>0.981749</td>
+      <td>0.998174</td>
+      <td>0.998693</td>
+      <td>0.997655</td>
+      <td>0.988453</td>
+      <td>0.990043</td>
+      <td>0.986864</td>
+      <td>0.985101</td>
+    </tr>
+    <tr>
+      <th>201</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>16</td>
+      <td>48.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.803660</td>
+      <td>0.800746</td>
+      <td>0.989382</td>
+      <td>0.988664</td>
+      <td>0.997776</td>
+      <td>0.997642</td>
+      <td>0.997910</td>
+      <td>0.981528</td>
+      <td>0.975239</td>
+      <td>0.987817</td>
+      <td>0.985096</td>
+    </tr>
+    <tr>
+      <th>118</th>
+      <td>BALLS16</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>16.0</td>
+      <td>48</td>
+      <td>False</td>
+      <td>0.700630</td>
+      <td>0.688299</td>
+      <td>0.980740</td>
+      <td>0.979987</td>
+      <td>0.997968</td>
+      <td>0.998031</td>
+      <td>0.997904</td>
+      <td>0.986765</td>
+      <td>0.987027</td>
+      <td>0.986503</td>
+      <td>0.983376</td>
+    </tr>
+    <tr>
+      <th>186</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>16</td>
+      <td>16.0</td>
+      <td>32</td>
+      <td>False</td>
+      <td>0.591675</td>
+      <td>0.590898</td>
+      <td>0.980946</td>
+      <td>0.979928</td>
+      <td>0.997951</td>
+      <td>0.997617</td>
+      <td>0.998284</td>
+      <td>0.985685</td>
+      <td>0.985449</td>
+      <td>0.985921</td>
+      <td>0.982806</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>8</td>
+      <td>6.0</td>
+      <td>512</td>
+      <td>False</td>
+      <td>0.933933</td>
+      <td>0.932054</td>
+      <td>0.992912</td>
+      <td>0.989006</td>
+      <td>0.997990</td>
+      <td>0.997970</td>
+      <td>0.998009</td>
+      <td>0.976554</td>
+      <td>0.977338</td>
+      <td>0.975770</td>
+      <td>0.982780</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dataset</th>
+      <th>type</th>
+      <th>latent_act</th>
+      <th>model_str</th>
+      <th>seq_len</th>
+      <th>kl_beta</th>
+      <th>n_latents</th>
+      <th>amort</th>
+      <th>%-zeros_vld</th>
+      <th>%-zeros_tst</th>
+      <th>r2_recon_vld</th>
+      <th>r2_recon_tst</th>
+      <th>r2_untangle_vld</th>
+      <th>r2_untangle_vld_0</th>
+      <th>r2_untangle_vld_1</th>
+      <th>r2_untangle_tst</th>
+      <th>r2_untangle_tst_0</th>
+      <th>r2_untangle_tst_1</th>
+      <th>avg_perf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BALLS64</td>
+      <td>gaussian</td>
+      <td>relu</td>
+      <td>gaussian+relu</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.874103</td>
+      <td>0.880439</td>
+      <td>0.513077</td>
+      <td>0.338011</td>
+      <td>0.873904</td>
+      <td>0.876920</td>
+      <td>0.870889</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BALLS64</td>
+      <td>gaussian</td>
+      <td>None</td>
+      <td>gaussian</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.976597</td>
+      <td>0.966763</td>
+      <td>0.997010</td>
+      <td>0.997084</td>
+      <td>0.996937</td>
+      <td>0.937432</td>
+      <td>0.904382</td>
+      <td>0.970483</td>
+      <td>0.952098</td>
+    </tr>
+    <tr>
+      <th>204</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>24.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.742707</td>
+      <td>0.763405</td>
+      <td>0.995165</td>
+      <td>0.994131</td>
+      <td>0.998745</td>
+      <td>0.998719</td>
+      <td>0.998772</td>
+      <td>0.985870</td>
+      <td>0.981176</td>
+      <td>0.990563</td>
+      <td>0.990000</td>
+    </tr>
+    <tr>
+      <th>206</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>48.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.726489</td>
+      <td>0.733747</td>
+      <td>0.994015</td>
+      <td>0.993593</td>
+      <td>0.998597</td>
+      <td>0.998548</td>
+      <td>0.998647</td>
+      <td>0.942868</td>
+      <td>0.982674</td>
+      <td>0.903062</td>
+      <td>0.968230</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>BALLS64</td>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson</td>
+      <td>32</td>
+      <td>64.0</td>
+      <td>96</td>
+      <td>False</td>
+      <td>0.725450</td>
+      <td>0.751850</td>
+      <td>0.993546</td>
+      <td>0.993327</td>
+      <td>0.998713</td>
+      <td>0.998739</td>
+      <td>0.998687</td>
+      <td>0.990167</td>
+      <td>0.988992</td>
+      <td>0.991342</td>
+      <td>0.991747</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">-</span><span class="mi">32</span><span class="n">_b</span><span class="o">-</span><span class="mi">64</span><span class="n">_k</span><span class="o">-</span><span class="mi">96</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./nb/2025-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="12_resume-fits.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">(12) Resume fits: play</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="fig-converge-ratedist.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fig: convergence &amp; rate-distortion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-figs-dir">Results &amp; Figs dir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balls-dataset">BALLS dataset</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hadi Vafaii
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

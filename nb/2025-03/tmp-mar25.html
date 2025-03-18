@@ -309,12 +309,26 @@
 <li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-yo-0.html">(03) Kyoto16, gaussian-sigmoid: z-512, (16, 32.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-yo-1.html">(03) Kyoto16, gaussian-sigmoid: (32, 48.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_additive-play-yo-0.html">(04) additive decoder play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_jobs-rate-distort-amort.html">(05) Jobs: rate-dist curve, amortized P-VAE fits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_jobs-rate-distort.html">(05) Jobs: rate-dist curve</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06_param-grid-play.html">(06) pairwise corrs: (16, 20.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07_pairwise-ch-0.html">(07) pairwise corrs: (16, 20.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-ch-t%3D16.html">(08) Jobs: BALLS (T=16)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-ma-t%3D8.html">(08) Jobs: BALLS (T=8)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-yo-t%3D32.html">(08) Jobs: BALLS (T=32)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_gaus-sigmoid-Kyoto16-ma-1.html">(10) Kyoto16, gaussian-sigmoid: <code class="docutils literal notranslate"><span class="pre">z-100/128/192/256</span></code>, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Kyoto16-dog-fit.html">(10) Kyoto16: diff of gaussians</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_white-noise-gaus-sigm-ma-2.html">(10) white noise w/ gaus sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_process-fits-amort-ma-1.html">(11) process fits, save results (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_process-fits-ma-1.html">(11) process fits, save results (iterative)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_fashmnist-ma-1.html">(12) FashionMNIST: (16, 8.0/16.0/32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_fashmnist-ma-2.html">(12) FashionMNIST: <span class="math notranslate nohighlight">\(T \in 32, 64, 128\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_mnist-ch-0.html">(12) MNIST: (128, 48.0/72.0/64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_mnist-ch-1.html">(12) MNIST: (64/128, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_resume-fits.html">(12) Resume fits: play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-balls.html">Fig: balls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-converge-ratedist.html">Fig: convergence &amp; rate-distortion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-mnist.html">Fig: mnist</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy1.html">tmp — mar25</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy2.html">tmp — mar25</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy3.html">tmp — mar25</a></li>
@@ -542,7 +556,7 @@ document.write(`
 
 <span class="c1"># GitHub</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;_IterativeVAE&#39;</span><span class="p">))</span>
-<span class="kn">from</span> <span class="nn">figures.analysis</span> <span class="kn">import</span>  <span class="n">plot_convergence</span>
+<span class="kn">from</span> <span class="nn">figures.convergence</span> <span class="kn">import</span>  <span class="n">plot_convergence</span>
 <span class="kn">from</span> <span class="nn">figures.imgs</span> <span class="kn">import</span> <span class="n">plot_weights</span>
 <span class="kn">from</span> <span class="nn">figures.fighelper</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">main.train</span> <span class="kn">import</span> <span class="o">*</span>
@@ -569,9 +583,66 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:0</span>  ———  host: mach
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:0</span>  ———  host: chewie
 </pre>
 </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">base.dataset</span> <span class="kn">import</span> <span class="n">make_dataset</span>
+
+<span class="n">trn</span><span class="p">,</span> <span class="n">vld</span><span class="p">,</span> <span class="n">tst</span> <span class="o">=</span> <span class="n">make_dataset</span><span class="p">(</span><span class="s1">&#39;FashionMNIST&#39;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imshow</span><span class="p">(</span><span class="n">trn</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">14</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x71c83960a4d0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/12cdb060b59e1fa0d323c6ec611c6ad34bf6991ffee831cac8eb89ef44ecc83c.png" src="../../_images/12cdb060b59e1fa0d323c6ec611c6ad34bf6991ffee831cac8eb89ef44ecc83c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vld</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">vld</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(torch.Size([10000, 1, 28, 28]), torch.Size([10000]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.01</span>
+<span class="n">histplot</span><span class="p">(</span><span class="n">vld</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0885206df1732c5a90619f39df0077c730009d21445686de083c35ebda615f1a.png" src="../../_images/0885206df1732c5a90619f39df0077c730009d21445686de083c35ebda615f1a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vld</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vld</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(tensor(0., device=&#39;cuda:0&#39;), tensor(1., device=&#39;cuda:0&#39;))
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -601,11 +672,23 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">poisson_BALLS16_t-16_z-<span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span><span style="font-weight: bold">]</span>_cl-<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>,10_<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">grad|lin</span><span style="font-weight: bold">&gt;</span>
-b400-ep1000-<span style="color: #800080; text-decoration-color: #800080; font-weight: bold">lr</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.002</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_beta</span><span style="font-weight: bold">(</span><span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">8:0</span>.<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_temp</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.01</span>:<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.5</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_gr</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10000</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_</span><span style="font-weight: bold">(</span>2025_03_02,<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">16:22</span><span style="font-weight: bold">)</span>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">poisson_BALLS16_t-16_z-<span style="font-weight: bold">[</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span><span style="font-weight: bold">]</span>_u-<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>,du-10_<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">grad|lin</span><span style="font-weight: bold">&gt;</span>
+b400-ep1000-<span style="color: #800080; text-decoration-color: #800080; font-weight: bold">lr</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.002</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_beta</span><span style="font-weight: bold">(</span><span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">8:0</span>.<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_temp</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.01</span>:<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.5</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_gr</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5000</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_</span><span style="font-weight: bold">(</span>2025_03_13,<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">22:02</span><span style="font-weight: bold">)</span>
 
 </pre>
 </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">dl_trn</span><span class="o">.</span><span class="n">dataset</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">dl_vld</span><span class="o">.</span><span class="n">dataset</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">dl_tst</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(60000, 20000, 50000)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,133 +875,6 @@ Corr:
     <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">array</span><span style="font-weight: bold">([</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.99790972</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.99745311</span><span style="font-weight: bold">])</span>,
     <span style="color: #008000; text-decoration-color: #008000">'tst'</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">array</span><span style="font-weight: bold">([</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.98539856</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.98492522</span><span style="font-weight: bold">])</span>
 <span style="font-weight: bold">}</span>
-</pre>
-</div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">add_home</span><span class="p">(</span><span class="s1">&#39;Dropbox/git/jb-progress-2025/nb/2025-02&#39;</span><span class="p">))</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>102
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">alphanum_sort_key</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>
-    <span style="color: #008000; text-decoration-color: #008000">'01_eyemovies-dataset.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'01_eyemovies-explore.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'02_mnist-pvae-replication.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'02_mnist-vib-to-vae.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'06_ipvae-debug.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'10_feeders-test.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'10_vib-jake.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'11_jobs-betas.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'12_leapfrog-tst.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'.ipynb_checkpoints'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'06_ipvae-fit-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'06_ipvae-fit-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'06_ipvae-fit-2.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'06_ipvae-fit-3.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'08_ipvae-fit-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'08_ipvae-fit-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'09_mnist-so-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'09_vH32-save.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'10_grad-yo-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'10_grad-yo-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'10_grad-yo-0-Copy1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'10_grad-yo-1-Copy1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'10_leapfrog-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'10_leapfrog-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'10_leapfrog-schedulefree-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'10_leapfrog-schedulefree-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'11_fit-ma-2.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'11_fit-ma-3.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'11_fit-ma-2-Copy1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'12_tbptt-leapfrog-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'12_tbptt-leapfrog-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'13_tbptt-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'13_tbptt-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'14_tbptt-yo-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'14_tbptt-yo-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'15_tbptt-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'15_tbptt-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'16_drifting-grating-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_clamp-standard-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_clamp-tight-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_clamp-tight-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_drifting-grating-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_leapfrog-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_leapfrog-yo-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_leapfrog-yo-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_less-strict-nexp-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_lower-beta-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_obst-long-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_obst-short-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'17_reproduce-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'18_low-temp-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'18_low-temp-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'20_higher-beta-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'20_higher-beta-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'20_lower-beta-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'20_lower-beta-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'23_gaussian-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'23_gaussian-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'23_gaussian-relu-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'23_gaussian-relu-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'23_gaussian-relu-yo-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'23_gaussian-relu-yo-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'24_gaussian-sigmoid-ma-2.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'24_gaussian-sigmoid-ma-3.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'24_gaussian-softplus-yo-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'24_gaussian-softplus-yo-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'24_poisson-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'24_poisson-nonwhitened-ma-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'25_gaussian-exp-yo-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'25_gaussian-square-yo-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'25_white-noise-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'25_white-noise-gaus-relu-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_Kyoto16-save.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_balls-gaus-relu-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_balls-gaus-sigmoid-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_balls-poisson-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_balls-poisson-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_balls-poisson-yo-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_balls-poisson-yo-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_balls-pvae-ma-3.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_gaus-sigmoid-Kyoto-jitter-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_gaus-sigmoid-Kyoto-jitter-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_gaus-sigmoid-Kyoto16-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_gaus-sigmoid-Kyoto16-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_gaus-sigmoid-Kyoto16-ch-0-Copy1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_poisson-Kyoto16-ma-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_poisson-balls-yo-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_poisson-balls-yo-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'26_white-noise-gaus-sigm-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'27_balls-tst-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'27_balls-tst-yo-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'27_gaus-sigmoid-Kyoto16-ma-2.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'27_gaus-sigmoid-vH16-ma-3.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'28_balls-poisson-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'28_balls-poisson-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'28_jitter-poisson-Kyoto-ch-0.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'28_jitter-poisson-vH-ch-1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'tmp-feb25.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'tmp-feb25-Copy1.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'tmp-feb25-Copy2.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'tmp-feb25-Copy3.ipynb'</span>,
-    <span style="color: #008000; text-decoration-color: #008000">'tmp-feb25-Copy4.ipynb'</span>
-<span style="font-weight: bold">]</span>
 </pre>
 </div></div>
 </div>
