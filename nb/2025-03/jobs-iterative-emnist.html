@@ -1,0 +1,1173 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>jobs: EMNIST &#8212; Research Progress [2025]</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/2025-03/jobs-iterative-emnist';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="jobs: FashionMNIST" href="jobs-iterative-fashion.html" />
+    <link rel="prev" title="jobs: balls64 (amort)" href="jobs-balls-amort-ch.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../md/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Research Progress [2025] - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Research Progress [2025] - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../md/intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">February 2025</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-02.html">Summary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../md/2025-02_updates.html">Updates</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/01_eyemovies-dataset.html">(01) EyeMovies: save npy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/01_eyemovies-explore.html">(01) EyeMovies: explore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/02_mnist-pvae-replication.html">(02) MNIST: P-VAE test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/02_mnist-vib-to-vae.html">(02) VIB: reduce to VAE, test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-debug.html">(06) iP-VAE debug, etc.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-0.html">(06) fit w/ grad, T=32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-1.html">(06) fit w/ grad, T=64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-2.html">(06) fit w/ grad — (T, beta) = (10, 15.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-3.html">(06) fit w/ grad — (T, beta) = (10, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/08_ipvae-fit-0.html">(08) iP-VAE: fit w/ grad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/08_ipvae-fit-1.html">(08) iP-VAE: fit w/ grad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/09_mnist-so-0.html">(09) iP-VAE: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/09_vH32-save.html">(09) vH — save 32x32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_feeders-test.html">(10) Feeder test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0-Copy1.html">(10) grad w/ schedulefree: (T, beta) = (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0.html">(10) grad: (T, beta) = (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1-Copy1.html">(10) grad: (T, beta) = (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1.html">(10) grad: (T, beta) = (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-ch-0.html">(10) leapfrog: (T, beta) = (16x2, 32.0x4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-ch-1.html">(10) leapfrog: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-schedulefree-ch-0.html">(10) leapfrog + schedulefree: (16x4, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-schedulefree-ch-1.html">(10) leapfrog + schedulefree: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_vib-jake.html">(10) VIB: Jake notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2-Copy1.html">(11) fit w/ schedulefree + warmup — (T, beta) = (8, 10.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2.html">(11) fit w/ schedulefree + warmup — (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-3.html">(11) fit w/ grad — (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_jobs-betas.html">(11) Jobs: betas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_leapfrog-tst.html">(12) leapfrog, load, analyze: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_tbptt-leapfrog-ch-0.html">(12) leapfrog: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_tbptt-leapfrog-ch-1.html">(12) leapfrog + tbptt: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/13_tbptt-ch-0.html">(13) tbptt: (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/13_tbptt-ch-1.html">(13) tbptt: (T, beta) = (128[32], 256.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/14_tbptt-yo-0.html">(14) tbptt: (128[32], 256.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/14_tbptt-yo-1.html">(14) tbptt: (128[32], 512.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/15_tbptt-ch-0.html">(15) best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/15_tbptt-ch-1.html">(15) another good fit: (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/16_drifting-grating-ch-0.html">(16) drifting grating analysis w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-standard-ch-0.html">(17) clamp = 8.0, (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-tight-ch-0.html">(17) clamp = 5.0, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-tight-ch-1.html">(17) clamp = 5.0, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_drifting-grating-ch-0.html">(17) drifting grating w/ n_exp p = 1e-3, t_final = 0.01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-ch-1.html">(17) leapfrog: (16x8, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-yo-0.html">(17) leapfrog: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-yo-1.html">(17) leapfrog: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_less-strict-nexp-ch-0.html">(17) n_exp p = 1e-3, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_lower-beta-ch-0.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_obst-long-ch-1.html">(17) long obs time w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_obst-short-ch-0.html">(17) short obs time w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_reproduce-ch-1.html">(17) reproduce best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/18_low-temp-ch-0.html">(18) temp=0.01 w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/18_low-temp-ch-1.html">(18) temp=0.001 w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_higher-beta-ch-0.html">(17) higher beta: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_higher-beta-ch-1.html">(17) higher beta: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_lower-beta-ch-0.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_lower-beta-ch-1.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-ch-0.html">(23) gaussian: (16, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-ch-1.html">(23) gaussian: (16, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-ch-0.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-ch-1.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-yo-0.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-yo-1.html">(23) gaussian-relu: (4, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-sigmoid-ma-2.html">(24) gaussian-sigmoid: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-sigmoid-ma-3.html">(24) gaussian-sigmoid: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-softplus-yo-0.html">(24) gaussian-softplus: (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-softplus-yo-1.html">(24) gaussian-softplus: (16, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_poisson-ch-0.html">(24) reproduce: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_poisson-nonwhitened-ma-0.html">(24) non-whitened poisson: (16, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_gaussian-exp-yo-1.html">(25) gaussian-exp: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_gaussian-square-yo-0.html">(25) gaussian-square: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_white-noise-ch-1.html">(25) white noise analysis w/ best fit: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_white-noise-gaus-relu-ch-0.html">(25) white noise w/ gaus relu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-gaus-relu-ch-0.html">(26) Gaus-ReLu + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-gaus-sigmoid-ch-1.html">(26) Gaus-Sigmoid + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-ch-0.html">(26) poisson + BALLS16: (64, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-ch-1.html">(26) poisson + BALLS16: (8, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-yo-0.html">(26) poisson + BALLS16: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-yo-1.html">(26) poisson + BALLS16: (64, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-pvae-ma-3.html">(26) P-VAE + BALLS16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto-jitter-ch-0.html">(26) Kyoto32-jitter, gaussian-sigmoid: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto-jitter-ch-1.html">(26) Kyoto32-jitter, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0-Copy1.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-1.html">(26) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_Kyoto16-save.html">(26) Kyoto — save 16x16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-balls-yo-0.html">(26) poisson + BALLS16: (32, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-balls-yo-1.html">(26) poisson + BALLS16: (128, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-Kyoto16-ma-1.html">(26) poisson + Kyoto16: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_white-noise-gaus-sigm-ch-0.html">(26) white noise w/ gaus sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_balls-tst-ch-0.html">(27) BALLS: Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_balls-tst-yo-0.html">(27) BALLS: Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_gaus-sigmoid-Kyoto16-ma-2.html">(27) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_gaus-sigmoid-vH16-ma-3.html">(27) vH16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_balls-poisson-ch-0.html">(28) poisson + BALLS16: (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_balls-poisson-ch-1.html">(28) poisson + BALLS16: (32, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_jitter-poisson-Kyoto-ch-0.html">(28) Kyoto32-jitter, poisson: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_jitter-poisson-vH-ch-1.html">(28) vH32-jitter, poisson: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy1.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy2.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy3.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy4.html">tmp — feb25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25.html">tmp — feb25</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">March 2025</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-03.html">Summary</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../md/2025-03_updates.html">Updates</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_balls16-poisson-yo-0.html">(01) poisson + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls16-poisson-yo-1.html">(01) poisson + BALLS16: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-ch-0.html">(01) poisson + BALLS64: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-ch-1.html">(01) poisson + BALLS64: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-yo-0.html">(01) poisson + BALLS64: (32, 128.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-yo-1.html">(01) poisson + BALLS64: (32, 96.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-ch-0.html">(01) reproduce: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-ch-1.html">(01) reproduce: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-yo-0.html">(01) reproduce: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-yo-1.html">(01) larger T: (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_drifting-grating-ch-0.html">(02) drifting grating: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-exp-ch-1.html">(02) gaussian-exp, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-ma-0.html">(02) gaussian, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-relu-ma-1.html">(02) gaussian-relu, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-sigmoid-ma-2.html">(02) gaussian-sigmoid, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-softplus-ma-3.html">(02) gaussian-softplus, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-ch-0.html">(03) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-ch-1.html">(03) Kyoto16, gaussian-sigmoid: z-256, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-yo-0.html">(03) Kyoto16, gaussian-sigmoid: z-512, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-yo-1.html">(03) Kyoto16, gaussian-sigmoid: (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_additive-play-yo-0.html">(04) additive decoder play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_jobs-rate-distort-amort.html">(05) Jobs: rate-dist curve, amortized P-VAE fits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_jobs-rate-distort.html">(05) Jobs: rate-dist curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_param-grid-play.html">(06) pairwise corrs: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_pairwise-ch-0.html">(07) pairwise corrs: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-ch-t%3D16.html">(08) Jobs: BALLS (T=16)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-ma-t%3D8.html">(08) Jobs: BALLS (T=8)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-yo-t%3D32.html">(08) Jobs: BALLS (T=32)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_gaus-sigmoid-Kyoto16-ma-1.html">(10) Kyoto16, gaussian-sigmoid: <code class="docutils literal notranslate"><span class="pre">z-100/128/192/256</span></code>, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Kyoto16-dog-fit.html">(10) Kyoto16: diff of gaussians</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_white-noise-gaus-sigm-ma-2.html">(10) white noise w/ gaus sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_fashmnist-ma-1.html">(12) FashionMNIST: (16, 8.0/16.0/32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_fashmnist-ma-2.html">(12) FashionMNIST: <span class="math notranslate nohighlight">\(T \in 32, 64, 128\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_mnist-ch-0.html">(12) MNIST: (128, 48.0/72.0/64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_mnist-ch-1.html">(12) MNIST: (64/128, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_resume-fits.html">(12) Resume fits: play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17_kyoto16-sigm-whitens.html">(17) Kyoto16: residual error look whitened?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_iters-inner.html">(21) effect of n_iters_inner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_contrast-latency-explore.html">(27) contrast latency explore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_contrast-optim-params.html">(27) contrast latency fig, find optimal params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="31_dists-across-time.html">(31) dists evo across time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-balls.html">Fig: balls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-contrast-latency.html">fig: contrast latency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-convergence-ttrain.html">Fig: convergence / T_train</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-convergence.html">Fig: convergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-phi.html">Fig: phi (dict elements)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-ratedist.html">Fig: rate-distortion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-amort-emnist.html">jobs: EMNIST (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-amort-fashion.html">jobs: FashionMNIST (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-amort-mnist.html">jobs: MNIST (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-balls-amort-ch.html">jobs: balls64 (amort)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">jobs: EMNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-iterative-fashion.html">jobs: FashionMNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process-fits-amort.html">process fits, save results (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process-fits-iterative.html">process fits, save results (iterative)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process-fits-lca.html">process fits, save results (LCA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process-fits-pcn.html">process fits, save results (PCN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table-mnist.html">table: mnist et al.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy1.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy2.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy3.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25.html">tmp — mar25</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">April 2025</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-04.html">Summary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../md/2025-04_updates.html">Updates</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/03_imgnet-sigmoid.html">(03) ImageNet32: residual error look whitened?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/04_celeba-sigmoid.html">(04) CelebA: residual error look whitened?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/08_new-implem-0.html">(08) New Implementation: working?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/08_new-implem-1.html">(08) New Implementation: working?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/08_new-implem-2.html">(08) New Implementation: working?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/09_kyoto-color.html">(09) Kyoto — save color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-ma0.html">(11) Retina+V1: ImageNet32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-ma1.html">(11) Retina+V1: vH16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-ma2.html">(11) Retina+V1: logistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-ma3.html">(11) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-yo0.html">(11) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-yo1.html">(11) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/15_retina-v1-noisy-pred-ma1.html">(15) Retina+V1: .rsample() instead of .loc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/15_retina-v1-overcomplete-retina-ma3.html">(15) Retina+V1: overcomplete retina</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/15_retina-v1-phi-error-yo1.html">(15) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/15_retina-v1-v2-yo1.html">(15) Retina+V1+v2 ?!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/16_jitter%2Bcrop-yo1.html">(16) Retina+V1: jitter + crop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/process-fits-iterative.html">process fits, save results (iterative)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/tmp-apr25.html">tmp — apr25</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/hadivafaii/jb-progress-2025" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/hadivafaii/jb-progress-2025/issues/new?title=Issue%20on%20page%20%2Fnb/2025-03/jobs-iterative-emnist.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/nb/2025-03/jobs-iterative-emnist.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>jobs: EMNIST</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yoru-t-128">yoru (<code class="docutils literal notranslate"><span class="pre">T=128</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save">Save</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mach-t-64-32">mach (<code class="docutils literal notranslate"><span class="pre">T=64,32</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Save</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jobs-emnist">
+<h1>jobs: EMNIST<a class="headerlink" href="#jobs-emnist" title="Permalink to this heading">#</a></h1>
+<p>project = <code class="docutils literal notranslate"><span class="pre">iP-VAE</span></code>, host = <code class="docutils literal notranslate"><span class="pre">yoru/mach</span></code>, device = <code class="docutils literal notranslate"><span class="pre">any</span></code></p>
+<p><strong>Motivation</strong>: <br></p>
+<p>Create jobs for all the EMNIST dataset fits.</p>
+<ul class="simple">
+<li><p>poisson: (128, 128.0)</p></li>
+<li><p>gaussian: (64, 64.0)</p></li>
+<li><p>gaussian+relu: (32, 32.0)</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDE CODE</span>
+
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="n">project_name</span> <span class="o">=</span> <span class="s1">&#39;_IterativeVAE&#39;</span>
+
+<span class="c1"># tmp &amp; extras dir</span>
+<span class="n">git_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">],</span> <span class="s1">&#39;Dropbox/git&#39;</span><span class="p">)</span>
+<span class="n">extras_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/_extras&#39;</span><span class="p">)</span>
+<span class="n">fig_base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/figs&#39;</span><span class="p">)</span>
+<span class="n">tmp_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/tmp&#39;</span><span class="p">)</span>
+
+<span class="c1"># GitHub</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="n">project_name</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">figures.fighelper</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">main.train</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># warnings, tqdm, &amp; style</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">rich.jupyter</span> <span class="kn">import</span> <span class="nb">print</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">set_style</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">base.helper</span> <span class="kn">import</span> <span class="n">job_runner_script</span>
+
+
+<span class="k">def</span> <span class="nf">_cleanup</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="n">cond</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.txt&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">host</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">cond</span> <span class="o">=</span> <span class="n">cond</span> <span class="ow">and</span> <span class="n">host</span> <span class="ow">in</span> <span class="n">f</span>
+        <span class="k">if</span> <span class="n">cond</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_name</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">gpu_i</span><span class="p">,</span> <span class="n">fit_i</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">-cuda</span><span class="si">{</span><span class="n">gpu_i</span><span class="si">}</span><span class="s2">-fit</span><span class="si">{</span><span class="n">fit_i</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">save_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Dropbox/git/</span><span class="si">{</span><span class="n">project_name</span><span class="si">}</span><span class="s1">/scripts&#39;</span>
+<span class="n">save_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">],</span> <span class="n">save_dir</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># delete existing job runners?</span>
+<span class="n">_cleanup</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>
+    <span style="color: #008000; text-decoration-color: #008000">'cleanup_chkpts.sh'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'cleanup_recursive.sh'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'copyfits.sh'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'fit_model.sh'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'kill_screens.sh'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'resume_fit.sh'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'run_sessions.sh'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'test_tqdm.py'</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'test_tqdm.sh'</span>
+<span style="font-weight: bold">]</span>
+</pre>
+</div></div>
+</div>
+</section>
+<section id="yoru-t-128">
+<h2>yoru (<code class="docutils literal notranslate"><span class="pre">T=128</span></code>)<a class="headerlink" href="#yoru-t-128" title="Permalink to this heading">#</a></h2>
+<p>poisson</p>
+<p>EMNIST, <code class="docutils literal notranslate"><span class="pre">&lt;grad|lin&gt;</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;yoru&#39;</span>
+<span class="n">_cleanup</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">host</span><span class="p">)</span>
+
+<span class="n">scripts</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seeds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">model_type</span> <span class="o">=</span> <span class="s1">&#39;poisson&#39;</span>
+<span class="n">latent_act</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">seq_len</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">128.0</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="s1">&#39;EMNIST&#39;</span>
+
+<span class="n">seeds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 11, 12, 13, 14])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="n">seeds</span><span class="p">:</span>
+    <span class="n">arg</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="sa">f</span><span class="s2">&quot;--seq_len </span><span class="si">{</span><span class="n">seq_len</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;--kl_beta </span><span class="si">{</span><span class="n">beta</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;--latent_act &#39;</span><span class="si">{</span><span class="n">latent_act</span><span class="si">}</span><span class="s2">&#39;&quot;</span> <span class="k">if</span> <span class="n">latent_act</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">arg</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">arg</span><span class="p">))</span>
+    <span class="n">gpu_i</span> <span class="o">=</span> <span class="n">tot</span> <span class="o">%</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span>
+    <span class="n">kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">device</span><span class="o">=</span><span class="n">gpu_i</span><span class="p">,</span>
+        <span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model_type</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">=</span><span class="n">arg</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">scripts</span><span class="p">[</span><span class="n">gpu_i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">job_runner_script</span><span class="p">(</span><span class="o">**</span><span class="n">kws</span><span class="p">))</span>
+    <span class="n">tot</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scripts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">scripts</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">scripts</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">}</span>
+</pre>
+</div></div>
+</div>
+<section id="save">
+<h3>Save<a class="headerlink" href="#save" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_fits</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">gpu_i</span><span class="p">,</span> <span class="n">scripts_list</span> <span class="ow">in</span> <span class="n">scripts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">scripts_divided</span> <span class="o">=</span> <span class="n">divide_list</span><span class="p">(</span><span class="n">scripts_list</span><span class="p">,</span> <span class="n">n_fits</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">fit_i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scripts_divided</span><span class="p">):</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="s1">&#39; &amp;&amp; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">save_obj</span><span class="p">(</span>
+            <span class="n">obj</span><span class="o">=</span><span class="n">combined</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="o">=</span><span class="n">_name</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">gpu_i</span><span class="p">,</span> <span class="n">fit_i</span><span class="p">),</span>
+            <span class="n">save_dir</span><span class="o">=</span><span class="n">save_dir</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;txt&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&amp;&amp; &#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;&amp; </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'yoru-cuda0-fit0.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'0'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'poisson'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128.0</span> --verbose &amp;&amp; 
+.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'0'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'poisson'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128.0</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'yoru-cuda1-fit0.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'1'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'poisson'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128.0</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'yoru-cuda2-fit0.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'2'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'poisson'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128.0</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'yoru-cuda3-fit0.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'3'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'poisson'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128.0</span> --verbose
+</pre>
+</div></div>
+</div>
+<p>Print one to check</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&amp;&amp; &#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;&amp; </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'3'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'poisson'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128.0</span> --verbose
+</pre>
+</div></div>
+</div>
+</section>
+</section>
+<section id="mach-t-64-32">
+<h2>mach (<code class="docutils literal notranslate"><span class="pre">T=64,32</span></code>)<a class="headerlink" href="#mach-t-64-32" title="Permalink to this heading">#</a></h2>
+<p>gaussian, gaussian+relu</p>
+<p>EMNIST, <code class="docutils literal notranslate"><span class="pre">&lt;grad|lin&gt;</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;mach&#39;</span>
+<span class="n">_cleanup</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">host</span><span class="p">)</span>
+
+<span class="n">scripts</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seeds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">models_cfgs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">(</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span> <span class="mi">64</span><span class="p">,</span>
+    <span class="p">(</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;relu&#39;</span><span class="p">):</span> <span class="mi">32</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="s1">&#39;EMNIST&#39;</span>
+
+<span class="n">seeds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 11, 12, 13, 14])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># need to put 2 fits not on GPU:0</span>
+<span class="n">rotate</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="n">seeds</span><span class="p">:</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">model_type</span><span class="p">,</span> <span class="n">latent_act</span><span class="p">),</span> <span class="n">seq_len</span> <span class="ow">in</span> <span class="n">models_cfgs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">arg</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="sa">f</span><span class="s2">&quot;--seq_len </span><span class="si">{</span><span class="n">seq_len</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;--kl_beta </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">seq_len</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;--latent_act &#39;</span><span class="si">{</span><span class="n">latent_act</span><span class="si">}</span><span class="s2">&#39;&quot;</span> <span class="k">if</span> <span class="n">latent_act</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;--verbose&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="n">arg</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">arg</span><span class="p">))</span>
+        <span class="n">gpu_i</span> <span class="o">=</span> <span class="n">tot</span> <span class="o">%</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span>
+        <span class="n">gpu_i</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">gpu_i</span><span class="p">)</span>
+        <span class="n">kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">device</span><span class="o">=</span><span class="n">gpu_i</span><span class="p">,</span>
+            <span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="n">model_type</span><span class="p">,</span>
+            <span class="n">args</span><span class="o">=</span><span class="n">arg</span><span class="p">,</span>
+            <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">scripts</span><span class="p">[</span><span class="n">gpu_i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">job_runner_script</span><span class="p">(</span><span class="o">**</span><span class="n">kws</span><span class="p">))</span>
+        <span class="n">tot</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scripts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">scripts</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">scripts</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">}</span>
+</pre>
+</div></div>
+</div>
+<section id="id1">
+<h3>Save<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_fits</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">for</span> <span class="n">gpu_i</span><span class="p">,</span> <span class="n">scripts_list</span> <span class="ow">in</span> <span class="n">scripts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">scripts_divided</span> <span class="o">=</span> <span class="n">divide_list</span><span class="p">(</span><span class="n">scripts_list</span><span class="p">,</span> <span class="n">n_fits</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">fit_i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scripts_divided</span><span class="p">):</span>
+        <span class="n">combined</span> <span class="o">=</span> <span class="s1">&#39; &amp;&amp; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">save_obj</span><span class="p">(</span>
+            <span class="n">obj</span><span class="o">=</span><span class="n">combined</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="o">=</span><span class="n">_name</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">gpu_i</span><span class="p">,</span> <span class="n">fit_i</span><span class="p">),</span>
+            <span class="n">save_dir</span><span class="o">=</span><span class="n">save_dir</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;txt&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&amp;&amp; &#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;&amp; </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda0-fit0.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'0'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.0</span> --latent_act <span style="color: #008000; text-decoration-color: #008000">'relu'</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda0-fit1.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'0'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.0</span> --latent_act <span style="color: #008000; text-decoration-color: #008000">'relu'</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda0-fit2.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda1-fit0.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'1'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64.0</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda1-fit1.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'1'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64.0</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda1-fit2.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'1'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64.0</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda2-fit0.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'2'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.0</span> --latent_act <span style="color: #008000; text-decoration-color: #008000">'relu'</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda2-fit1.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'2'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">12</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.0</span> --latent_act <span style="color: #008000; text-decoration-color: #008000">'relu'</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda2-fit2.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'2'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">14</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.0</span> --latent_act <span style="color: #008000; text-decoration-color: #008000">'relu'</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda3-fit0.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'3'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">11</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64.0</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda3-fit1.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">.<span style="color: #800080; text-decoration-color: #800080">/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">fit_model.sh</span> <span style="color: #008000; text-decoration-color: #008000">'3'</span> <span style="color: #008000; text-decoration-color: #008000">'EMNIST'</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian'</span> --seed <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">13</span> --seq_len <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span> --kl_beta <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64.0</span> --verbose
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'mach-cuda3-fit2.txt'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/_IterativeVAE/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">scripts</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+</pre>
+</div></div>
+</div>
+<p>Print one to check</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&amp;&amp; &#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;&amp; </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scripts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&quot;./fit_model.sh &#39;0&#39; &#39;EMNIST&#39; &#39;gaussian&#39; --seed 11 --seq_len 32 --kl_beta 32.0 --latent_act &#39;relu&#39; --verbose&quot;,
+ &quot;./fit_model.sh &#39;0&#39; &#39;EMNIST&#39; &#39;gaussian&#39; --seed 13 --seq_len 32 --kl_beta 32.0 --latent_act &#39;relu&#39; --verbose&quot;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./nb/2025-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="jobs-balls-amort-ch.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">jobs: balls64 (amort)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="jobs-iterative-fashion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">jobs: FashionMNIST</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yoru-t-128">yoru (<code class="docutils literal notranslate"><span class="pre">T=128</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#save">Save</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mach-t-64-32">mach (<code class="docutils literal notranslate"><span class="pre">T=64,32</span></code>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Save</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hadi Vafaii
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

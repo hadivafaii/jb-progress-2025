@@ -1,0 +1,1502 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>process fits, save results (PCN) &#8212; Research Progress [2025]</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/2025-03/process-fits-pcn';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="table: mnist et al." href="table-mnist.html" />
+    <link rel="prev" title="process fits, save results (LCA)" href="process-fits-lca.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../md/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Research Progress [2025] - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Research Progress [2025] - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../md/intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">February 2025</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-02.html">Summary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../md/2025-02_updates.html">Updates</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/01_eyemovies-dataset.html">(01) EyeMovies: save npy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/01_eyemovies-explore.html">(01) EyeMovies: explore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/02_mnist-pvae-replication.html">(02) MNIST: P-VAE test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/02_mnist-vib-to-vae.html">(02) VIB: reduce to VAE, test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-debug.html">(06) iP-VAE debug, etc.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-0.html">(06) fit w/ grad, T=32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-1.html">(06) fit w/ grad, T=64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-2.html">(06) fit w/ grad — (T, beta) = (10, 15.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-3.html">(06) fit w/ grad — (T, beta) = (10, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/08_ipvae-fit-0.html">(08) iP-VAE: fit w/ grad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/08_ipvae-fit-1.html">(08) iP-VAE: fit w/ grad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/09_mnist-so-0.html">(09) iP-VAE: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/09_vH32-save.html">(09) vH — save 32x32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_feeders-test.html">(10) Feeder test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0-Copy1.html">(10) grad w/ schedulefree: (T, beta) = (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0.html">(10) grad: (T, beta) = (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1-Copy1.html">(10) grad: (T, beta) = (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1.html">(10) grad: (T, beta) = (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-ch-0.html">(10) leapfrog: (T, beta) = (16x2, 32.0x4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-ch-1.html">(10) leapfrog: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-schedulefree-ch-0.html">(10) leapfrog + schedulefree: (16x4, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-schedulefree-ch-1.html">(10) leapfrog + schedulefree: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_vib-jake.html">(10) VIB: Jake notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2-Copy1.html">(11) fit w/ schedulefree + warmup — (T, beta) = (8, 10.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2.html">(11) fit w/ schedulefree + warmup — (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-3.html">(11) fit w/ grad — (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_jobs-betas.html">(11) Jobs: betas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_leapfrog-tst.html">(12) leapfrog, load, analyze: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_tbptt-leapfrog-ch-0.html">(12) leapfrog: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_tbptt-leapfrog-ch-1.html">(12) leapfrog + tbptt: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/13_tbptt-ch-0.html">(13) tbptt: (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/13_tbptt-ch-1.html">(13) tbptt: (T, beta) = (128[32], 256.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/14_tbptt-yo-0.html">(14) tbptt: (128[32], 256.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/14_tbptt-yo-1.html">(14) tbptt: (128[32], 512.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/15_tbptt-ch-0.html">(15) best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/15_tbptt-ch-1.html">(15) another good fit: (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/16_drifting-grating-ch-0.html">(16) drifting grating analysis w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-standard-ch-0.html">(17) clamp = 8.0, (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-tight-ch-0.html">(17) clamp = 5.0, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-tight-ch-1.html">(17) clamp = 5.0, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_drifting-grating-ch-0.html">(17) drifting grating w/ n_exp p = 1e-3, t_final = 0.01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-ch-1.html">(17) leapfrog: (16x8, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-yo-0.html">(17) leapfrog: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-yo-1.html">(17) leapfrog: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_less-strict-nexp-ch-0.html">(17) n_exp p = 1e-3, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_lower-beta-ch-0.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_obst-long-ch-1.html">(17) long obs time w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_obst-short-ch-0.html">(17) short obs time w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_reproduce-ch-1.html">(17) reproduce best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/18_low-temp-ch-0.html">(18) temp=0.01 w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/18_low-temp-ch-1.html">(18) temp=0.001 w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_higher-beta-ch-0.html">(17) higher beta: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_higher-beta-ch-1.html">(17) higher beta: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_lower-beta-ch-0.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_lower-beta-ch-1.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-ch-0.html">(23) gaussian: (16, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-ch-1.html">(23) gaussian: (16, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-ch-0.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-ch-1.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-yo-0.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-yo-1.html">(23) gaussian-relu: (4, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-sigmoid-ma-2.html">(24) gaussian-sigmoid: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-sigmoid-ma-3.html">(24) gaussian-sigmoid: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-softplus-yo-0.html">(24) gaussian-softplus: (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-softplus-yo-1.html">(24) gaussian-softplus: (16, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_poisson-ch-0.html">(24) reproduce: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_poisson-nonwhitened-ma-0.html">(24) non-whitened poisson: (16, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_gaussian-exp-yo-1.html">(25) gaussian-exp: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_gaussian-square-yo-0.html">(25) gaussian-square: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_white-noise-ch-1.html">(25) white noise analysis w/ best fit: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_white-noise-gaus-relu-ch-0.html">(25) white noise w/ gaus relu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-gaus-relu-ch-0.html">(26) Gaus-ReLu + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-gaus-sigmoid-ch-1.html">(26) Gaus-Sigmoid + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-ch-0.html">(26) poisson + BALLS16: (64, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-ch-1.html">(26) poisson + BALLS16: (8, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-yo-0.html">(26) poisson + BALLS16: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-yo-1.html">(26) poisson + BALLS16: (64, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-pvae-ma-3.html">(26) P-VAE + BALLS16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto-jitter-ch-0.html">(26) Kyoto32-jitter, gaussian-sigmoid: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto-jitter-ch-1.html">(26) Kyoto32-jitter, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0-Copy1.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-1.html">(26) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_Kyoto16-save.html">(26) Kyoto — save 16x16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-balls-yo-0.html">(26) poisson + BALLS16: (32, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-balls-yo-1.html">(26) poisson + BALLS16: (128, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-Kyoto16-ma-1.html">(26) poisson + Kyoto16: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_white-noise-gaus-sigm-ch-0.html">(26) white noise w/ gaus sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_balls-tst-ch-0.html">(27) BALLS: Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_balls-tst-yo-0.html">(27) BALLS: Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_gaus-sigmoid-Kyoto16-ma-2.html">(27) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_gaus-sigmoid-vH16-ma-3.html">(27) vH16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_balls-poisson-ch-0.html">(28) poisson + BALLS16: (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_balls-poisson-ch-1.html">(28) poisson + BALLS16: (32, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_jitter-poisson-Kyoto-ch-0.html">(28) Kyoto32-jitter, poisson: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_jitter-poisson-vH-ch-1.html">(28) vH32-jitter, poisson: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy1.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy2.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy3.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy4.html">tmp — feb25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25.html">tmp — feb25</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">March 2025</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-03.html">Summary</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../md/2025-03_updates.html">Updates</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_balls16-poisson-yo-0.html">(01) poisson + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls16-poisson-yo-1.html">(01) poisson + BALLS16: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-ch-0.html">(01) poisson + BALLS64: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-ch-1.html">(01) poisson + BALLS64: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-yo-0.html">(01) poisson + BALLS64: (32, 128.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_balls64-poisson-yo-1.html">(01) poisson + BALLS64: (32, 96.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-ch-0.html">(01) reproduce: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-ch-1.html">(01) reproduce: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-yo-0.html">(01) reproduce: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_poisson-yo-1.html">(01) larger T: (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_drifting-grating-ch-0.html">(02) drifting grating: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-exp-ch-1.html">(02) gaussian-exp, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-ma-0.html">(02) gaussian, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-relu-ma-1.html">(02) gaussian-relu, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-sigmoid-ma-2.html">(02) gaussian-sigmoid, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_gaussian-softplus-ma-3.html">(02) gaussian-softplus, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-ch-0.html">(03) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-ch-1.html">(03) Kyoto16, gaussian-sigmoid: z-256, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-yo-0.html">(03) Kyoto16, gaussian-sigmoid: z-512, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gaus-sigmoid-Kyoto16-yo-1.html">(03) Kyoto16, gaussian-sigmoid: (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_additive-play-yo-0.html">(04) additive decoder play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_jobs-rate-distort-amort.html">(05) Jobs: rate-dist curve, amortized P-VAE fits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_jobs-rate-distort.html">(05) Jobs: rate-dist curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_param-grid-play.html">(06) pairwise corrs: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_pairwise-ch-0.html">(07) pairwise corrs: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-ch-t%3D16.html">(08) Jobs: BALLS (T=16)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-ma-t%3D8.html">(08) Jobs: BALLS (T=8)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_jobs-balls-yo-t%3D32.html">(08) Jobs: BALLS (T=32)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_gaus-sigmoid-Kyoto16-ma-1.html">(10) Kyoto16, gaussian-sigmoid: <code class="docutils literal notranslate"><span class="pre">z-100/128/192/256</span></code>, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Kyoto16-dog-fit.html">(10) Kyoto16: diff of gaussians</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_white-noise-gaus-sigm-ma-2.html">(10) white noise w/ gaus sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_fashmnist-ma-1.html">(12) FashionMNIST: (16, 8.0/16.0/32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_fashmnist-ma-2.html">(12) FashionMNIST: <span class="math notranslate nohighlight">\(T \in 32, 64, 128\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_mnist-ch-0.html">(12) MNIST: (128, 48.0/72.0/64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_mnist-ch-1.html">(12) MNIST: (64/128, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_resume-fits.html">(12) Resume fits: play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17_kyoto16-sigm-whitens.html">(17) Kyoto16: residual error look whitened?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_iters-inner.html">(21) effect of n_iters_inner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_contrast-latency-explore.html">(27) contrast latency explore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_contrast-optim-params.html">(27) contrast latency fig, find optimal params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="31_dists-across-time.html">(31) dists evo across time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-balls.html">Fig: balls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-contrast-latency.html">fig: contrast latency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-convergence-ttrain.html">Fig: convergence / T_train</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-convergence.html">Fig: convergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-phi.html">Fig: phi (dict elements)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-ratedist.html">Fig: rate-distortion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-amort-emnist.html">jobs: EMNIST (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-amort-fashion.html">jobs: FashionMNIST (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-amort-mnist.html">jobs: MNIST (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-balls-amort-ch.html">jobs: balls64 (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-iterative-emnist.html">jobs: EMNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-iterative-fashion.html">jobs: FashionMNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process-fits-amort.html">process fits, save results (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process-fits-iterative.html">process fits, save results (iterative)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process-fits-lca.html">process fits, save results (LCA)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">process fits, save results (PCN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table-mnist.html">table: mnist et al.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy1.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy2.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25-Copy3.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-mar25.html">tmp — mar25</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">April 2025</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-04.html">Summary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../md/2025-04_updates.html">Updates</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/03_imgnet-sigmoid.html">(03) ImageNet32: residual error look whitened?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/04_celeba-sigmoid.html">(04) CelebA: residual error look whitened?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/08_new-implem-0.html">(08) New Implementation: working?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/08_new-implem-1.html">(08) New Implementation: working?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/08_new-implem-2.html">(08) New Implementation: working?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/09_kyoto-color.html">(09) Kyoto — save color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-ma0.html">(11) Retina+V1: ImageNet32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-ma1.html">(11) Retina+V1: vH16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-ma2.html">(11) Retina+V1: logistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-ma3.html">(11) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-yo0.html">(11) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/11_retina-v1-hack-yo1.html">(11) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/15_retina-v1-noisy-pred-ma1.html">(15) Retina+V1: .rsample() instead of .loc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/15_retina-v1-overcomplete-retina-ma3.html">(15) Retina+V1: overcomplete retina</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/15_retina-v1-phi-error-yo1.html">(15) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/15_retina-v1-v2-yo1.html">(15) Retina+V1+v2 ?!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/16_jitter%2Bcrop-yo1.html">(16) Retina+V1: jitter + crop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/process-fits-iterative.html">process fits, save results (iterative)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-04/tmp-apr25.html">tmp — apr25</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/hadivafaii/jb-progress-2025" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/hadivafaii/jb-progress-2025/issues/new?title=Issue%20on%20page%20%2Fnb/2025-03/process-fits-pcn.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/nb/2025-03/process-fits-pcn.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>process fits, save results (PCN)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-dir">Results dir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnist-data">MNIST data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fits-pc-ipc">Fits: pc &amp; ipc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-pc-ipc">Process: pc &amp; ipc</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fits-dcpc">Fits: dcpc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-dcpc">Process: dcpc</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accu-dependence-on-c">Accu dependence on C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-512-fits">New 512 fits</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="process-fits-save-results-pcn">
+<h1>process fits, save results (PCN)<a class="headerlink" href="#process-fits-save-results-pcn" title="Permalink to this heading">#</a></h1>
+<p>project = <code class="docutils literal notranslate"><span class="pre">iP-VAE</span></code>, host = <code class="docutils literal notranslate"><span class="pre">mach</span></code>, device = <code class="docutils literal notranslate"><span class="pre">cuda:1</span></code></p>
+<p><strong>Motivation</strong>: <br></p>
+<p>From <code class="docutils literal notranslate"><span class="pre">/mnt/sata/Dekel/pc_mnist</span></code> to <code class="docutils literal notranslate"><span class="pre">../tmp/results_mar2025</span></code></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDE CODE</span>
+
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="c1"># tmp &amp; extras dir</span>
+<span class="n">git_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">],</span> <span class="s1">&#39;Dropbox/git&#39;</span><span class="p">)</span>
+<span class="n">extras_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/_extras&#39;</span><span class="p">)</span>
+<span class="n">fig_base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/figs&#39;</span><span class="p">)</span>
+<span class="n">tmp_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/tmp&#39;</span><span class="p">)</span>
+
+<span class="c1"># GitHub</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;PoissonVAE&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">figures.imgs</span> <span class="kn">import</span> <span class="n">plot_weights</span>
+<span class="kn">from</span> <span class="nn">figures.fighelper</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">main.train_vae</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># warnings, tqdm, &amp; style</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">rich.jupyter</span> <span class="kn">import</span> <span class="nb">print</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">set_style</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+
+
+<span class="n">device_idx</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">device</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;cuda:</span><span class="si">{</span><span class="n">device_idx</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;device: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">  ———  host: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">uname</span><span class="p">()</span><span class="o">.</span><span class="n">nodename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:1</span>  ———  host: mach
+</pre>
+</div></div>
+</div>
+<section id="results-dir">
+<h2>Results dir<a class="headerlink" href="#results-dir" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="s1">&#39;results_2025-03&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">results_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">results_dir</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>614
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mnist-data">
+<h2>MNIST data<a class="headerlink" href="#mnist-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trn</span><span class="p">,</span> <span class="n">vld</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_dataset</span><span class="p">(</span><span class="s1">&#39;MNIST&#39;</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+<span class="n">x_vld</span><span class="p">,</span> <span class="n">g_vld</span> <span class="o">=</span> <span class="n">vld</span><span class="o">.</span><span class="n">tensors</span>
+<span class="n">g_trn</span> <span class="o">=</span> <span class="n">trn</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">g_trn</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">g_trn</span><span class="p">)</span>
+<span class="n">g_vld</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">g_vld</span><span class="p">)</span>
+
+<span class="n">x_vld</span> <span class="o">=</span> <span class="n">x_vld</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">start_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x_vld</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([10000, 784])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fits-pc-ipc">
+<h2>Fits: pc &amp; ipc<a class="headerlink" href="#fits-pc-ipc" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;/mnt/sata/Dekel/pc_mnist&#39;</span>
+<span class="n">fits</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">alphanum_sort_key</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">fits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<section id="process-pc-ipc">
+<h3>Process: pc &amp; ipc<a class="headerlink" href="#process-pc-ipc" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fits</span><span class="p">:</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">)))</span>
+    <span class="n">recon_vld</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;x_val&#39;</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="c1"># (1) info</span>
+    <span class="n">str_model</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;.npz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;dataset&#39;</span><span class="p">:</span> <span class="s1">&#39;MNIST&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;str_model&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">str_model</span><span class="p">),</span>
+        <span class="s1">&#39;seed&#39;</span><span class="p">:</span> <span class="n">int_from_str</span><span class="p">(</span><span class="n">seed</span><span class="p">),</span>
+        <span class="s1">&#39;n_latents&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
+        <span class="s1">&#39;n_params&#39;</span><span class="p">:</span> <span class="mi">125_968</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># (2) results</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># clf accuracy</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    			<span class="n">X</span><span class="o">=</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_trn&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">g_trn</span><span class="p">)</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;clf_accuracy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;trn&#39;</span><span class="p">:</span> <span class="n">classification_report</span><span class="p">(</span>
+            <span class="n">y_true</span><span class="o">=</span><span class="n">g_trn</span><span class="p">,</span>
+            <span class="n">y_pred</span><span class="o">=</span><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_trn&#39;</span><span class="p">]),</span>
+            <span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;vld&#39;</span><span class="p">:</span> <span class="n">classification_report</span><span class="p">(</span>
+            <span class="n">y_true</span><span class="o">=</span><span class="n">g_vld</span><span class="p">,</span>
+            <span class="n">y_pred</span><span class="o">=</span><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_val&#39;</span><span class="p">]),</span>
+            <span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+    <span class="c1"># r2, mse, %-zeros    </span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;r2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_r2</span><span class="p">(</span>
+        <span class="n">true</span><span class="o">=</span><span class="n">x_vld</span><span class="p">,</span>
+        <span class="n">pred</span><span class="o">=</span><span class="n">recon_vld</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;mse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">x_vld</span> <span class="o">-</span> <span class="n">recon_vld</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;%-zeros&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_val&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="c1"># (3) info and results put together</span>
+    <span class="n">obj_to_save</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;info&#39;</span><span class="p">:</span> <span class="n">info</span><span class="p">,</span> <span class="s1">&#39;results&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">}</span>
+    
+    <span class="c1"># (4) display the fit</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">run name:</span><span class="se">\t</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj_to_save</span><span class="p">)</span>
+
+    <span class="c1"># (5) save</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.npz&#39;</span><span class="p">,</span> <span class="s1">&#39;.npy&#39;</span><span class="p">)</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;pcn_</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">save_obj</span><span class="p">(</span>
+        <span class="n">obj</span><span class="o">=</span><span class="n">obj_to_save</span><span class="p">,</span>
+        <span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">,</span>
+        <span class="n">save_dir</span><span class="o">=</span><span class="n">results_dir</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       ipc_seed0.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'ipc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">125968</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9137333333333333</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9163</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8978682160377502</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.121669292449951</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PROGRESS] &#39;pcn_ipc_seed0.npy&#39; saved at
+/home/hadi/Dropbox/git/jb-progress-2025/tmp/results_2025-03
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       ipc_seed1.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'ipc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">125968</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9136166666666666</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9167</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8978649973869324</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.121440410614014</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PROGRESS] &#39;pcn_ipc_seed1.npy&#39; saved at
+/home/hadi/Dropbox/git/jb-progress-2025/tmp/results_2025-03
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       ipc_seed2.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'ipc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">125968</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9137666666666666</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9155</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8978480100631714</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.122615337371826</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PROGRESS] &#39;pcn_ipc_seed2.npy&#39; saved at
+/home/hadi/Dropbox/git/jb-progress-2025/tmp/results_2025-03
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       ipc_seed3.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'ipc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">125968</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.91385</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9159</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8978369832038879</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.123374938964844</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PROGRESS] &#39;pcn_ipc_seed3.npy&#39; saved at
+/home/hadi/Dropbox/git/jb-progress-2025/tmp/results_2025-03
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       ipc_seed4.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'ipc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">125968</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9135833333333333</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9154</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8978294730186462</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.122787952423096</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PROGRESS] &#39;pcn_ipc_seed4.npy&#39; saved at
+/home/hadi/Dropbox/git/jb-progress-2025/tmp/results_2025-03
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       pc_seed0.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'pc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">125968</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9005333333333333</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9068</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.896251916885376</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.239716053009033</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PROGRESS] &#39;pcn_pc_seed0.npy&#39; saved at
+/home/hadi/Dropbox/git/jb-progress-2025/tmp/results_2025-03
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       pc_seed1.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'pc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">125968</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9012166666666667</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9075</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8963376879692078</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.244451522827148</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PROGRESS] &#39;pcn_pc_seed1.npy&#39; saved at
+/home/hadi/Dropbox/git/jb-progress-2025/tmp/results_2025-03
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       pc_seed2.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'pc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">125968</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9019166666666667</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9086</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8960748910903931</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.260417938232422</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PROGRESS] &#39;pcn_pc_seed2.npy&#39; saved at
+/home/hadi/Dropbox/git/jb-progress-2025/tmp/results_2025-03
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       pc_seed3.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'pc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">125968</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9023666666666667</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9088</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8963642120361328</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.241842746734619</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PROGRESS] &#39;pcn_pc_seed3.npy&#39; saved at
+/home/hadi/Dropbox/git/jb-progress-2025/tmp/results_2025-03
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       pc_seed4.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'pc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">125968</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8972666666666667</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9053</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.8965579867362976</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7.222329616546631</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PROGRESS] &#39;pcn_pc_seed4.npy&#39; saved at
+/home/hadi/Dropbox/git/jb-progress-2025/tmp/results_2025-03
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div></div>
+</div>
+</section>
+</section>
+<section id="fits-dcpc">
+<h2>Fits: dcpc<a class="headerlink" href="#fits-dcpc" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;/mnt/sata/Dekel/dcpc_mnist&#39;</span>
+<span class="n">fits</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">alphanum_sort_key</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">fits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'seed0.npz'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed1.npz'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed2.npz'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed3.npz'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed4.npz'</span><span style="font-weight: bold">]</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">fits</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">run</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'x_trn_hat'</span>: <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">54000</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span><span style="font-weight: bold">)</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'z_trn_hat'</span>: <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">54000</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span><span style="font-weight: bold">)</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'x_val_hat'</span>: <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6000</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span><span style="font-weight: bold">)</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'z_val_hat'</span>: <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6000</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span><span style="font-weight: bold">)</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'x_tst_hat'</span>: <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10000</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28</span><span style="font-weight: bold">)</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'z_tst_hat'</span>: <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10000</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span><span style="font-weight: bold">)</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div></div>
+</div>
+<section id="process-dcpc">
+<h3>Process: dcpc<a class="headerlink" href="#process-dcpc" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fits</span><span class="p">:</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">)))</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">run</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">recon_vld</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;x_tst_hat&#39;</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="c1"># (1) info</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;dataset&#39;</span><span class="p">:</span> <span class="s1">&#39;MNIST&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;str_model&#39;</span><span class="p">:</span> <span class="s1">&#39;dcpc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;seed&#39;</span><span class="p">:</span> <span class="n">int_from_str</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;.npz&#39;</span><span class="p">)),</span>
+        <span class="s1">&#39;n_latents&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s1">&#39;n_params&#39;</span><span class="p">:</span> <span class="mi">319_000</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># (2) results</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># clf accuracy</span>
+    <span class="n">z_trn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
+        <span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_trn_hat&#39;</span><span class="p">],</span>
+        <span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_val_hat&#39;</span><span class="p">],</span>
+    <span class="p">])</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    			<span class="n">X</span><span class="o">=</span><span class="n">z_trn</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">g_trn</span><span class="p">)</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;clf_accuracy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;trn&#39;</span><span class="p">:</span> <span class="n">classification_report</span><span class="p">(</span>
+            <span class="n">y_true</span><span class="o">=</span><span class="n">g_trn</span><span class="p">,</span>
+            <span class="n">y_pred</span><span class="o">=</span><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">z_trn</span><span class="p">),</span>
+            <span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;vld&#39;</span><span class="p">:</span> <span class="n">classification_report</span><span class="p">(</span>
+            <span class="n">y_true</span><span class="o">=</span><span class="n">g_vld</span><span class="p">,</span>
+            <span class="n">y_pred</span><span class="o">=</span><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_tst_hat&#39;</span><span class="p">]),</span>
+            <span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+    <span class="c1"># r2, mse, %-zeros    </span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;r2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_r2</span><span class="p">(</span>
+        <span class="n">true</span><span class="o">=</span><span class="n">x_vld</span><span class="p">,</span>
+        <span class="n">pred</span><span class="o">=</span><span class="n">recon_vld</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;mse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">x_vld</span> <span class="o">-</span> <span class="n">recon_vld</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;%-zeros&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_tst_hat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="c1"># (3) info and results put together</span>
+    <span class="n">obj_to_save</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;info&#39;</span><span class="p">:</span> <span class="n">info</span><span class="p">,</span> <span class="s1">&#39;results&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">}</span>
+    
+    <span class="c1"># (4) display the fit</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">run name:</span><span class="se">\t</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj_to_save</span><span class="p">)</span>
+
+    <span class="c1"># (5) save</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.npz&#39;</span><span class="p">,</span> <span class="s1">&#39;.npy&#39;</span><span class="p">)</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;pcn_dcpc_</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="c1"># save_obj(</span>
+    <span class="c1">#     obj=obj_to_save,</span>
+    <span class="c1">#     file_name=file_name,</span>
+    <span class="c1">#     save_dir=results_dir,</span>
+    <span class="c1">#     verbose=True,</span>
+    <span class="c1"># )</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       seed0.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'dcpc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">319000</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.11433333333333333</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1157</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.09263421595096588</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64.8829574584961</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       seed1.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'dcpc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">319000</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.11431666666666666</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1157</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.08894339203834534</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65.07510375976562</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       seed2.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'dcpc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">319000</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1142</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1158</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.09175795316696167</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64.90404510498047</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       seed3.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'dcpc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">319000</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.11453333333333333</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.116</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.09057500958442688</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65.00411224365234</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       seed4.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'dcpc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">319000</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.11413333333333334</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1157</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.09319479018449783</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64.82550048828125</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">------------------------------------------------------------------------------------------
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recon_vld</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([10000, 784])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_r2</span><span class="p">(</span>
+    <span class="n">true</span><span class="o">=</span><span class="n">x_vld</span><span class="p">,</span>
+    <span class="n">pred</span><span class="o">=</span><span class="n">recon_vld</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recon_vld</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;x_tst_hat&#39;</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">plot_weights</span><span class="p">(</span><span class="n">recon_vld</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7ab81b7e8916596683853721ed45b0dae1f3aff6122cc28b60f77f686891b0a7.png" src="../../_images/7ab81b7e8916596683853721ed45b0dae1f3aff6122cc28b60f77f686891b0a7.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="accu-dependence-on-c">
+<h2>Accu dependence on C<a class="headerlink" href="#accu-dependence-on-c" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accu</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">fits</span><span class="p">):</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">)))</span>
+
+    <span class="k">for</span> <span class="n">C</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">,</span> <span class="mf">1e4</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">]:</span>
+        <span class="n">lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+                    <span class="n">X</span><span class="o">=</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_trn&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">g_trn</span><span class="p">)</span>
+        <span class="n">clf_accuracy</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;trn&#39;</span><span class="p">:</span> <span class="n">classification_report</span><span class="p">(</span>
+                <span class="n">y_true</span><span class="o">=</span><span class="n">g_trn</span><span class="p">,</span>
+                <span class="n">y_pred</span><span class="o">=</span><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_trn&#39;</span><span class="p">]),</span>
+                <span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;vld&#39;</span><span class="p">:</span> <span class="n">classification_report</span><span class="p">(</span>
+                <span class="n">y_true</span><span class="o">=</span><span class="n">g_vld</span><span class="p">,</span>
+                <span class="n">y_pred</span><span class="o">=</span><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_val&#39;</span><span class="p">]),</span>
+                <span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">],</span>
+        <span class="p">}</span>
+        <span class="n">accu</span><span class="p">[</span><span class="s1">&#39;fit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">accu</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+        <span class="n">accu</span><span class="p">[</span><span class="s1">&#39;trn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clf_accuracy</span><span class="p">[</span><span class="s1">&#39;trn&#39;</span><span class="p">])</span>
+        <span class="n">accu</span><span class="p">[</span><span class="s1">&#39;vld&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clf_accuracy</span><span class="p">[</span><span class="s1">&#39;trn&#39;</span><span class="p">])</span>
+
+<span class="n">accu</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">accu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████████| 10/10 [08:56&lt;00:00, 53.70s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">accu</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;trn&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">accu</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;vld&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=-</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7f6f8836884d1dc7832acd6b68e470b8399a4a5d7ab437b01d91b58f1739fe81.png" src="../../_images/7f6f8836884d1dc7832acd6b68e470b8399a4a5d7ab437b01d91b58f1739fe81.png" />
+</div>
+</div>
+</section>
+<section id="new-512-fits">
+<h2>New 512 fits<a class="headerlink" href="#new-512-fits" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;/mnt/sata/Dekel/pc_mnist_512&#39;</span>
+<span class="n">fits</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">alphanum_sort_key</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">fits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fits</span><span class="p">:</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">)))</span>
+    <span class="n">recon_vld</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;x_val&#39;</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="c1"># (1) info</span>
+    <span class="n">str_model</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;.npz&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;dataset&#39;</span><span class="p">:</span> <span class="s1">&#39;MNIST&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;str_model&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">str_model</span><span class="p">),</span>
+        <span class="s1">&#39;seed&#39;</span><span class="p">:</span> <span class="n">int_from_str</span><span class="p">(</span><span class="n">seed</span><span class="p">),</span>
+        <span class="s1">&#39;n_latents&#39;</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+        <span class="s1">&#39;n_params&#39;</span><span class="p">:</span> <span class="mi">927_504</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># (2) results</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># clf accuracy</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    			<span class="n">X</span><span class="o">=</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_trn&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">g_trn</span><span class="p">)</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;clf_accuracy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;trn&#39;</span><span class="p">:</span> <span class="n">classification_report</span><span class="p">(</span>
+            <span class="n">y_true</span><span class="o">=</span><span class="n">g_trn</span><span class="p">,</span>
+            <span class="n">y_pred</span><span class="o">=</span><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_trn&#39;</span><span class="p">]),</span>
+            <span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;vld&#39;</span><span class="p">:</span> <span class="n">classification_report</span><span class="p">(</span>
+            <span class="n">y_true</span><span class="o">=</span><span class="n">g_vld</span><span class="p">,</span>
+            <span class="n">y_pred</span><span class="o">=</span><span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_val&#39;</span><span class="p">]),</span>
+            <span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+    <span class="c1"># r2, mse, %-zeros    </span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;r2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compute_r2</span><span class="p">(</span>
+        <span class="n">true</span><span class="o">=</span><span class="n">x_vld</span><span class="p">,</span>
+        <span class="n">pred</span><span class="o">=</span><span class="n">recon_vld</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;mse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">x_vld</span> <span class="o">-</span> <span class="n">recon_vld</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;%-zeros&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">run</span><span class="p">[</span><span class="s1">&#39;z_trn&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="c1"># (3) info and results put together</span>
+    <span class="n">obj_to_save</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;info&#39;</span><span class="p">:</span> <span class="n">info</span><span class="p">,</span> <span class="s1">&#39;results&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">}</span>
+    
+    <span class="c1"># (4) display the fit</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">run name:</span><span class="se">\t</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj_to_save</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       ipc_seed0.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'ipc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">927504</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9298666666666666</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9238</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9995386600494385</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.03296268731355667</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+run name:       pc_seed0.npz
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'info'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'dataset'</span>: <span style="color: #008000; text-decoration-color: #008000">'MNIST'</span>, <span style="color: #008000; text-decoration-color: #008000">'str_model'</span>: <span style="color: #008000; text-decoration-color: #008000">'pc'</span>, <span style="color: #008000; text-decoration-color: #008000">'seed'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>, <span style="color: #008000; text-decoration-color: #008000">'n_latents'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span>, <span style="color: #008000; text-decoration-color: #008000">'n_params'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">927504</span><span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'results'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'clf_accuracy'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'trn'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9027166666666666</span>, <span style="color: #008000; text-decoration-color: #008000">'vld'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9053</span><span style="font-weight: bold">}</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'r2'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.9995481371879578</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'mse'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.03220434486865997</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'%-zeros'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.0</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./nb/2025-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="process-fits-lca.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">process fits, save results (LCA)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="table-mnist.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">table: mnist et al.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-dir">Results dir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnist-data">MNIST data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fits-pc-ipc">Fits: pc &amp; ipc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-pc-ipc">Process: pc &amp; ipc</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fits-dcpc">Fits: dcpc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#process-dcpc">Process: dcpc</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accu-dependence-on-c">Accu dependence on C</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-512-fits">New 512 fits</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hadi Vafaii
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
