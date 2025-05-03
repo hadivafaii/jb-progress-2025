@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="tmp — apr25" href="tmp-apr25.html" />
-    <link rel="prev" title="(16) Retina+V1: jitter + crop" href="16_jitter%2Bcrop-yo1.html" />
+    <link rel="prev" title="Jobs: rate-dist refit gaussian + relu" href="jobs-iterative-rate-distort.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,17 +195,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/09_mnist-so-0.html">(09) iP-VAE: MNIST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/09_vH32-save.html">(09) vH — save 32x32</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/10_feeders-test.html">(10) Feeder test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0-Copy1.html">(10) grad w/ schedulefree: (T, beta) = (32, 64.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0.html">(10) grad: (T, beta) = (32, 32.0)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1-Copy1.html">(10) grad: (T, beta) = (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0-Copy1.html">(10) grad w/ schedulefree: (T, beta) = (32, 64.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1.html">(10) grad: (T, beta) = (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1-Copy1.html">(10) grad: (T, beta) = (32, 64.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-ch-0.html">(10) leapfrog: (T, beta) = (16x2, 32.0x4.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-ch-1.html">(10) leapfrog: (32x2, 64.0x1.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-schedulefree-ch-0.html">(10) leapfrog + schedulefree: (16x4, 64.0x1.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-schedulefree-ch-1.html">(10) leapfrog + schedulefree: (32x2, 64.0x1.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/10_vib-jake.html">(10) VIB: Jake notebook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2-Copy1.html">(11) fit w/ schedulefree + warmup — (T, beta) = (8, 10.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2.html">(11) fit w/ schedulefree + warmup — (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2-Copy1.html">(11) fit w/ schedulefree + warmup — (T, beta) = (8, 10.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-3.html">(11) fit w/ grad — (T, beta) = (16, 20.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/11_jobs-betas.html">(11) Jobs: betas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/12_leapfrog-tst.html">(12) leapfrog, load, analyze: (32x2, 64.0x1.0)</a></li>
@@ -252,6 +252,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/25_gaussian-square-yo-0.html">(25) gaussian-square: (16, 16.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/25_white-noise-ch-1.html">(25) white noise analysis w/ best fit: (16, 16.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/25_white-noise-gaus-relu-ch-0.html">(25) white noise w/ gaus relu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_Kyoto16-save.html">(26) Kyoto — save 16x16</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-gaus-relu-ch-0.html">(26) Gaus-ReLu + BALLS16: (16, 16.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-gaus-sigmoid-ch-1.html">(26) Gaus-Sigmoid + BALLS16: (16, 16.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-ch-0.html">(26) poisson + BALLS16: (64, 32.0)</a></li>
@@ -259,15 +260,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-yo-0.html">(26) poisson + BALLS16: (16, 8.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-yo-1.html">(26) poisson + BALLS16: (64, 64.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-pvae-ma-3.html">(26) P-VAE + BALLS16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0-Copy1.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-1.html">(26) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto-jitter-ch-0.html">(26) Kyoto32-jitter, gaussian-sigmoid: (16, 8.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto-jitter-ch-1.html">(26) Kyoto32-jitter, gaussian-sigmoid: (16, 16.0)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0-Copy1.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-1.html">(26) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_Kyoto16-save.html">(26) Kyoto — save 16x16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-Kyoto16-ma-1.html">(26) poisson + Kyoto16: (16, 32.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-balls-yo-0.html">(26) poisson + BALLS16: (32, 16.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-balls-yo-1.html">(26) poisson + BALLS16: (128, 64.0)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-Kyoto16-ma-1.html">(26) poisson + Kyoto16: (16, 32.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/26_white-noise-gaus-sigm-ch-0.html">(26) white noise w/ gaus sigmoid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/27_balls-tst-ch-0.html">(27) BALLS: Test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/27_balls-tst-yo-0.html">(27) BALLS: Test</a></li>
@@ -277,11 +277,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/28_balls-poisson-ch-1.html">(28) poisson + BALLS16: (32, 24.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/28_jitter-poisson-Kyoto-ch-0.html">(28) Kyoto32-jitter, poisson: (16, 16.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/28_jitter-poisson-vH-ch-1.html">(28) vH32-jitter, poisson: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25.html">tmp — feb25</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy1.html">tmp — feb25 (DEL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy2.html">tmp — feb25 (DEL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy3.html">tmp — feb25 (DEL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy4.html">tmp — feb25</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25.html">tmp — feb25</a></li>
 </ul>
 </li>
 </ul>
@@ -310,15 +310,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/03_gaus-sigmoid-Kyoto16-yo-0.html">(03) Kyoto16, gaussian-sigmoid: z-512, (16, 32.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/03_gaus-sigmoid-Kyoto16-yo-1.html">(03) Kyoto16, gaussian-sigmoid: (32, 48.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/04_additive-play-yo-0.html">(04) additive decoder play</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-03/05_jobs-rate-distort-amort.html">(05) Jobs: rate-dist curve, amortized P-VAE fits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/05_jobs-rate-distort.html">(05) Jobs: rate-dist curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/05_jobs-rate-distort-amort.html">(05) Jobs: rate-dist curve, amortized P-VAE fits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/06_param-grid-play.html">(06) pairwise corrs: (16, 20.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/07_pairwise-ch-0.html">(07) pairwise corrs: (16, 20.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/08_jobs-balls-ch-t%3D16.html">(08) Jobs: BALLS (T=16)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/08_jobs-balls-ma-t%3D8.html">(08) Jobs: BALLS (T=8)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/08_jobs-balls-yo-t%3D32.html">(08) Jobs: BALLS (T=32)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-03/10_gaus-sigmoid-Kyoto16-ma-1.html">(10) Kyoto16, gaussian-sigmoid: <code class="docutils literal notranslate"><span class="pre">z-100/128/192/256</span></code>, (16, 32.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/10_Kyoto16-dog-fit.html">(10) Kyoto16: diff of gaussians</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/10_gaus-sigmoid-Kyoto16-ma-1.html">(10) Kyoto16, gaussian-sigmoid: <code class="docutils literal notranslate"><span class="pre">z-100/128/192/256</span></code>, (16, 32.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/10_white-noise-gaus-sigm-ma-2.html">(10) white noise w/ gaus sigmoid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/12_fashmnist-ma-1.html">(12) FashionMNIST: (16, 8.0/16.0/32.0)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/12_fashmnist-ma-2.html">(12) FashionMNIST: <span class="math notranslate nohighlight">\(T \in 32, 64, 128\)</span></a></li>
@@ -332,8 +332,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/31_dists-across-time.html">(31) dists evo across time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-balls.html">Fig: balls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-contrast-latency.html">fig: contrast latency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-convergence-ttrain.html">Fig: convergence / T_train</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-convergence.html">Fig: convergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-convergence-ttrain.html">Fig: convergence / T_train</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-phi.html">Fig: phi (dict elements)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-ratedist.html">Fig: rate-distortion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/jobs-amort-emnist.html">jobs: EMNIST (amort)</a></li>
@@ -347,10 +347,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/process-fits-lca.html">process fits, save results (LCA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/process-fits-pcn.html">process fits, save results (PCN)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/table-mnist.html">table: mnist et al.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/tmp-mar25.html">tmp — mar25</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/tmp-mar25-Copy1.html">tmp — mar25</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/tmp-mar25-Copy2.html">tmp — mar25</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-03/tmp-mar25-Copy3.html">tmp — mar25</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2025-03/tmp-mar25.html">tmp — mar25</a></li>
 </ul>
 </li>
 </ul>
@@ -369,14 +369,44 @@
 <li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-ma2.html">(11) Retina+V1: logistic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-ma3.html">(11) Retina+V1: hack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-yo0.html">(11) Retina+V1: hack</a></li>
-<li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-yo1.html">(11) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-yo1.html">(11) Retina+V1: MNIST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15_retina-v1-noisy-pred-ma1.html">(15) Retina+V1: .rsample() instead of .loc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15_retina-v1-overcomplete-retina-ma3.html">(15) Retina+V1: overcomplete retina</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15_retina-v1-phi-error-yo1.html">(15) Retina+V1: hack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15_retina-v1-v2-yo1.html">(15) Retina+V1+v2 ?!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="16_jitter%2Bcrop-yo1.html">(16) Retina+V1: jitter + crop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19_retina-v1-mnist-ma1.html">(19) Retina+V1: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19_retina-v1-mnist-ma2.html">(19) Retina+V1: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19_retina-v1-mnist-ma3.html">(19) Retina+V1: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_retinav1-gompertz-yo0.html">(20) Retina+V1: gompertz (low V1 beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_retinav1-yo0.html">(20) Retina+V1: logistic (low V1 beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_retinav1-yo1.html">(20) Retina+V1: new fit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_imgnet-ma1.html">(21) Retina+V1: ImageNet32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_kyoto16-col-ma1.html">(21) Retina+V1: Kyoto color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_kyoto16-col-yo0.html">(21) Retina+V1: Kyoto color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_kyoto16-col-yo1.html">(21) Retina+V1: Kyoto color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23_whitenoise-retina-ma0.html">(23) Retina: white noise analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_balls64-poisson-yo-0.html">(27) poisson + BALLS64: (32, 128.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_balls64-poisson-yo-1.html">(27) poisson + BALLS64: (32, 128.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_inner-lr-play.html">(27) poisson: increase inner lr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="28_ringach-play.html">(28) Ringach fig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-balls.html">Fig: balls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-convergence.html">Fig: convergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-ratedist.html">Fig: rate-distortion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-iterative-balls.html">jobs: BALLS64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-iterative-rate-distort.html">Jobs: rate-dist refit gaussian + relu</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">process fits, save results (iterative)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tmp-apr25.html">tmp — apr25</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">May 2025</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-05.html">Summary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../md/2025-05_updates.html">Updates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2025-05/02_retinav1-yo0.html">(02) Retina+V1: logistic w/o warmup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-05/02_retinav1-yo1.html">(02) Retina+V1: logistic w/ warmup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-05/tmp-may25.html">tmp — may25</a></li>
 </ul>
 </li>
 </ul>
@@ -574,8 +604,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-dir">Results dir</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-analysis-loop">Run analysis loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-dir">Results dir</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-fits">Select fits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-analysis-loop">Run analysis loop</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -589,9 +622,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="process-fits-save-results-iterative">
 <h1>process fits, save results (iterative)<a class="headerlink" href="#process-fits-save-results-iterative" title="Permalink to this heading">#</a></h1>
-<p>host = <code class="docutils literal notranslate"><span class="pre">yoru</span></code>, device = <code class="docutils literal notranslate"><span class="pre">cuda:0</span></code></p>
+<p>host = <code class="docutils literal notranslate"><span class="pre">any</span></code>, device = <code class="docutils literal notranslate"><span class="pre">cuda:1</span></code></p>
 <p><strong>Motivation</strong>: <br></p>
-<p>From <code class="docutils literal notranslate"><span class="pre">Dropbox/chkpts/_IterativeVAE</span></code> to <code class="docutils literal notranslate"><span class="pre">../tmp/results_apr2025</span></code></p>
+<p>From <code class="docutils literal notranslate"><span class="pre">Dropbox/chkpts/_IterativeVAE</span></code> to <code class="docutils literal notranslate"><span class="pre">../tmp/results_2025-04</span></code></p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -635,7 +668,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">analysis.final</span> <span class="kn">import</span> <span class="n">perform_analysis</span><span class="p">,</span> <span class="n">get_root_path</span>
 
 
-<span class="n">device_idx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">device_idx</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">device</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;cuda:</span><span class="si">{</span><span class="n">device_idx</span><span class="si">}</span><span class="s1">&#39;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;device: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">  ———  host: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">uname</span><span class="p">()</span><span class="o">.</span><span class="n">nodename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -643,7 +676,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:0</span>  ———  host: yoru
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:1</span>  ———  host: chewie
 </pre>
 </div></div>
 </div>
@@ -660,30 +693,36 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>131
+</pre></div>
+</div>
+</div>
+</div>
+<section id="select-fits">
+<h3>Select fits<a class="headerlink" href="#select-fits" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fits</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">alphanum_sort_key</span><span class="p">)</span>
+<span class="c1"># items = [&#39;BALLS64&#39;, &#39;2025_04&#39;]</span>
+<span class="n">fits</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fits</span> <span class="k">if</span>
+    <span class="p">(</span><span class="s1">&#39;BALLS64&#39;</span> <span class="ow">in</span> <span class="n">f</span> <span class="ow">and</span> <span class="s1">&#39;2025_03&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="p">)</span>
+    <span class="c1"># &#39;vH16-wht_t-32&#39; in f</span>
+    <span class="c1"># all(e in f for e in items)</span>
+<span class="p">]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">fits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>124
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="run-analysis-loop">
-<h2>Run analysis loop<a class="headerlink" href="#run-analysis-loop" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fits</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">))</span> <span class="k">if</span> <span class="s1">&#39;2025_04_11&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fits</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>
-    <span style="color: #008000; text-decoration-color: #008000">'gaussian+softplus_&lt;grad|lin&gt;_vH16-bw_t-16_b-16_k-[512]_yoru-0_(2025_04_11,17:36)'</span><span style="color: #000000; text-decoration-color: #000000">,</span>
-<span style="color: #000000; text-decoration-color: #000000">    </span><span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_Kyoto16-wht_t-16_b-24_k-[512]_yoru-0_(2025_04_11,16:59)'</span><span style="color: #000000; text-decoration-color: #000000">,</span>
-<span style="color: #000000; text-decoration-color: #000000">    </span><span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_vH16-wht_t-16_b-24_k-[512]_yoru-0_(2025_04_11,16:58)'</span>
-<span style="font-weight: bold">]</span>
-</pre>
-</div></div>
-</div>
+<h3>Run analysis loop<a class="headerlink" href="#run-analysis-loop" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
@@ -693,139 +732,1222 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                     | 0/3 [00:01&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                   | 0/124 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">File</span> <span class="o">&lt;</span><span class="n">timed</span> <span class="nb">eval</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">1</span>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_chewie-0_(2025_05_01,17:10).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/35effa58f3f00ff678e784421adfa6e4ca5e95623803655f4f92dbfb714e05ba.png" src="../../_images/35effa58f3f00ff678e784421adfa6e4ca5e95623803655f4f92dbfb714e05ba.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/analysis/final.py:83,</span> in <span class="ni">perform_analysis</span><span class="nt">(results_dir, device, fits, kws_analysis, kws_untangle, attrs, attrs_tr, override_fits, verbose)</span>
-<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="c1"># (3) dataset-specific analyses</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span> <span class="k">if</span> <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">&#39;vH&#39;</span><span class="p">,</span> <span class="s1">&#39;Kyoto&#39;</span><span class="p">)):</span>
-<span class="ne">---&gt; </span><span class="mi">83</span> 	<span class="n">results</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">analysis</span><span class="p">(</span><span class="o">**</span><span class="n">kws_analysis</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span> 	<span class="c1"># get map estimate r2</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span> 	<span class="n">state</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;state_final&#39;</span><span class="p">])</span>
 
-<span class="nn">File ~/anaconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py:116,</span> in <span class="ni">context_decorator.&lt;locals&gt;.decorate_context</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span> <span class="k">def</span> <span class="nf">decorate_context</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span>     <span class="k">with</span> <span class="n">ctx_factory</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">116</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|██▍                                        | 7/124 [02:31&lt;42:04, 21.57s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_chewie-1_(2025_05_01,17:10).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/615ed29a894ee48e316f10672cbe6bcb9adfccc50dda2eb1da707ee5587974c4.png" src="../../_images/615ed29a894ee48e316f10672cbe6bcb9adfccc50dda2eb1da707ee5587974c4.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/train.py:710,</span> in <span class="ni">Trainer.analysis</span><span class="nt">(self, dl, t_total, data_batch_sz, n_data_batches, active, return_recon, compute_sprs, avg_samples, verbose, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">update_time</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span> <span class="c1"># (2) fwd pass</span>
-<span class="ne">--&gt; </span><span class="mi">710</span> <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">xtract_ftr</span><span class="p">(</span><span class="n">feeder</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">711</span> <span class="c1"># (3) save</span>
-<span class="g g-Whitespace">    </span><span class="mi">712</span> <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">t_total</span><span class="p">:</span>
 
-<span class="nn">File ~/anaconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py:116,</span> in <span class="ni">context_decorator.&lt;locals&gt;.decorate_context</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">113</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span> <span class="k">def</span> <span class="nf">decorate_context</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span>     <span class="k">with</span> <span class="n">ctx_factory</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">116</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|██▋                                      | 8/124 [05:02&lt;1:24:13, 43.56s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-10_(2025_05_01,11:46).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/a2c48f5e836f4b54afa35ce9502191a22d9e7825ea98eabeb4354c2bac61f721.png" src="../../_images/a2c48f5e836f4b54afa35ce9502191a22d9e7825ea98eabeb4354c2bac61f721.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/model.py:43,</span> in <span class="ni">_IterativeVAE.xtract_ftr</span><span class="nt">(self, x, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cfg</span><span class="o">.</span><span class="n">validation_temp</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">43</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/model.py:23,</span> in <span class="ni">_IterativeVAE.forward</span><span class="nt">(self, x, temp, return_extras, override_input)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> 	<span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pred</span>  <span class="c1"># → hallucinates</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># (1) bottom-up pass</span>
-<span class="ne">---&gt; </span><span class="mi">23</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1"># (2) generate &amp; update:</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_generation_state</span><span class="p">(</span><span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="p">)</span>
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|██████▊                                   | 20/124 [07:31&lt;35:24, 20.43s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-11_(2025_05_01,11:46).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/15ed6274490220c128294cc77253eca617c44fc7dd815424de6ebd7b9e7f5b94.png" src="../../_images/15ed6274490220c128294cc77253eca617c44fc7dd815424de6ebd7b9e7f5b94.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
-<span class="nn">File ~/anaconda3/lib/python3.12/site-packages/torch/nn/modules/module.py:1553,</span> in <span class="ni">Module._wrapped_call_impl</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1551</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compiled_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore[misc]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1552</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1553</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_impl</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File ~/anaconda3/lib/python3.12/site-packages/torch/nn/modules/module.py:1562,</span> in <span class="ni">Module._call_impl</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1557</span> <span class="c1"># If we don&#39;t have any hooks, we want to skip the rest of the logic in</span>
-<span class="g g-Whitespace">   </span><span class="mi">1558</span> <span class="c1"># this function, and just call forward.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1559</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backward_pre_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_hooks</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_pre_hooks</span>
-<span class="g g-Whitespace">   </span><span class="mi">1560</span>         <span class="ow">or</span> <span class="n">_global_backward_pre_hooks</span> <span class="ow">or</span> <span class="n">_global_backward_hooks</span>
-<span class="g g-Whitespace">   </span><span class="mi">1561</span>         <span class="ow">or</span> <span class="n">_global_forward_hooks</span> <span class="ow">or</span> <span class="n">_global_forward_pre_hooks</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1562</span>     <span class="k">return</span> <span class="n">forward_call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1564</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1565</span>     <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|███████                                   | 21/124 [10:00&lt;52:59, 30.87s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-13_(2025_05_01,11:46).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/452f6a80aa797e1063e92c024a58bdd2703bd4ffa9e4ccdaba62e6a8cc44b9c8.png" src="../../_images/452f6a80aa797e1063e92c024a58bdd2703bd4ffa9e4ccdaba62e6a8cc44b9c8.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/layers.py:36,</span> in <span class="ni">_StochasticLayer.forward</span><span class="nt">(self, x, temp)</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span> 	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">temporary_temperature</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">36</span> 	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/layers.py:40,</span> in <span class="ni">_StochasticLayer.infer</span><span class="nt">(self, x)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="k">def</span> <span class="nf">infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span> 	<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cfg</span><span class="o">.</span><span class="n">inf_type</span> <span class="o">==</span> <span class="s1">&#39;grad&#39;</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">40</span> 		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">infer_grad</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> 	<span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cfg</span><span class="o">.</span><span class="n">inf_type</span> <span class="o">==</span> <span class="s1">&#39;leapfrog&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> 		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">infer_leapfrog</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|███████                                 | 22/124 [12:30&lt;1:13:30, 43.24s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-14_(2025_05_01,11:46).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/f8bb222053f786c6ae246e63974dbccd45e26e8de5d95267d8aeee04037571fe.png" src="../../_images/f8bb222053f786c6ae246e63974dbccd45e26e8de5d95267d8aeee04037571fe.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/layers.py:51,</span> in <span class="ni">_StochasticLayer.infer_grad</span><span class="nt">(self, x)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cfg</span><span class="o">.</span><span class="n">n_iters_inner</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span> 	<span class="bp">self</span><span class="o">.</span><span class="n">n_updates</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">---&gt; </span><span class="mi">51</span> 	<span class="n">grad_f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grad_free_energy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> 	<span class="n">u_dot</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> 		<span class="n">llr</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span> <span class="o">*</span> <span class="n">g</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span><span class="p">,</span> <span class="n">llr</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span> 		<span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">grad_f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_lr</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> 	<span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span> 	<span class="n">u_dot</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> 		<span class="bp">self</span><span class="o">.</span><span class="n">softclamp</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s1">&#39;du&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-<span class="nn">     58 		for i, item</span> in <span class="ni">enumerate</span><span class="nt">(u_dot)</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span> 	<span class="p">)</span>
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/layers.py:486,</span> in <span class="ni">GaussianLayer.grad_free_energy</span><span class="nt">(self, x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">484</span> <span class="k">def</span> <span class="nf">grad_free_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">485</span> 	<span class="c1"># (1) recon</span>
-<span class="ne">--&gt; </span><span class="mi">486</span> 	<span class="n">grad_recon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grad_recon_term</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">487</span> 	<span class="n">eps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">posterior</span><span class="o">.</span><span class="n">retrieve_noise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">488</span> 	<span class="c1"># (2) kl</span>
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|███████▍                                | 23/124 [15:00&lt;1:36:05, 57.09s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-15_(2025_05_01,11:46).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/8a385aec3bd582ced283fc79d849fd39c0ecda4ea6eda99a38e8b0621e53dfc8.png" src="../../_images/8a385aec3bd582ced283fc79d849fd39c0ecda4ea6eda99a38e8b0621e53dfc8.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/layers.py:82,</span> in <span class="ni">_StochasticLayer.grad_recon_term</span><span class="nt">(self, x)</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_inference_state</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="c1"># (2) apply activation fun</span>
-<span class="ne">---&gt; </span><span class="mi">82</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_act_fn</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="c1"># (3) decoder variance</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span> <span class="n">dec_log_sigma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dec_log_sigma</span><span class="p">()</span>
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/layers.py:156,</span> in <span class="ni">_StochasticLayer.apply_act_fn</span><span class="nt">(self, z)</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span> 	<span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">samples</span>
-<span class="g g-Whitespace">    </span><span class="mi">155</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">156</span> 	<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="k">return</span> <span class="n">z</span>
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|███████▋                                | 24/124 [17:30&lt;1:59:23, 71.63s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-17_(2025_05_01,11:46).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/1aaff822e92ffd876ac7e87632bf4d1ffc785b84b65a5eaa34fdc7ab40da0bec.png" src="../../_images/1aaff822e92ffd876ac7e87632bf4d1ffc785b84b65a5eaa34fdc7ab40da0bec.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/activations.py:127,</span> in <span class="ni">Softplus.__init__</span><span class="nt">(self, n_latents, beta_init, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">122</span> 		<span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span> 		<span class="n">n_latents</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span> 		<span class="n">beta_init</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># smoothing parameter</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span> 		<span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">127</span> 	<span class="nb">super</span><span class="p">(</span><span class="n">Softplus</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">128</span> 		<span class="n">n_latents</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">129</span> 	<span class="c1"># beta: controls the smoothness of the curve</span>
-<span class="g g-Whitespace">    </span><span class="mi">130</span> 	<span class="bp">self</span><span class="o">.</span><span class="n">log_beta</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span> 		<span class="n">data</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latents</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">beta_init</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">132</span> 		<span class="n">requires_grad</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fit_params</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span> 	<span class="p">)</span>
 
-<span class="nn">File ~/Dropbox/git/_IterativeVAE/main/activations.py:15,</span> in <span class="ni">Activation.__init__</span><span class="nt">(self, n_latents, fit_params)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_params</span> <span class="o">=</span> <span class="n">fit_params</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># output gain</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_gain</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span>
-<span class="ne">---&gt; </span><span class="mi">15</span> 	<span class="n">data</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_latents</span><span class="p">),</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> 	<span class="n">requires_grad</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fit_params</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="p">)</span>
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 20%|████████                                | 25/124 [20:00&lt;2:21:32, 85.79s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-18_(2025_05_01,11:46).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/6de908ad77248ebb8d6d5dd9ac1d30b1b38772d8ba278274538f9a27786bb9e5.png" src="../../_images/6de908ad77248ebb8d6d5dd9ac1d30b1b38772d8ba278274538f9a27786bb9e5.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
-<span class="ne">TypeError</span>: ones(): argument &#39;size&#39; failed to unpack the object at pos 2 with error &quot;type must be tuple of ints,but got Tensor&quot;
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|████████▍                               | 26/124 [22:29&lt;2:41:38, 98.96s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-19_(2025_05_01,11:46).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/18d882fe9c8a72dc24fcd899dc84aada89c670435b4b6f9e979b1ebc2ae961ef.png" src="../../_images/18d882fe9c8a72dc24fcd899dc84aada89c670435b4b6f9e979b1ebc2ae961ef.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████| 124/124 [24:58&lt;00:00, 12.09s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 36min 19s, sys: 1min 7s, total: 37min 26s
+Wall time: 24min 58s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Big 80 balls fits</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                    | 0/80 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[96]_lr-0.0001_mach-400_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/9bbcfcdadc6393315b0e788cf702b422941f9bf89d0b810e0331963e070b8937.png" src="../../_images/9bbcfcdadc6393315b0e788cf702b422941f9bf89d0b810e0331963e070b8937.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1%|▌                                        | 1/80 [05:53&lt;7:44:57, 353.13s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[96]_lr-0.0001_mach-401_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/dfa09fcac1dec349a025bb2a13a52d25261fefa0783eebf16b756a5062486f93.png" src="../../_images/dfa09fcac1dec349a025bb2a13a52d25261fefa0783eebf16b756a5062486f93.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2%|█                                        | 2/80 [11:43&lt;7:36:58, 351.52s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[96]_lr-0.0001_mach-402_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/95102d63dda23a666f7a9683fa0c0e766c0d7c0ad2ab39c73780b394cab746a9.png" src="../../_images/95102d63dda23a666f7a9683fa0c0e766c0d7c0ad2ab39c73780b394cab746a9.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4%|█▌                                       | 3/80 [17:39&lt;7:33:48, 353.62s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[96]_lr-0.0005_mach-400_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/390fafecbd215d1fdbfd1042373b11ed05e88892720a6941801e8d7d0f46a0f1.png" src="../../_images/390fafecbd215d1fdbfd1042373b11ed05e88892720a6941801e8d7d0f46a0f1.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  5%|██                                       | 4/80 [23:42&lt;7:32:26, 357.20s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[96]_lr-0.0005_mach-401_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/eab52f6a03a36c16a57b9b5909bad5a078dd677c844b414e9e4548262aebca60.png" src="../../_images/eab52f6a03a36c16a57b9b5909bad5a078dd677c844b414e9e4548262aebca60.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|██▌                                      | 5/80 [29:24&lt;7:19:50, 351.87s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[96]_lr-0.0005_mach-402_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/eb35790973de973bdc1dd05003ef41c3c9b39acc0e8e2d3288ed3aefc5196884.png" src="../../_images/eb35790973de973bdc1dd05003ef41c3c9b39acc0e8e2d3288ed3aefc5196884.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8%|███                                      | 6/80 [35:43&lt;7:25:06, 360.90s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[128]_lr-0.0001_mach-400_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/2b314cf5872f1b29664c2d244d0cb01cbdab6f6dd5d259310b9bcd441800c12c.png" src="../../_images/2b314cf5872f1b29664c2d244d0cb01cbdab6f6dd5d259310b9bcd441800c12c.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|███▌                                     | 7/80 [41:42&lt;7:18:38, 360.53s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[128]_lr-0.0001_mach-401_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/cf741d3b4d6fff07229ecbbb7b9047a36fecdd222c3bc3ea6249f41e27fadebf.png" src="../../_images/cf741d3b4d6fff07229ecbbb7b9047a36fecdd222c3bc3ea6249f41e27fadebf.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 10%|████                                     | 8/80 [47:35&lt;7:09:26, 357.86s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[128]_lr-0.0001_mach-402_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/aceda265afcb3882938d3c3d1ac5c7e4b9c450154eb63e3ab3e00e5a2fd2204a.png" src="../../_images/aceda265afcb3882938d3c3d1ac5c7e4b9c450154eb63e3ab3e00e5a2fd2204a.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11%|████▌                                    | 9/80 [53:40&lt;7:06:14, 360.20s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[128]_lr-0.0005_mach-400_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/9d5ce4d35f17d8df77755817fb30541873ce0a3e947023b4eb340b3efed627ec.png" src="../../_images/9d5ce4d35f17d8df77755817fb30541873ce0a3e947023b4eb340b3efed627ec.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 12%|█████                                   | 10/80 [59:44&lt;7:01:32, 361.32s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[128]_lr-0.0005_mach-401_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/ae341ac06b425af31dd2f570416475d85f612ba778c756c42ffb79c217493c4b.png" src="../../_images/ae341ac06b425af31dd2f570416475d85f612ba778c756c42ffb79c217493c4b.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 14%|█████▏                                | 11/80 [1:06:02&lt;7:01:18, 366.35s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-16_b-24_k-[128]_lr-0.0005_mach-402_(2025_04_29,23:11).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/edaf28a8b377f985ac3f590c6be315d59b9f33543cf6cf43d50594369583f360.png" src="../../_images/edaf28a8b377f985ac3f590c6be315d59b9f33543cf6cf43d50594369583f360.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|█████▋                                | 12/80 [1:12:26&lt;7:01:16, 371.72s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_lowlr_chewie-400_(2025_04_29,23:00).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/245bc9f9984c12490a9ffa73ee4901ee7f12685690d2b672e6cf720f4917dac3.png" src="../../_images/245bc9f9984c12490a9ffa73ee4901ee7f12685690d2b672e6cf720f4917dac3.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|██████▏                               | 13/80 [1:18:18&lt;6:48:28, 365.79s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_lowlr_chewie-401_(2025_04_29,23:00).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/1ee52a09dc721d9d41aa37b5dbd23ba0abe62c7241da855ce4d3714d27e19efa.png" src="../../_images/1ee52a09dc721d9d41aa37b5dbd23ba0abe62c7241da855ce4d3714d27e19efa.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|██████▋                               | 14/80 [1:24:20&lt;6:41:18, 364.83s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_lowlr_chewie-402_(2025_04_29,23:00).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/ff17ea207c37ea27d7a386f304562073a49ba04bdd7e2d54aa35b5f634605f71.png" src="../../_images/ff17ea207c37ea27d7a386f304562073a49ba04bdd7e2d54aa35b5f634605f71.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|███████▏                              | 15/80 [1:30:20&lt;6:33:34, 363.30s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_lowlr_chewie-403_(2025_04_29,23:00).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/8d46d2a927cd2aa28dcd2ceef9cc5458d6b4a6b735b40866a9da2cb6ac90f055.png" src="../../_images/8d46d2a927cd2aa28dcd2ceef9cc5458d6b4a6b735b40866a9da2cb6ac90f055.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 20%|███████▌                              | 16/80 [1:36:26&lt;6:28:16, 364.00s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> 
+<span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_lr-0.0005_cpois-6.0_cdec-3.45_chewie-503_(2025_04_30,17:42).npy'</span> saved
+at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/1510246b19922c2b6aad50e9ca2ac6ba925a1eecb5e7f0ad36b30b16de851d13.png" src="../../_images/1510246b19922c2b6aad50e9ca2ac6ba925a1eecb5e7f0ad36b30b16de851d13.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|████████                              | 17/80 [1:42:04&lt;6:14:09, 356.34s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> 
+<span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_lr-0.0005_cpois-6.0_cdec-3.45_chewie-504_(2025_04_30,17:42).npy'</span> saved
+at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/327a398c67226c9ec66c335cc22928f4e9b7d1e4a28ee3b94a1452977a351f9d.png" src="../../_images/327a398c67226c9ec66c335cc22928f4e9b7d1e4a28ee3b94a1452977a351f9d.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 22%|████████▌                             | 18/80 [1:48:16&lt;6:13:02, 361.00s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> 
+<span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_lr-0.0005_cpois-6.0_cdec-3.45_mach-500_(2025_04_30,17:41).npy'</span> saved 
+at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/163a916e982a93947a15a7a61726f0f8f275aeec65381f589120baa4f7b6e50d.png" src="../../_images/163a916e982a93947a15a7a61726f0f8f275aeec65381f589120baa4f7b6e50d.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24%|█████████                             | 19/80 [1:53:56&lt;6:00:32, 354.62s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> 
+<span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_lr-0.0005_cpois-6.0_cdec-3.45_mach-501_(2025_04_30,17:41).npy'</span> saved 
+at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/b7908116c56b19e0a1710a721ae50e1f608ed7ebf21d5766f7486394ff2e3b70.png" src="../../_images/b7908116c56b19e0a1710a721ae50e1f608ed7ebf21d5766f7486394ff2e3b70.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 25%|█████████▌                            | 20/80 [2:00:10&lt;6:00:22, 360.38s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> 
+<span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_lr-0.0005_cpois-6.0_cdec-3.45_mach-502_(2025_04_30,17:41).npy'</span> saved 
+at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/6ee064a066a843ae2e22d0f6bd1e039898ca974ced045c5ad791b153fe7cf7e0.png" src="../../_images/6ee064a066a843ae2e22d0f6bd1e039898ca974ced045c5ad791b153fe7cf7e0.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 26%|█████████▉                            | 21/80 [2:06:08&lt;5:53:43, 359.72s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-60_(2025_04_27,18:19).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/60ec9db4abdc13be230ced211fd86b9c843be1b6d2e6072cf43e2a5e8187ad66.png" src="../../_images/60ec9db4abdc13be230ced211fd86b9c843be1b6d2e6072cf43e2a5e8187ad66.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 28%|██████████▍                           | 22/80 [2:11:32&lt;5:37:19, 348.96s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-61_(2025_04_27,18:19).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/4e27899db945260208a46f5c8e65ebf24f95adc5bb9ea9dd434e6a3ff72cb5c2.png" src="../../_images/4e27899db945260208a46f5c8e65ebf24f95adc5bb9ea9dd434e6a3ff72cb5c2.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 29%|██████████▉                           | 23/80 [2:17:21&lt;5:31:42, 349.17s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-62_(2025_04_27,18:19).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/7e2a3ca7da9081b1c00ab4b87d3e8ecec6d734b17c8f66a53dd27e2fcbc39f0b.png" src="../../_images/7e2a3ca7da9081b1c00ab4b87d3e8ecec6d734b17c8f66a53dd27e2fcbc39f0b.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|███████████▍                          | 24/80 [2:23:33&lt;5:32:04, 355.79s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-63_(2025_04_28,02:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/f4750f5f58c0ff263a6d8c3f64818e894ce43f468f081a0388d751033b9cdb17.png" src="../../_images/f4750f5f58c0ff263a6d8c3f64818e894ce43f468f081a0388d751033b9cdb17.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31%|███████████▉                          | 25/80 [2:29:50&lt;5:31:57, 362.14s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-64_(2025_04_28,02:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/9a06fb207968fd3d29db72a3192ad2ac5330574415589215ba3398d9fed95703.png" src="../../_images/9a06fb207968fd3d29db72a3192ad2ac5330574415589215ba3398d9fed95703.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 32%|████████████▎                         | 26/80 [2:35:50&lt;5:25:34, 361.74s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-65_(2025_04_28,02:12).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/1c85b4c40378dbaccb0f0be6a84c452fba1518945bcdc8ae5ee7ab036414e816.png" src="../../_images/1c85b4c40378dbaccb0f0be6a84c452fba1518945bcdc8ae5ee7ab036414e816.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 34%|████████████▊                         | 27/80 [2:42:10&lt;5:24:13, 367.04s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-66_(2025_04_28,09:47).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/4b577d5ae1574543907a71c7af113a942b81c4c2745e325073eeae418fe648f3.png" src="../../_images/4b577d5ae1574543907a71c7af113a942b81c4c2745e325073eeae418fe648f3.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 35%|█████████████▎                        | 28/80 [2:48:36&lt;5:23:08, 372.86s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-67_(2025_04_28,09:47).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/4b5c8bd6d7c3757403ae38703f24c59fef05a878a2478c6e2871fd92b2c71366.png" src="../../_images/4b5c8bd6d7c3757403ae38703f24c59fef05a878a2478c6e2871fd92b2c71366.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 36%|█████████████▊                        | 29/80 [2:54:44&lt;5:15:46, 371.49s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-68_(2025_04_28,10:04).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/7f4c4dc20b7b1fbd9efb0b194536d3954f4aa18cda70e17f4fcd121282abf96d.png" src="../../_images/7f4c4dc20b7b1fbd9efb0b194536d3954f4aa18cda70e17f4fcd121282abf96d.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 38%|██████████████▎                       | 30/80 [3:01:00&lt;5:10:38, 372.77s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-69_(2025_04_28,17:21).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/6da55adda5b158ec7085af5bf03702b79f844307084e8c03d5d8a9d5a8f68970.png" src="../../_images/6da55adda5b158ec7085af5bf03702b79f844307084e8c03d5d8a9d5a8f68970.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 39%|██████████████▋                       | 31/80 [3:07:22&lt;5:06:41, 375.54s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-70_(2025_04_28,17:28).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/007c8dd01bb63fffe2c26d471fe51c234176ab3bac6cf66cf3d8e40a4b85d108.png" src="../../_images/007c8dd01bb63fffe2c26d471fe51c234176ab3bac6cf66cf3d8e40a4b85d108.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40%|███████████████▏                      | 32/80 [3:13:37&lt;5:00:13, 375.28s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-71_(2025_04_28,17:52).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/364c362b00b5f8819679bd6e69e46abc0ed4305f8f709b99fb956809dee5c570.png" src="../../_images/364c362b00b5f8819679bd6e69e46abc0ed4305f8f709b99fb956809dee5c570.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 41%|███████████████▋                      | 33/80 [3:19:53&lt;4:54:15, 375.64s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-72_(2025_04_27,18:19).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/1b06b339117fb74cf41bbb7b5aa65e70095b88e23fad545bd74d6a6a998a4b38.png" src="../../_images/1b06b339117fb74cf41bbb7b5aa65e70095b88e23fad545bd74d6a6a998a4b38.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|████████████████▏                     | 34/80 [3:26:10&lt;4:48:06, 375.79s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-73_(2025_04_27,18:19).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/8b345d24fe236498877412e2e8a2e8489544125c141f943a25d240108f176eb5.png" src="../../_images/8b345d24fe236498877412e2e8a2e8489544125c141f943a25d240108f176eb5.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 44%|████████████████▋                     | 35/80 [3:32:22&lt;4:41:06, 374.81s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-74_(2025_04_27,18:19).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/3364312e7bf350633e3c1ef1f6c7bc07f33923d756343fe2799596ab4a3e6955.png" src="../../_images/3364312e7bf350633e3c1ef1f6c7bc07f33923d756343fe2799596ab4a3e6955.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|█████████████████                     | 36/80 [3:38:35&lt;4:34:29, 374.31s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-75_(2025_04_28,02:02).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/a1c2b3d3b513c60ef056219f1480acbc5c9fa2ca48a900fbc9fa2356a775136d.png" src="../../_images/a1c2b3d3b513c60ef056219f1480acbc5c9fa2ca48a900fbc9fa2356a775136d.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 46%|█████████████████▌                    | 37/80 [3:44:56&lt;4:29:45, 376.40s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-76_(2025_04_28,01:56).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/7eafbe15f72aef223b1f4ca3bf40c73e98ce1201346664513d0254ed14312bec.png" src="../../_images/7eafbe15f72aef223b1f4ca3bf40c73e98ce1201346664513d0254ed14312bec.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 48%|██████████████████                    | 38/80 [3:51:11&lt;4:22:59, 375.70s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-77_(2025_04_28,02:07).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/c40cbbaea5ca38c0369b0abe95aa3da1771d36b4a2b1c760cbb4fc23ad86e052.png" src="../../_images/c40cbbaea5ca38c0369b0abe95aa3da1771d36b4a2b1c760cbb4fc23ad86e052.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 49%|██████████████████▌                   | 39/80 [3:57:24&lt;4:16:15, 375.00s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-78_(2025_04_28,09:56).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/d3895192bf2b70be39fcc0f57d96620ca418a6cc6adb1fb5a2e8b70617c90655.png" src="../../_images/d3895192bf2b70be39fcc0f57d96620ca418a6cc6adb1fb5a2e8b70617c90655.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 50%|███████████████████                   | 40/80 [4:03:54&lt;4:13:00, 379.51s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-79_(2025_04_28,09:45).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/5058f860ba89f7208211536b2a88e2c874ce80c7d7fb9743a6e061ac2c50dc60.png" src="../../_images/5058f860ba89f7208211536b2a88e2c874ce80c7d7fb9743a6e061ac2c50dc60.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 51%|███████████████████▍                  | 41/80 [4:10:06&lt;4:05:13, 377.26s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-80_(2025_04_28,09:59).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/eab2a52aed543c89d8b31a3c22b749089d32f63573ad1ac0ca38bbbd84ba605d.png" src="../../_images/eab2a52aed543c89d8b31a3c22b749089d32f63573ad1ac0ca38bbbd84ba605d.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 52%|███████████████████▉                  | 42/80 [4:16:28&lt;3:59:51, 378.74s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-81_(2025_04_28,17:44).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/30e08355e1ece980e85d709e5f890e0fd73383d6b9f3804ee7018c318f5082f6.png" src="../../_images/30e08355e1ece980e85d709e5f890e0fd73383d6b9f3804ee7018c318f5082f6.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 54%|████████████████████▍                 | 43/80 [4:22:52&lt;3:54:25, 380.16s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-82_(2025_04_28,17:30).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/257e55a7f9364a9b00bfc7a9a0c98bacda30e9dc575bf91a9499262707756b8e.png" src="../../_images/257e55a7f9364a9b00bfc7a9a0c98bacda30e9dc575bf91a9499262707756b8e.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 55%|████████████████████▉                 | 44/80 [4:29:06&lt;3:47:07, 378.55s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_mach-83_(2025_04_28,17:34).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/032c524b0af11b704a16126b115752186ec8d198fad89460154d7058cfd4535a.png" src="../../_images/032c524b0af11b704a16126b115752186ec8d198fad89460154d7058cfd4535a.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 56%|█████████████████████▍                | 45/80 [4:35:24&lt;3:40:42, 378.36s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-100_(2025_04_27,18:27).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/652f6ac82f1cf31fe78511e950a33f36a4dcf9de13f3dc50b5d9fe00e0dadb71.png" src="../../_images/652f6ac82f1cf31fe78511e950a33f36a4dcf9de13f3dc50b5d9fe00e0dadb71.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|█████████████████████▊                | 46/80 [4:41:51&lt;3:35:53, 381.00s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-101_(2025_04_27,18:27).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/40527f32ccd3dd8c84f2754b3918d77a1b7226c77ad0cd3c34491f80ffb1075a.png" src="../../_images/40527f32ccd3dd8c84f2754b3918d77a1b7226c77ad0cd3c34491f80ffb1075a.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 59%|██████████████████████▎               | 47/80 [4:48:10&lt;3:29:08, 380.26s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-102_(2025_04_28,09:12).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/06610f17ebd7c360dc911b8383457ea78983b23f7a09e420c6499a8ed15b8d95.png" src="../../_images/06610f17ebd7c360dc911b8383457ea78983b23f7a09e420c6499a8ed15b8d95.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60%|██████████████████████▊               | 48/80 [4:54:56&lt;3:26:56, 388.01s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-103_(2025_04_28,09:10).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/cf6955f9ef222a00439a94326a3e6ecf973b75dd74054cd80d05ebfe458ca0e0.png" src="../../_images/cf6955f9ef222a00439a94326a3e6ecf973b75dd74054cd80d05ebfe458ca0e0.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 61%|███████████████████████▎              | 49/80 [5:01:14&lt;3:18:56, 385.06s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-104_(2025_04_29,00:09).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/10d09eb5f9603903d7f11fd29af785c0ad883cf3d980232838fe1ffcd26831c1.png" src="../../_images/10d09eb5f9603903d7f11fd29af785c0ad883cf3d980232838fe1ffcd26831c1.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62%|███████████████████████▊              | 50/80 [5:07:15&lt;3:08:50, 377.68s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-105_(2025_04_28,23:47).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/6940d1d827ccd9f1dcc381edb5e0d76df662eb2ff595b2c89d2a73c511a5dd1d.png" src="../../_images/6940d1d827ccd9f1dcc381edb5e0d76df662eb2ff595b2c89d2a73c511a5dd1d.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|████████████████████████▏             | 51/80 [5:13:46&lt;3:04:31, 381.78s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-106_(2025_04_29,14:59).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/ffd27889d035dca409d29cf7d4d5722a9545be89ae863fe2e16b60f6a4bd3441.png" src="../../_images/ffd27889d035dca409d29cf7d4d5722a9545be89ae863fe2e16b60f6a4bd3441.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 65%|████████████████████████▋             | 52/80 [5:20:06&lt;2:57:54, 381.24s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-107_(2025_04_29,14:26).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/337c21ddd57b1cda9c21f524b2727a4964f644b0d01cd961472e52ad7a97e6f9.png" src="../../_images/337c21ddd57b1cda9c21f524b2727a4964f644b0d01cd961472e52ad7a97e6f9.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 66%|█████████████████████████▏            | 53/80 [5:26:25&lt;2:51:14, 380.52s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-108_(2025_04_27,18:27).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/a1e2564be62d570b73c219dc4da69ed3dc7c4ec75c72d60d17a720d19568ddd7.png" src="../../_images/a1e2564be62d570b73c219dc4da69ed3dc7c4ec75c72d60d17a720d19568ddd7.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 68%|█████████████████████████▋            | 54/80 [5:32:46&lt;2:44:55, 380.58s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-109_(2025_04_27,18:27).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/69c5a3a0c5dda99623c156f4876bf831840a784e0f8616e67f86ba2c718e7a37.png" src="../../_images/69c5a3a0c5dda99623c156f4876bf831840a784e0f8616e67f86ba2c718e7a37.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 69%|██████████████████████████▏           | 55/80 [5:39:01&lt;2:37:57, 379.11s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-111_(2025_04_28,09:10).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/44af423bb7ee7a6c3e644d676980d8ea9b764613b580a0cd6cd6ce87e422d6e8.png" src="../../_images/44af423bb7ee7a6c3e644d676980d8ea9b764613b580a0cd6cd6ce87e422d6e8.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|██████████████████████████▌           | 56/80 [5:45:14&lt;2:30:53, 377.24s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-112_(2025_04_28,10:48).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/83fdca4b08a08c82480548af10167eaeab84337f376ce4d0a46a14f33c5628c6.png" src="../../_images/83fdca4b08a08c82480548af10167eaeab84337f376ce4d0a46a14f33c5628c6.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 71%|███████████████████████████           | 57/80 [5:50:37&lt;2:18:18, 360.81s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-113_(2025_04_28,23:47).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/7894ad32b81a2d38864e309d5321355bec94ea862c6d856a0e630d6e46c1cd61.png" src="../../_images/7894ad32b81a2d38864e309d5321355bec94ea862c6d856a0e630d6e46c1cd61.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 72%|███████████████████████████▌          | 58/80 [5:56:58&lt;2:14:34, 367.02s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-114_(2025_04_29,01:26).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/fb9032901d108a7bacfd75cfaf1d2df07f280413737e754d5846e4ab2cb77228.png" src="../../_images/fb9032901d108a7bacfd75cfaf1d2df07f280413737e754d5846e4ab2cb77228.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 74%|████████████████████████████          | 59/80 [6:03:32&lt;2:11:19, 375.21s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[96]_yoru-115_(2025_04_29,14:26).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/8c999f8906a5799ef011fded1993195f998ea83ff1f960a78250660654fe943f.png" src="../../_images/8c999f8906a5799ef011fded1993195f998ea83ff1f960a78250660654fe943f.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 75%|████████████████████████████▌         | 60/80 [6:10:30&lt;2:09:20, 388.00s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> 
+<span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[128]_lr-0.0005_cpois-4.5_cdec-2.3_chewie-500_(2025_04_30,10:38).npy'</span> saved
+at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/d8323a614b15e17e9dbd2b6d30033add0f9f86bc70de3f99ec6526fd9b410e51.png" src="../../_images/d8323a614b15e17e9dbd2b6d30033add0f9f86bc70de3f99ec6526fd9b410e51.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|████████████████████████████▉         | 61/80 [6:18:00&lt;2:08:42, 406.46s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> 
+<span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[128]_lr-0.0005_cpois-4.5_cdec-2.3_chewie-501_(2025_04_30,10:38).npy'</span> saved
+at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/c3780b9c7f2fb5e79752ddce5c0a79f6d8a18d2cd6ae7d6d929a9a45d92ac5d7.png" src="../../_images/c3780b9c7f2fb5e79752ddce5c0a79f6d8a18d2cd6ae7d6d929a9a45d92ac5d7.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 78%|█████████████████████████████▍        | 62/80 [6:24:25&lt;1:59:59, 399.95s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[128]_mach-10_(2025_04_27,10:53).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/a91f2ebecf49701b7d6a8772ff8d662c9021164b156582cc06af31cf89572371.png" src="../../_images/a91f2ebecf49701b7d6a8772ff8d662c9021164b156582cc06af31cf89572371.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|█████████████████████████████▉        | 63/80 [6:31:13&lt;1:54:04, 402.59s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-96_k-[128]_mach-11_(2025_04_27,10:53).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/7342e4f7c4d3476c77c503a8ca5967b6f7371a2a854209574000053e01e8995f.png" src="../../_images/7342e4f7c4d3476c77c503a8ca5967b6f7371a2a854209574000053e01e8995f.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|██████████████████████████████▍       | 64/80 [6:37:38&lt;1:45:56, 397.27s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_yoru-11_(2025_04_17,23:04).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/faa3587858653679ea9b13f8cfb562c3a28695f23ed79bff9d987275146aaecc.png" src="../../_images/faa3587858653679ea9b13f8cfb562c3a28695f23ed79bff9d987275146aaecc.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 81%|██████████████████████████████▉       | 65/80 [6:44:04&lt;1:38:29, 393.95s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_yoru-12_(2025_04_18,00:40).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/72c1c6e78e8134f342d2bdfff1d95c069686b65cc355a233dfec93ba99539c5b.png" src="../../_images/72c1c6e78e8134f342d2bdfff1d95c069686b65cc355a233dfec93ba99539c5b.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 82%|███████████████████████████████▎      | 66/80 [6:50:23&lt;1:30:52, 389.45s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_yoru-13_(2025_04_17,23:04).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/d83514b015a41e39a9b812b9db43755a7f9c387ee29f63d2125d8cfa56c09e39.png" src="../../_images/d83514b015a41e39a9b812b9db43755a7f9c387ee29f63d2125d8cfa56c09e39.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 84%|███████████████████████████████▊      | 67/80 [6:56:43&lt;1:23:45, 386.57s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_yoru-14_(2025_04_17,23:04).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/38de8aadf32f53f0c6867ff5a6ee93e7108c642ba54d48e7b23b1b61ee990f2b.png" src="../../_images/38de8aadf32f53f0c6867ff5a6ee93e7108c642ba54d48e7b23b1b61ee990f2b.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 85%|████████████████████████████████▎     | 68/80 [7:03:14&lt;1:17:33, 387.79s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_yoru-100_(2025_04_18,18:49).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/3f048aa346b8206127a863a854c7d93dedbbf2989b6795f99db47e1443f744e9.png" src="../../_images/3f048aa346b8206127a863a854c7d93dedbbf2989b6795f99db47e1443f744e9.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 86%|████████████████████████████████▊     | 69/80 [7:09:37&lt;1:10:49, 386.31s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_yoru-140_(2025_04_18,18:49).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/de434dc70f95ec4a3b8dbde9636d2edffe25a15166287e45d0f31b34b093ea04.png" src="../../_images/de434dc70f95ec4a3b8dbde9636d2edffe25a15166287e45d0f31b34b093ea04.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 88%|█████████████████████████████████▎    | 70/80 [7:15:59&lt;1:04:11, 385.19s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-192_k-[96]_mach-10_(2025_04_25,21:56).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/11405ebe4c4e2743d82d0182c74a43eca29f90f65d1f58384321766f01888d24.png" src="../../_images/11405ebe4c4e2743d82d0182c74a43eca29f90f65d1f58384321766f01888d24.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 89%|███████████████████████████████████▌    | 71/80 [7:22:22&lt;57:39, 384.37s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-192_k-[96]_mach-11_(2025_04_25,21:56).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/b5ccb60d8dbc3c5127be4fbb20ca3e98564d92f0db0ddf966e0085bb789ed514.png" src="../../_images/b5ccb60d8dbc3c5127be4fbb20ca3e98564d92f0db0ddf966e0085bb789ed514.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 90%|████████████████████████████████████    | 72/80 [7:28:53&lt;51:31, 386.43s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-192_k-[96]_mach-12_(2025_04_26,04:49).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/6b4cb805128b17d558879f6f73b97c8cb80b0a91d7073040e1bbae76621785aa.png" src="../../_images/6b4cb805128b17d558879f6f73b97c8cb80b0a91d7073040e1bbae76621785aa.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 91%|████████████████████████████████████▌   | 73/80 [7:35:19&lt;45:04, 386.40s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-192_k-[96]_mach-13_(2025_04_25,21:56).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/3f001edd84ec8d0d6a3d05acdb007ef821aba539547ce3f8081a6d8c37648f1e.png" src="../../_images/3f001edd84ec8d0d6a3d05acdb007ef821aba539547ce3f8081a6d8c37648f1e.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 92%|█████████████████████████████████████   | 74/80 [7:41:24&lt;37:58, 379.74s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-192_k-[96]_mach-14_(2025_04_25,21:56).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/aef88093378cd9d98c218b9f33ff249fee5080cf4dbe363bc61c584bfe3baf46.png" src="../../_images/aef88093378cd9d98c218b9f33ff249fee5080cf4dbe363bc61c584bfe3baf46.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 94%|█████████████████████████████████████▌  | 75/80 [7:48:04&lt;32:09, 385.86s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-256_k-[128]_mach-10_(2025_04_26,17:36).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/b3f3c77a8fc982e16a8e2ff83545f90090b17d781d1c55e47d65d53867d65459.png" src="../../_images/b3f3c77a8fc982e16a8e2ff83545f90090b17d781d1c55e47d65d53867d65459.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 95%|██████████████████████████████████████  | 76/80 [7:54:20&lt;25:32, 383.10s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-256_k-[128]_mach-11_(2025_04_26,17:36).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/8d25c118977ef17047e6c44501e15655f0ef31bd394147f2ce5241fb14231d61.png" src="../../_images/8d25c118977ef17047e6c44501e15655f0ef31bd394147f2ce5241fb14231d61.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 96%|██████████████████████████████████████▌ | 77/80 [8:00:38&lt;19:04, 381.34s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-256_k-[128]_mach-12_(2025_04_26,17:36).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/d702e9e3f8725e4b11623ea9adf8d87eb203b6ad166dad23a7411a3bedce08ec.png" src="../../_images/d702e9e3f8725e4b11623ea9adf8d87eb203b6ad166dad23a7411a3bedce08ec.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 98%|███████████████████████████████████████ | 78/80 [8:07:16&lt;12:53, 386.57s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-256_k-[128]_mach-13_(2025_04_26,17:36).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/4e5a00b018446f67d75b3594d4e29865ee113b3882c3720e03303d7c303d154c.png" src="../../_images/4e5a00b018446f67d75b3594d4e29865ee113b3882c3720e03303d7c303d154c.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 99%|███████████████████████████████████████▌| 79/80 [8:13:34&lt;06:23, 383.85s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'poisson_&lt;grad|lin&gt;_BALLS64_t-32_b-256_k-[128]_mach-14_(2025_04_26,17:36).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/ca15cf0723469a109b45c77e4840c1992fea0c16df53d665bdebb69d6ff6a260.png" src="../../_images/ca15cf0723469a109b45c77e4840c1992fea0c16df53d665bdebb69d6ff6a260.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████| 80/80 [8:19:58&lt;00:00, 374.99s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10h 1min 43s, sys: 10min 6s, total: 10h 11min 49s
+Wall time: 8h 19min 58s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -860,12 +1982,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="16_jitter%2Bcrop-yo1.html"
+       href="jobs-iterative-rate-distort.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">(16) Retina+V1: jitter + crop</p>
+        <p class="prev-next-title">Jobs: rate-dist refit gaussian + relu</p>
       </div>
     </a>
     <a class="right-next"
@@ -893,8 +2015,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-dir">Results dir</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-analysis-loop">Run analysis loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results-dir">Results dir</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-fits">Select fits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-analysis-loop">Run analysis loop</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

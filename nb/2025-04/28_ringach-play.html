@@ -1,0 +1,2379 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>(28) Ringach fig &#8212; Research Progress [2025]</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/2025-04/28_ringach-play';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fig: balls" href="fig-balls.html" />
+    <link rel="prev" title="(27) poisson: increase inner lr" href="27_inner-lr-play.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../md/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Research Progress [2025] - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Research Progress [2025] - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../md/intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">February 2025</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-02.html">Summary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../md/2025-02_updates.html">Updates</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/01_eyemovies-dataset.html">(01) EyeMovies: save npy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/01_eyemovies-explore.html">(01) EyeMovies: explore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/02_mnist-pvae-replication.html">(02) MNIST: P-VAE test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/02_mnist-vib-to-vae.html">(02) VIB: reduce to VAE, test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-debug.html">(06) iP-VAE debug, etc.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-0.html">(06) fit w/ grad, T=32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-1.html">(06) fit w/ grad, T=64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-2.html">(06) fit w/ grad — (T, beta) = (10, 15.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/06_ipvae-fit-3.html">(06) fit w/ grad — (T, beta) = (10, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/08_ipvae-fit-0.html">(08) iP-VAE: fit w/ grad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/08_ipvae-fit-1.html">(08) iP-VAE: fit w/ grad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/09_mnist-so-0.html">(09) iP-VAE: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/09_vH32-save.html">(09) vH — save 32x32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_feeders-test.html">(10) Feeder test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0.html">(10) grad: (T, beta) = (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-0-Copy1.html">(10) grad w/ schedulefree: (T, beta) = (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1.html">(10) grad: (T, beta) = (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_grad-yo-1-Copy1.html">(10) grad: (T, beta) = (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-ch-0.html">(10) leapfrog: (T, beta) = (16x2, 32.0x4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-ch-1.html">(10) leapfrog: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-schedulefree-ch-0.html">(10) leapfrog + schedulefree: (16x4, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_leapfrog-schedulefree-ch-1.html">(10) leapfrog + schedulefree: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/10_vib-jake.html">(10) VIB: Jake notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2.html">(11) fit w/ schedulefree + warmup — (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-2-Copy1.html">(11) fit w/ schedulefree + warmup — (T, beta) = (8, 10.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_fit-ma-3.html">(11) fit w/ grad — (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/11_jobs-betas.html">(11) Jobs: betas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_leapfrog-tst.html">(12) leapfrog, load, analyze: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_tbptt-leapfrog-ch-0.html">(12) leapfrog: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/12_tbptt-leapfrog-ch-1.html">(12) leapfrog + tbptt: (32x2, 64.0x1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/13_tbptt-ch-0.html">(13) tbptt: (T, beta) = (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/13_tbptt-ch-1.html">(13) tbptt: (T, beta) = (128[32], 256.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/14_tbptt-yo-0.html">(14) tbptt: (128[32], 256.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/14_tbptt-yo-1.html">(14) tbptt: (128[32], 512.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/15_tbptt-ch-0.html">(15) best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/15_tbptt-ch-1.html">(15) another good fit: (32, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/16_drifting-grating-ch-0.html">(16) drifting grating analysis w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-standard-ch-0.html">(17) clamp = 8.0, (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-tight-ch-0.html">(17) clamp = 5.0, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_clamp-tight-ch-1.html">(17) clamp = 5.0, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_drifting-grating-ch-0.html">(17) drifting grating w/ n_exp p = 1e-3, t_final = 0.01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-ch-1.html">(17) leapfrog: (16x8, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-yo-0.html">(17) leapfrog: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_leapfrog-yo-1.html">(17) leapfrog: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_less-strict-nexp-ch-0.html">(17) n_exp p = 1e-3, best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_lower-beta-ch-0.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_obst-long-ch-1.html">(17) long obs time w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_obst-short-ch-0.html">(17) short obs time w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/17_reproduce-ch-1.html">(17) reproduce best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/18_low-temp-ch-0.html">(18) temp=0.01 w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/18_low-temp-ch-1.html">(18) temp=0.001 w/ best fit: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_higher-beta-ch-0.html">(17) higher beta: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_higher-beta-ch-1.html">(17) higher beta: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_lower-beta-ch-0.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/20_lower-beta-ch-1.html">(17) lower beta: (16, 12.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-ch-0.html">(23) gaussian: (16, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-ch-1.html">(23) gaussian: (16, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-ch-0.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-ch-1.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-yo-0.html">(23) gaussian-relu: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/23_gaussian-relu-yo-1.html">(23) gaussian-relu: (4, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-sigmoid-ma-2.html">(24) gaussian-sigmoid: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-sigmoid-ma-3.html">(24) gaussian-sigmoid: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-softplus-yo-0.html">(24) gaussian-softplus: (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_gaussian-softplus-yo-1.html">(24) gaussian-softplus: (16, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_poisson-ch-0.html">(24) reproduce: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/24_poisson-nonwhitened-ma-0.html">(24) non-whitened poisson: (16, 1.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_gaussian-exp-yo-1.html">(25) gaussian-exp: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_gaussian-square-yo-0.html">(25) gaussian-square: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_white-noise-ch-1.html">(25) white noise analysis w/ best fit: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/25_white-noise-gaus-relu-ch-0.html">(25) white noise w/ gaus relu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_Kyoto16-save.html">(26) Kyoto — save 16x16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-gaus-relu-ch-0.html">(26) Gaus-ReLu + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-gaus-sigmoid-ch-1.html">(26) Gaus-Sigmoid + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-ch-0.html">(26) poisson + BALLS16: (64, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-ch-1.html">(26) poisson + BALLS16: (8, 4.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-yo-0.html">(26) poisson + BALLS16: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-poisson-yo-1.html">(26) poisson + BALLS16: (64, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_balls-pvae-ma-3.html">(26) P-VAE + BALLS16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-0-Copy1.html">(26) Kyoto16, gaussian-sigmoid: (16, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto16-ch-1.html">(26) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto-jitter-ch-0.html">(26) Kyoto32-jitter, gaussian-sigmoid: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_gaus-sigmoid-Kyoto-jitter-ch-1.html">(26) Kyoto32-jitter, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-Kyoto16-ma-1.html">(26) poisson + Kyoto16: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-balls-yo-0.html">(26) poisson + BALLS16: (32, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_poisson-balls-yo-1.html">(26) poisson + BALLS16: (128, 64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/26_white-noise-gaus-sigm-ch-0.html">(26) white noise w/ gaus sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_balls-tst-ch-0.html">(27) BALLS: Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_balls-tst-yo-0.html">(27) BALLS: Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_gaus-sigmoid-Kyoto16-ma-2.html">(27) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/27_gaus-sigmoid-vH16-ma-3.html">(27) vH16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_balls-poisson-ch-0.html">(28) poisson + BALLS16: (32, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_balls-poisson-ch-1.html">(28) poisson + BALLS16: (32, 24.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_jitter-poisson-Kyoto-ch-0.html">(28) Kyoto32-jitter, poisson: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/28_jitter-poisson-vH-ch-1.html">(28) vH32-jitter, poisson: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25.html">tmp — feb25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy1.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy2.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy3.html">tmp — feb25 (DEL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-02/tmp-feb25-Copy4.html">tmp — feb25</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">March 2025</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-03.html">Summary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../md/2025-03_updates.html">Updates</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/01_balls16-poisson-yo-0.html">(01) poisson + BALLS16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/01_balls16-poisson-yo-1.html">(01) poisson + BALLS16: (16, 8.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/01_balls64-poisson-ch-0.html">(01) poisson + BALLS64: (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/01_balls64-poisson-ch-1.html">(01) poisson + BALLS64: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/01_balls64-poisson-yo-0.html">(01) poisson + BALLS64: (32, 128.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/01_balls64-poisson-yo-1.html">(01) poisson + BALLS64: (32, 96.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/01_poisson-ch-0.html">(01) reproduce: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/01_poisson-ch-1.html">(01) reproduce: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/01_poisson-yo-0.html">(01) reproduce: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/01_poisson-yo-1.html">(01) larger T: (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/02_drifting-grating-ch-0.html">(02) drifting grating: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/02_gaussian-exp-ch-1.html">(02) gaussian-exp, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/02_gaussian-ma-0.html">(02) gaussian, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/02_gaussian-relu-ma-1.html">(02) gaussian-relu, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/02_gaussian-sigmoid-ma-2.html">(02) gaussian-sigmoid, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/02_gaussian-softplus-ma-3.html">(02) gaussian-softplus, vH16: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/03_gaus-sigmoid-Kyoto16-ch-0.html">(03) Kyoto16, gaussian-sigmoid: (16, 16.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/03_gaus-sigmoid-Kyoto16-ch-1.html">(03) Kyoto16, gaussian-sigmoid: z-256, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/03_gaus-sigmoid-Kyoto16-yo-0.html">(03) Kyoto16, gaussian-sigmoid: z-512, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/03_gaus-sigmoid-Kyoto16-yo-1.html">(03) Kyoto16, gaussian-sigmoid: (32, 48.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/04_additive-play-yo-0.html">(04) additive decoder play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/05_jobs-rate-distort.html">(05) Jobs: rate-dist curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/05_jobs-rate-distort-amort.html">(05) Jobs: rate-dist curve, amortized P-VAE fits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/06_param-grid-play.html">(06) pairwise corrs: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/07_pairwise-ch-0.html">(07) pairwise corrs: (16, 20.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/08_jobs-balls-ch-t%3D16.html">(08) Jobs: BALLS (T=16)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/08_jobs-balls-ma-t%3D8.html">(08) Jobs: BALLS (T=8)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/08_jobs-balls-yo-t%3D32.html">(08) Jobs: BALLS (T=32)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/10_Kyoto16-dog-fit.html">(10) Kyoto16: diff of gaussians</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/10_gaus-sigmoid-Kyoto16-ma-1.html">(10) Kyoto16, gaussian-sigmoid: <code class="docutils literal notranslate"><span class="pre">z-100/128/192/256</span></code>, (16, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/10_white-noise-gaus-sigm-ma-2.html">(10) white noise w/ gaus sigmoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/12_fashmnist-ma-1.html">(12) FashionMNIST: (16, 8.0/16.0/32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/12_fashmnist-ma-2.html">(12) FashionMNIST: <span class="math notranslate nohighlight">\(T \in 32, 64, 128\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/12_mnist-ch-0.html">(12) MNIST: (128, 48.0/72.0/64.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/12_mnist-ch-1.html">(12) MNIST: (64/128, 32.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/12_resume-fits.html">(12) Resume fits: play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/17_kyoto16-sigm-whitens.html">(17) Kyoto16: residual error look whitened?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/21_iters-inner.html">(21) effect of n_iters_inner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/27_contrast-latency-explore.html">(27) contrast latency explore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/27_contrast-optim-params.html">(27) contrast latency fig, find optimal params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/31_dists-across-time.html">(31) dists evo across time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-balls.html">Fig: balls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-contrast-latency.html">fig: contrast latency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-convergence.html">Fig: convergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-convergence-ttrain.html">Fig: convergence / T_train</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-phi.html">Fig: phi (dict elements)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/fig-ratedist.html">Fig: rate-distortion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/jobs-amort-emnist.html">jobs: EMNIST (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/jobs-amort-fashion.html">jobs: FashionMNIST (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/jobs-amort-mnist.html">jobs: MNIST (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/jobs-balls-amort-ch.html">jobs: balls64 (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/jobs-iterative-emnist.html">jobs: EMNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/jobs-iterative-fashion.html">jobs: FashionMNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/process-fits-amort.html">process fits, save results (amort)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/process-fits-iterative.html">process fits, save results (iterative)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/process-fits-lca.html">process fits, save results (LCA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/process-fits-pcn.html">process fits, save results (PCN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/table-mnist.html">table: mnist et al.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/tmp-mar25.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/tmp-mar25-Copy1.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/tmp-mar25-Copy2.html">tmp — mar25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-03/tmp-mar25-Copy3.html">tmp — mar25</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">April 2025</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-04.html">Summary</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../md/2025-04_updates.html">Updates</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="03_imgnet-sigmoid.html">(03) ImageNet32: residual error look whitened?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_celeba-sigmoid.html">(04) CelebA: residual error look whitened?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_new-implem-0.html">(08) New Implementation: working?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_new-implem-1.html">(08) New Implementation: working?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_new-implem-2.html">(08) New Implementation: working?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_kyoto-color.html">(09) Kyoto — save color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-ma0.html">(11) Retina+V1: ImageNet32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-ma1.html">(11) Retina+V1: vH16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-ma2.html">(11) Retina+V1: logistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-ma3.html">(11) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-yo0.html">(11) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_retina-v1-hack-yo1.html">(11) Retina+V1: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_retina-v1-noisy-pred-ma1.html">(15) Retina+V1: .rsample() instead of .loc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_retina-v1-overcomplete-retina-ma3.html">(15) Retina+V1: overcomplete retina</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_retina-v1-phi-error-yo1.html">(15) Retina+V1: hack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_retina-v1-v2-yo1.html">(15) Retina+V1+v2 ?!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16_jitter%2Bcrop-yo1.html">(16) Retina+V1: jitter + crop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19_retina-v1-mnist-ma1.html">(19) Retina+V1: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19_retina-v1-mnist-ma2.html">(19) Retina+V1: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19_retina-v1-mnist-ma3.html">(19) Retina+V1: MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_retinav1-gompertz-yo0.html">(20) Retina+V1: gompertz (low V1 beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_retinav1-yo0.html">(20) Retina+V1: logistic (low V1 beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_retinav1-yo1.html">(20) Retina+V1: new fit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_imgnet-ma1.html">(21) Retina+V1: ImageNet32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_kyoto16-col-ma1.html">(21) Retina+V1: Kyoto color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_kyoto16-col-yo0.html">(21) Retina+V1: Kyoto color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21_kyoto16-col-yo1.html">(21) Retina+V1: Kyoto color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23_whitenoise-retina-ma0.html">(23) Retina: white noise analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_balls64-poisson-yo-0.html">(27) poisson + BALLS64: (32, 128.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_balls64-poisson-yo-1.html">(27) poisson + BALLS64: (32, 128.0)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_inner-lr-play.html">(27) poisson: increase inner lr</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">(28) Ringach fig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-balls.html">Fig: balls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-convergence.html">Fig: convergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fig-ratedist.html">Fig: rate-distortion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-iterative-balls.html">jobs: BALLS64</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-iterative-rate-distort.html">Jobs: rate-dist refit gaussian + relu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process-fits-iterative.html">process fits, save results (iterative)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tmp-apr25.html">tmp — apr25</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">May 2025</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../md/2025-05.html">Summary</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../md/2025-05_updates.html">Updates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../2025-05/02_retinav1-yo0.html">(02) Retina+V1: logistic w/o warmup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-05/02_retinav1-yo1.html">(02) Retina+V1: logistic w/ warmup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-05/tmp-may25.html">tmp — may25</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/hadivafaii/jb-progress-2025" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/hadivafaii/jb-progress-2025/issues/new?title=Issue%20on%20page%20%2Fnb/2025-04/28_ringach-play.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/nb/2025-04/28_ringach-play.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>(28) Ringach fig</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load">Load</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-gratings">Prepare gratings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dead-neuron-detection">Dead neuron detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment">experiment</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ringach-fig">
+<h1>(28) Ringach fig<a class="headerlink" href="#ringach-fig" title="Permalink to this heading">#</a></h1>
+<p>project = <code class="docutils literal notranslate"><span class="pre">iP-VAE</span></code>, host = <code class="docutils literal notranslate"><span class="pre">yoru</span></code>, device = <code class="docutils literal notranslate"><span class="pre">cuda:0</span></code></p>
+<p><strong>Motivation</strong>: <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDE CODE</span>
+
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="c1"># tmp &amp; extras dir</span>
+<span class="n">git_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">],</span> <span class="s1">&#39;Dropbox/git&#39;</span><span class="p">)</span>
+<span class="n">extras_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/_extras&#39;</span><span class="p">)</span>
+<span class="n">fig_base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/figs&#39;</span><span class="p">)</span>
+<span class="n">tmp_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/tmp&#39;</span><span class="p">)</span>
+
+<span class="c1"># GitHub</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;_IterativeVAE&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">figures.convergence</span> <span class="kn">import</span> <span class="n">plot_convergence</span>
+<span class="kn">from</span> <span class="nn">figures.imgs</span> <span class="kn">import</span> <span class="n">plot_weights</span>
+<span class="kn">from</span> <span class="nn">figures.fighelper</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">main.train</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># warnings, tqdm, &amp; style</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">DeprecationWarning</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">rich.jupyter</span> <span class="kn">import</span> <span class="nb">print</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">set_style</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">device_idx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">device</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;cuda:</span><span class="si">{</span><span class="n">device_idx</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;device: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">  ———  host: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">uname</span><span class="p">()</span><span class="o">.</span><span class="n">nodename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:0</span>  ———  host: yoru
+</pre>
+</div></div>
+</div>
+<section id="load">
+<h2>Load<a class="headerlink" href="#load" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;poisson_vH16-wht_t-16_b-24_k-[512]_u-10,du-10&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;gold-standard_b200-ep300-lr(0.005)_temp(0.01:0.5)_gr(300)_(2025_04_22,18:28)&#39;</span>
+
+<span class="n">tr</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">meta</span><span class="p">[</span><span class="s1">&#39;checkpoint&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>300
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u0</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">u_init</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">())</span>
+<span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">u0</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f85ae78cdf9e19997bef35bd8cb8cbc5403999b498697126b1c47a620b2c08c4.png" src="../../_images/f85ae78cdf9e19997bef35bd8cb8cbc5403999b498697126b1c47a620b2c08c4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">xtract_ftr</span><span class="p">(</span><span class="n">t_total</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">save_freq</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_data_batches</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████| 1/1 [00:00&lt;00:00,  1.18it/s]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;r2&#39;, &#39;mse&#39;, &#39;state&#39;, &#39;samples&#39;, &#39;du_norm&#39;, &#39;times&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(200, 40, 512)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metabolic_cost_mean</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">metabolic_cost_std</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;times&#39;</span><span class="p">],</span>  <span class="n">metabolic_cost_mean</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">lower</span> <span class="o">=</span> <span class="n">metabolic_cost_mean</span> <span class="o">-</span> <span class="n">metabolic_cost_std</span>
+<span class="n">upper</span> <span class="o">=</span> <span class="n">metabolic_cost_mean</span> <span class="o">+</span> <span class="n">metabolic_cost_std</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;times&#39;</span><span class="p">],</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;metabolic cost&#39;</span><span class="p">)</span>
+<span class="c1"># ax.set(xscale=&#39;log&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/6a3b91ae9423205d987231aa0107ae1af722fd9e14803642561db51c274a7f54.png" src="../../_images/6a3b91ae9423205d987231aa0107ae1af722fd9e14803642561db51c274a7f54.png" />
+</div>
+</div>
+</section>
+<section id="prepare-gratings">
+<h2>Prepare gratings<a class="headerlink" href="#prepare-gratings" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">analysis.tuning</span> <span class="kn">import</span> <span class="n">drifting_grating_feeder</span><span class="p">,</span> <span class="n">drifting_grating_feeder_params</span>
+<span class="kn">from</span> <span class="nn">utils.animation</span> <span class="kn">import</span> <span class="n">show_movie</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta_delta</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">contrast</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">s_freq</span> <span class="o">=</span> <span class="mf">3.0</span>
+
+<span class="n">param_grid</span> <span class="o">=</span> <span class="n">drifting_grating_feeder_params</span><span class="p">(</span>
+    <span class="n">theta_min</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">theta_max</span><span class="o">=</span><span class="mf">170.0</span><span class="p">,</span>
+    <span class="n">theta_delta</span><span class="o">=</span><span class="n">theta_delta</span><span class="p">,</span>
+    <span class="n">contrast_min</span><span class="o">=</span><span class="n">contrast</span><span class="p">,</span>
+    <span class="n">contrast_max</span><span class="o">=</span><span class="n">contrast</span><span class="p">,</span>
+    <span class="n">s_freq_min</span><span class="o">=</span><span class="n">s_freq</span><span class="p">,</span>
+    <span class="n">s_freq_max</span><span class="o">=</span><span class="n">s_freq</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">delta_phase</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">n_frames_for_full_cycle</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">360</span> <span class="o">/</span> <span class="n">delta_phase</span><span class="p">))</span>
+
+<span class="n">feeder</span><span class="p">,</span> <span class="n">feeder_kws</span> <span class="o">=</span> <span class="n">drifting_grating_feeder</span><span class="p">(</span>
+    <span class="n">npix</span><span class="o">=</span><span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cfg</span><span class="o">.</span><span class="n">input_sz</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+    <span class="n">n_frames_per_cycle</span><span class="o">=</span><span class="n">n_frames_for_full_cycle</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_frames_for_full_cycle</span><span class="p">):</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">feeder</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+    <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+<span class="n">frames</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([8, 18, 256])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_movie</span><span class="p">(</span><span class="n">frames</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script language="javascript">
+  function isInternetExplorer() {
+    ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    return ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+  }
+
+  /* Define the Animation class */
+  function Animation(frames, img_id, slider_id, interval, loop_select_id){
+    this.img_id = img_id;
+    this.slider_id = slider_id;
+    this.loop_select_id = loop_select_id;
+    this.interval = interval;
+    this.current_frame = 0;
+    this.direction = 0;
+    this.timer = null;
+    this.frames = new Array(frames.length);
+
+    for (var i=0; i<frames.length; i++)
+    {
+     this.frames[i] = new Image();
+     this.frames[i].src = frames[i];
+    }
+    var slider = document.getElementById(this.slider_id);
+    slider.max = this.frames.length - 1;
+    if (isInternetExplorer()) {
+        // switch from oninput to onchange because IE <= 11 does not conform
+        // with W3C specification. It ignores oninput and onchange behaves
+        // like oninput. In contrast, Microsoft Edge behaves correctly.
+        slider.setAttribute('onchange', slider.getAttribute('oninput'));
+        slider.setAttribute('oninput', null);
+    }
+    this.set_frame(this.current_frame);
+  }
+
+  Animation.prototype.get_loop_state = function(){
+    var button_group = document[this.loop_select_id].state;
+    for (var i = 0; i < button_group.length; i++) {
+        var button = button_group[i];
+        if (button.checked) {
+            return button.value;
+        }
+    }
+    return undefined;
+  }
+
+  Animation.prototype.set_frame = function(frame){
+    this.current_frame = frame;
+    document.getElementById(this.img_id).src =
+            this.frames[this.current_frame].src;
+    document.getElementById(this.slider_id).value = this.current_frame;
+  }
+
+  Animation.prototype.next_frame = function()
+  {
+    this.set_frame(Math.min(this.frames.length - 1, this.current_frame + 1));
+  }
+
+  Animation.prototype.previous_frame = function()
+  {
+    this.set_frame(Math.max(0, this.current_frame - 1));
+  }
+
+  Animation.prototype.first_frame = function()
+  {
+    this.set_frame(0);
+  }
+
+  Animation.prototype.last_frame = function()
+  {
+    this.set_frame(this.frames.length - 1);
+  }
+
+  Animation.prototype.slower = function()
+  {
+    this.interval /= 0.7;
+    if(this.direction > 0){this.play_animation();}
+    else if(this.direction < 0){this.reverse_animation();}
+  }
+
+  Animation.prototype.faster = function()
+  {
+    this.interval *= 0.7;
+    if(this.direction > 0){this.play_animation();}
+    else if(this.direction < 0){this.reverse_animation();}
+  }
+
+  Animation.prototype.anim_step_forward = function()
+  {
+    this.current_frame += 1;
+    if(this.current_frame < this.frames.length){
+      this.set_frame(this.current_frame);
+    }else{
+      var loop_state = this.get_loop_state();
+      if(loop_state == "loop"){
+        this.first_frame();
+      }else if(loop_state == "reflect"){
+        this.last_frame();
+        this.reverse_animation();
+      }else{
+        this.pause_animation();
+        this.last_frame();
+      }
+    }
+  }
+
+  Animation.prototype.anim_step_reverse = function()
+  {
+    this.current_frame -= 1;
+    if(this.current_frame >= 0){
+      this.set_frame(this.current_frame);
+    }else{
+      var loop_state = this.get_loop_state();
+      if(loop_state == "loop"){
+        this.last_frame();
+      }else if(loop_state == "reflect"){
+        this.first_frame();
+        this.play_animation();
+      }else{
+        this.pause_animation();
+        this.first_frame();
+      }
+    }
+  }
+
+  Animation.prototype.pause_animation = function()
+  {
+    this.direction = 0;
+    if (this.timer){
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+  }
+
+  Animation.prototype.play_animation = function()
+  {
+    this.pause_animation();
+    this.direction = 1;
+    var t = this;
+    if (!this.timer) this.timer = setInterval(function() {
+        t.anim_step_forward();
+    }, this.interval);
+  }
+
+  Animation.prototype.reverse_animation = function()
+  {
+    this.pause_animation();
+    this.direction = -1;
+    var t = this;
+    if (!this.timer) this.timer = setInterval(function() {
+        t.anim_step_reverse();
+    }, this.interval);
+  }
+</script>
+
+<style>
+.animation {
+    display: inline-block;
+    text-align: center;
+}
+input[type=range].anim-slider {
+    width: 374px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.anim-buttons {
+    margin: 8px 0px;
+}
+.anim-buttons button {
+    padding: 0;
+    width: 36px;
+}
+.anim-state label {
+    margin-right: 8px;
+}
+.anim-state input {
+    margin: 0;
+    vertical-align: middle;
+}
+</style>
+
+<div class="animation">
+  <img id="_anim_img3c37a4ae791b45d98fd6d7b232faabe9">
+  <div class="anim-controls">
+    <input id="_anim_slider3c37a4ae791b45d98fd6d7b232faabe9" type="range" class="anim-slider"
+           name="points" min="0" max="1" step="1" value="0"
+           oninput="anim3c37a4ae791b45d98fd6d7b232faabe9.set_frame(parseInt(this.value));">
+    <div class="anim-buttons">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim3c37a4ae791b45d98fd6d7b232faabe9.slower()">
+          <i class="fa fa-minus"></i></button>
+      <button title="First frame" aria-label="First frame" onclick="anim3c37a4ae791b45d98fd6d7b232faabe9.first_frame()">
+        <i class="fa fa-fast-backward"></i></button>
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim3c37a4ae791b45d98fd6d7b232faabe9.previous_frame()">
+          <i class="fa fa-step-backward"></i></button>
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim3c37a4ae791b45d98fd6d7b232faabe9.reverse_animation()">
+          <i class="fa fa-play fa-flip-horizontal"></i></button>
+      <button title="Pause" aria-label="Pause" onclick="anim3c37a4ae791b45d98fd6d7b232faabe9.pause_animation()">
+          <i class="fa fa-pause"></i></button>
+      <button title="Play" aria-label="Play" onclick="anim3c37a4ae791b45d98fd6d7b232faabe9.play_animation()">
+          <i class="fa fa-play"></i></button>
+      <button title="Next frame" aria-label="Next frame" onclick="anim3c37a4ae791b45d98fd6d7b232faabe9.next_frame()">
+          <i class="fa fa-step-forward"></i></button>
+      <button title="Last frame" aria-label="Last frame" onclick="anim3c37a4ae791b45d98fd6d7b232faabe9.last_frame()">
+          <i class="fa fa-fast-forward"></i></button>
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim3c37a4ae791b45d98fd6d7b232faabe9.faster()">
+          <i class="fa fa-plus"></i></button>
+    </div>
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select3c37a4ae791b45d98fd6d7b232faabe9"
+          class="anim-state">
+      <input type="radio" name="state" value="once" id="_anim_radio1_3c37a4ae791b45d98fd6d7b232faabe9"
+             >
+      <label for="_anim_radio1_3c37a4ae791b45d98fd6d7b232faabe9">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_3c37a4ae791b45d98fd6d7b232faabe9"
+             checked>
+      <label for="_anim_radio2_3c37a4ae791b45d98fd6d7b232faabe9">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_3c37a4ae791b45d98fd6d7b232faabe9"
+             >
+      <label for="_anim_radio3_3c37a4ae791b45d98fd6d7b232faabe9">Reflect</label>
+    </form>
+  </div>
+</div>
+
+
+<script language="javascript">
+  /* Instantiate the Animation class. */
+  /* The IDs given should match those used in the template above. */
+  (function() {
+    var img_id = "_anim_img3c37a4ae791b45d98fd6d7b232faabe9";
+    var slider_id = "_anim_slider3c37a4ae791b45d98fd6d7b232faabe9";
+    var loop_select_id = "_anim_loop_select3c37a4ae791b45d98fd6d7b232faabe9";
+    var frames = new Array(8);
+    
+  frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAYAAADtt+XCAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
+AAAPYQGoP6dpAAAUYklEQVR4nO3de2iV9QPH8c9pejZXTpvtlqMwrWZCi+Wm1UxqBWFBdiFY2AW7\
+UmmaLQoVr2BlKSyTihQLKSPpzihqRFDU3MaiyDaliymdnbNKXV52juyc3x+64X67nX33fc5Z5/t+\
+wYF6zvPs+foYvfk+3/Oc+WKxWEwAAAzRGckeAADgv4mAAACMEBAAgBECAgAwQkAAAEYICADACAEB\
+ABghIAAAIwQEAGCEgAAAjBAQAIARAgIAMEJAAABGCAgAwAgBAQAYISAAACMEBABghIAAAIwQEACA\
+EQICADBCQAAARggIAMAIAQEAGCEgAAAjBAQAYISAAACMEBAAgBECAgAwQkAAAEYICADACAEBAA9s\
+3rxZd91114D7HDx4UEuWLFFpaalKS0u1fPlyHTt2LEEjHD4CAgCWbdu2TdXV1YPut3DhQu3fv797\
+/2+++UarVq1KwAjtGJXsAQBAqggGg1q6dKkaGxs1adKkAfdtamrSrl27VFNTo8mTJ0uSVq9erfvv\
+v19PPPGE8vLyEjHkYWEGAgCW/PTTTxo3bpw++ugjFRcXD7hvQ0ODcnJyuuMhSWVlZfL5fGpsbPR6\
+qFYwAzll+vTpikQiysnJSfZQAJymra1Nfr9fDQ0NRsfPmzdPgUAg7v1DoZByc3P7fb+2trbf9669\
+9lpde+21cZ0nGAyqoKCgxza/36/x48cPabzJREBOCYfDOnHihNrb24d87N9//2183oyMDKPjhhO6\
+UaPM/tpNrk0X02vE9RmY6fWRzK+R6fWRzK5RJBJRLBYzPmcgEFAgEOj1P+v+9k2U48ePy+/399qe\
+np6ucDicsHEMBwE5JTc3V+3t7Zo/f/6Qj120aJHxea+66iqj47Zt22Z8zokTJxod9+qrrxqfc/Hi\
+xUbH/Zeuz2uvvWZ8TtP/hkyvj2R+jUyvj2R2jbZu3aqsrCzjc0pSQUHBgDOHLhUVFZIGnmXYkpGR\
+oUgk0mt7OBxWZmam5+e3gTUQAE6IxWKDvhIpPz9foVCox7ZIJKJDhw79JxbQJQICAElRWlqq1tZW\
+7du3r3tbXV2dJKmkpCRZwxoSAgLACcmegXR2dqqtrU0dHR2SpOLiYpWUlGjx4sX64Ycf9N1332nF\
+ihWaO3cuMxAAGEmSHZBAIKDy8nLV1NRIknw+nzZt2qTCwkLdc889WrRoka6++mqtXLnS03HYxCI6\
+AHjg2Wef7fHvhYWFamlp6bFtwoQJcT2xPlIREABOSPQiuQu4hQUAMMIMBIATmIHYxwwEAGCEGQiA\
+lBfvp6xisZh8Pl8CRpQamIEAAIwwAwHgBNZA7CMgAJxAQOzjFhYAwAgBAQAY4RYWACdwC8s+ZiAA\
+ACPMQAA4gRmIfcxAAABGmIEAcAIzEPuYgQAAjDADAeAEZiD2ERAATiAg9nELCwBghBkIgJTH17l7\
+gxkIAMAIMxAATmANxD5mIAAAI8xAADiBGYh9BASAEwiIfQQEgBMIiH0EBIATCIh9LKIDAIwwAwHg\
+BGYg9hEQAClvKE+iI34EBIATiIN9rIEAAIwwAwHgBGYg9hEQAE4gIPZxCwsAYIQZCAAnRKPRZA8h\
+5RAQAE7gFpZ93MICABhhBgLACcxA7CMgAFIeT6J7g4AAcAJxsI81EACAEWYgAJzADMQ+AgLACQTE\
+PgICwAkExD7WQAA4oeuTWAO9hisajaq6ulqzZs1ScXGx5s+fr3379vW7//vvv6+LL76412ugY0YS\
+ZiAAnJCIGcjmzZu1Y8cOrVu3Tnl5eVq/fr0eeOABffLJJ/L7/b32b2lpUVlZmTZs2NBje3Z2tudj\
+tYEZCABYEIlEtHXrVi1YsECzZ89WUVGRNm7cqGAwqM8//7zPY/bs2aOioiLl5OT0eKWlpSV49GYI\
+CICUF8/tq+HexmpubtbRo0c1c+bM7m1ZWVm65JJLVF9f3+cxLS0tmjJlivE5k42AAHCC12sgra2t\
+kqSCgoIe23NzcxUIBHrt/88//+ivv/5SfX29brrpJpWXl+vRRx/Vb7/9NqxxJBJrIABwmkAgoIqK\
+in7fr62t7XP78ePHJanXWkd6eroOHz7ca/89e/ZIktLS0vTcc8/p2LFj2rx5s+688059/PHHOuec\
+c0z/CAlDQAA4wetF9IyMDEkn10K6/lmSwuGwxowZ02v/mTNnateuXRo3blz3tpdfflnXXHON3nvv\
+PT344IOejtcGAgLACfEGpKCgoN9ZxmDHSVIoFNJ5553XvT0UCqmoqKjPY06PhyRlZmaqsLBQwWBw\
+yOdPBtZAADghGo0O+hqOoqIinXXWWaqrq+ve1t7ert27d2v69Om99n/rrbc0Y8YMdXR0dG87cuSI\
+fv/99//MwjoBAeAErxfR/X6/5s2bpxdeeEG1tbVqbm7W4sWLlZ+fr+uvv16dnZ1qa2vrDsY111yj\
+WCymp556Snv37tWPP/6oBQsWKDs7W7fccouNP7LnCAgAJyTiSfSFCxfq9ttv17Jly1RZWam0tDRt\
+2bJFfr9fgUBA5eXlqqmpkXTyltcbb7yho0ePqrKyUvfee6/Gjh2rN998s8caykjGGggAWJKWlqaq\
+qipVVVX1eq+wsFAtLS09tk2dOlVbtmxJ1PCsIyAAUh6/kdAbBASAE4iDfQQEgBMIiH0EBIATCIh9\
+BASAEwiIfQQEgBOG+6AgeiMgAFIen8LyBg8SAgCMMAMB4ARmF/YREABOICD2ERAATiAg9hEQAE4g\
+IPYREABOICD2ERAATiAg9hEQAE4gIPYREAApjwcJvUFAADiBONhHQAA4gYDYR0AAOIGA2EdAADiB\
+gNhHQAA4gYDYR0AAOIGA2MfXuQMAjDADAZDyeA7EGwQEgBM6OzuTPYSUQ0AAOIHZhX0EBIATCIh9\
+BASAE6LRaLKHkHIICICUxyK6NwgIACcQB/sICAAnEBD7CAgAJxAQ+wgIACewiG4fAQHgBAJiHwEB\
+kPL4FJY3CAgAJzADsY+AAHACswv7CAgAJxAQ+wgIACcQEPsICAAnEBD7CAiAlBeLxeJaRCcyQ0NA\
+ADiBONhHQAA4gY/x2kdAADiBgNhHQAA4gVtY9hEQACmPrzLxxhnJHgAAJEJXRAZ6DVc0GlV1dbVm\
+zZql4uJizZ8/X/v27et3/4MHD2rJkiUqLS1VaWmpli9frmPHjg17HIlCQAA4IREB2bx5s3bs2KG1\
+a9fqnXfekc/n0wMPPKBIJNLn/gsXLtT+/fu1bds2VVdX65tvvtGqVauGPY5EISAAnBCNRgd9DUck\
+EtHWrVu1YMECzZ49W0VFRdq4caOCwaA+//zzXvs3NTVp165dWrdunaZNm6YrrrhCq1ev1ocffqhg\
+MDissSQKAQHgBK9nIM3NzTp69KhmzpzZvS0rK0uXXHKJ6uvre+3f0NCgnJwcTZ48uXtbWVmZfD6f\
+GhsbhzWWRGERHYATvF4gb21tlSQVFBT02J6bm6tAINBr/2Aw2Gtfv9+v8ePH97n/SERAAKS8oXwK\
+KxAIqKKiot99amtr+9x+/PhxSScjcLr09HQdPny4z/3/f9+u/cPh8KBjHQkICAAndHZ2evrzMzIy\
+JJ1cC+n6Z0kKh8MaM2ZMn/v3tbgeDoeVmZnp3UAtIiAAnBDvLayCgoJ+ZxmDHSdJoVBI5513Xvf2\
+UCikoqKiXvvn5+friy++6LEtEono0KFDysvLG/L5k4FFdABO8HoRvaioSGeddZbq6uq6t7W3t2v3\
+7t2aPn16r/1LS0vV2tra4zmRrmNLSkqGNZZEYQYCwAleL6L7/X7NmzdPL7zwgrKzszVx4kStX79e\
++fn5uv7669XZ2al//vlHY8eOVUZGhoqLi1VSUqLFixdr5cqVOnbsmFasWKG5c+cyAwGAkSQRDxIu\
+XLhQt99+u5YtW6bKykqlpaVpy5Yt8vv9CgQCKi8vV01NjSTJ5/Np06ZNKiws1D333KNFixbp6quv\
+1sqVK4c9jkRhBgIg5SXqu7DS0tJUVVWlqqqqXu8VFhaqpaWlx7YJEyaourp6WOdMJgICwAl8UaJ9\
+BASAEwiIfQQEgBMIiH0EBIATvH6Q0EUEBEDK4xdKeYOAAHACcbCPgABwAgGxj4AAcAIBsY+AAHAC\
+AbGPgABwAgGxj4AAcAIBsY+AAHACAbGPgABIebFYLK4HCYnM0BAQAE4gDvYREABOICD2ERAATiAg\
+9hEQAE4gIPYREAApjy9T9AYBAeAE4mAfAQHgBAJiHwEB4AQCYh8BAeAEfiOhfQQEgBOYgdhHQACk\
+PD6F5Q0CAsAJxME+AgLACQTEPgICwAkExD4CAsAJBMQ+AgLACQTEPgICwAkExD4CAiDlxWIxRaPR\
+uPZD/AgIACcQB/sICAAnEBD7CAgAJxAQ+wgIACcQEPsICAAnEBD7CAgAJxAQ+wgIgJTHt/F6g4AA\
+cAJxsI+AAHACAbGPgABwQjxPomNoCAgAJzADsY+AAHACAbGPgABwAgGxj4AASHl8jNcbBASAE1hE\
+t4+AAHDCSJhdhMNhPfvss/r000/V0dGhWbNmacWKFZowYUK/x2zatEkvvfRSr+0//fSTRo1K7v/C\
+CQgAJ4yEgKxcuVKNjY166aWX5Pf7tWLFCj3++OPavn17v8e0tLTo5ptvVlVVVY/tyY6HREAAOCLZ\
+AQkGg/rggw/06quvavr06ZKkDRs26IYbbtD333+vyy67rM/j9uzZo8rKSuXk5CRwtPE5I9kDAACv\
+df1K28FeXkamsbFRkjRjxozubZMmTVJeXp7q6+v7POb48eP6448/NGXKFM/GNRzMQAA4Id44BAIB\
+VVRU9Pt+bW2t0fmDwaDOPvtspaen99iem5urQCDQ5zF79+5VNBrVp59+qtWrVysSiaisrExPPvmk\
+cnNzjcZhEwEB4ASvb2EdOHBgwPA8/vjj8vv9vbanp6crHA73eczevXslSWPHjlV1dbX++usvbdiw\
+QXfffbfef/99jRkzxs7gDREQAE6INyAFBQVGs4y8vDzV1NT0+/5XX32lSCTSa3s4HO43BLfddpuu\
+u+46jRs3rnvbhRdeqNmzZ+vLL7/UnDlzhjxOmwgIACd4/RzI6NGjNXny5H7fb2lp0aFDhxSJRHrM\
+REKhkPLz8/s97vR4SCdDNX78eLW2tg5/0MPEIjoAJ3Q9jT7Qy0uXX365otFo92K6JP36668KBoPd\
+n8r6fy+++KLmzJnTY2wHDhzQwYMHR8TCOgEBkPJGwqew8vLydOONN2rZsmWqq6vTDz/8oCVLlqis\
+rKz7I7yRSERtbW3dt7puuOEG7d+/X2vWrNFvv/2m+vp6LViwQCUlJZo1a5ZnY40XAQHghGTPQCRp\
+zZo1uuKKK/TYY4/pvvvu0wUXXKDq6uru95uamlReXq6mpiZJ0rRp0/T666/r559/1q233qrHHntM\
+U6dO1SuvvCKfz+f5eAfDGggAJ4yE78LKzMzU2rVrtXbt2j7fnzFjhlpaWnpte/vttxMxvCEjIACc\
+MBICkmoICICU17UGEs9+iB8BAeAE4mAfAQHgBG5h2UdAADiBGYh9BASAEwiIfQQEgBO4hWUfAQGQ\
+8uJ9UJBZytAQEABOYAZiHwEB4AQCYh8BAeAEAmIfAQGQ8lgD8QYBAeAEZiD2ERAATmB2YR8BAeAE\
+ZiD2ERAATmAGYh8BAeAEAmIfAQGQ8vh9IN4gIACcQBzsIyAAnNDZ2ZnsIaQcAgLACcxA7CMgAFJe\
+vE+iY2gICAAnxBMQn8+XgJGkDgICwAkExD4CAsAJ3MKyj4AAcAIBsY+AAHAC34VlHwEBkPL4fSDe\
+ICAAnMAMxD4CAsAJzC7sIyAAnEBA7CMgAJzALSz7CAgAJzADsY+AAEh5fArLGwQEgBOIg30EBIAT\
+CIh9BASAEwiIfQQEgBP4jYT2ERAAKY9FdG8QEABOIA72ERAATiAg9hEQAE4gIPYREABO4KtM7CMg\
+AJzADMQ+AgLACQTEvjOSPQAA8FrXx3jjeSXK0qVL9fTTTw+634EDB/TQQw+ppKREV155pdavXz9i\
+nmkhIACcEI1GB30lQmdnp5577jnt3Llz0H1PnDih++67Tz6fTzt27NDq1au1c+dOvfzyywkY6eC4\
+hQXACSNhEf2XX37RM888o/379+vcc88ddP/PPvtMf/75p959911lZWXpoosu0t9//63nn39eDz/8\
+sPx+fwJG3T9mIACcMBJuX+3atUtTp07VJ598osLCwkH3b2ho0LRp05SVldW9bebMmTpy5Iiam5u9\
+HGpcmIEAcMJIWESvrKwc0v6tra3Kz8/vsS03N1eS9Oeff+rSSy+1NjYTBOSUUCikEydOaOvWrUM+\
+duLEicbnbW1tNTrurrvuMj7nqFFmf+3t7e3G5zS9RlyfgZleH8n8GpleH8nsGv3777/q6OgwPqd0\
+csznn39+XPsFAgFVVFT0u09tbW2f2w8cODDgcV9//bVycnIGH+xpOjo6esw+JCk9PV2SFA6Hh/Sz\
+vEBATklPT5fP5+v1lxUPk2P+i4bz53ThGnF9Bmfy5wyHw8O6119QUDCk/UOhkNF58vLyVFNT0+/7\
+2dnZQ/6ZGRkZikQiPbZ1hSMzM3PIP882AnJKQ0NDsocAwAPbt29PyHlGjx6tyZMnW/2Z+fn52rNn\
+T49tXYHLy8uzei4TLKIDwAhVWlqq3bt368iRI93bvv32W5155pkqKipK4shOIiAAMEJEIhG1tbV1\
+37a67rrrlJOTo0WLFqm5uVlffPGFNm7cqPnz5yf9I7wSAQGAEaOpqUnl5eVqamqSdHJt9vXXX1c0\
+GtUdd9yhVatW6c4779QjjzyS5JGe5IuNhM+2AQD+c5iBAACMEBAAgBECAgAwQkAAAEYICADACAEB\
+ABghIAAAIwQEAGCEgAAAjBAQAIARAgIAMEJAAABGCAgAwAgBAQAYISAAACMEBABghIAAAIwQEACA\
+EQICADBCQAAARggIAMAIAQEAGCEgAAAjBAQAYISAAACMEBAAgBECAgAw8j/32mvXkZ8usAAAAABJ\
+RU5ErkJggg==\
+"
+  frames[1] = "data:image/png;base64,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\
+"
+  frames[2] = "data:image/png;base64,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\
+eaVWr149ZD7TQkAAOCEWi/X7SIVoNKpVq1bpgw8+6Hfs33//rQceeEA+n09btmzRihUr9MEHH+i1\
+115LwUz7xy0sAE4YCpvoP//8s5599lkdOHBA5557br/jP//8cx06dEjvv/++Ro0apYsvvlh//PGH\
+XnrpJT3yyCPy+/0pmHXvWIEAcMJQuH21Y8cOTZo0SVu3blVxcXG/4xsbGzV58mSNGjWq69i0adN0\
+7NgxtbS0eDnVpLACAeCEobCJXl1dPaDxbW1tKiws7HYsPz9fknTo0CFddtll1uZmgoD8KxQKKRqN\
+qqqqasDndnR0GF93+PDhxueaevrpp43Oy8nJMb6m6WvE69O30+n1kcxeo0AgoKysLONrStKwYcN0\
+/vnnJzUuEAj0+XOgvr6+x+MHDx7s87xvvvlGeXl5/U/2Pzo6OrqtPiQpOztbkhQOhwf0Z3mBgPwr\
+OztbkUjE6NzB/OAYP3688bmnE9PXiNenby68PsOGDRvUvf6ioqIBjQ+FQkbXKSgoUF1dXa/Pjx07\
+dsB/Zk5OTsLPpc5w5ObmDvjPs42A/KuxsTHdUwDggbfffjsl1znzzDM1ceJEq39mYWGh9uzZ0+1Y\
+Z+AKCgqsXssEm+gAMESVl5dr9+7dOnbsWNex7777TmeddZZKSkrSOLNTCAgADBGRSETt7e1dt62u\
+vfZa5eXlacGCBWppadGXX36ptWvXavbs2Wl/C69EQABgyGhublZlZaWam5slndqb3bBhg2KxmO68\
+804tX75cd999tx599NE0z/QUX3wovLcNAHDaYQUCADBCQAAARggIAMAIAQEAGCEgAAAjBAQAYISA\
+AACMEBAAgBECAgAwQkAAAEYICADACAEBABghIAAAIwQEAGCEgAAAjBAQAIARAgIAMEJAAABGCAgA\
+wAgBAQAYISAAACMEBABghIAAAIwQEACAEQICADBCQAAARggIAMDI/wDg51meB1DA8wAAAABJRU5E\
+rkJggg==\
+"
+  frames[3] = "data:image/png;base64,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\
+"
+  frames[4] = "data:image/png;base64,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\
+JAAAAABJRU5ErkJggg==\
+"
+  frames[5] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAYAAADtt+XCAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
+bGliIHZlcnNpb24zLjkuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8hTgPZAAAACXBIWXMAAA9h\
+AAAPYQGoP6dpAAAUQElEQVR4nO3df2jU9QPH8dc1vc2VP9L2q9YPsx9TocVyU2MmtQSxIPtBsLAU\
++/1D02xRpPgTrCyFZVagYiFlJJklw9ARQVG6jUWRbUo/zNHttkoLnd7F7r5/2Eb73n7c3nt/7ta9\
+nw84qM+9P97bj+WT9+d9d/NFo9GoAADop3OSPQEAwH8TAQEAGCEgAAAjBAQAYISAAACMEBAAgBEC\
+AgAwQkAAAEYICADACAEBABghIAAAIwQEAGCEgAAAjBAQAIARAgIAMEJAAABGCAgAwAgBAQAYISAA\
+ACMEBABghIAAAIwQEACAEQICADBCQAAARggIAMAIAQEAGCEgAAAjBAQAYISAAACMEBAAgBECAgAe\
+2LRpk+69995exxw/flxLlixRcXGxiouLtWzZMrW1tSVohgNHQADAsm3btqmysrLPcQsXLtSxY8c6\
+x3/xxRdauXJlAmZox5BkTwAAUkUwGNTzzz+vuro6jR07ttex9fX1OnjwoKqqqjRu3DhJ0qpVq/TA\
+Aw/oqaeeUk5OTiKmPCCsQADAku+++04jR47URx99pMLCwl7H1tbWKisrqzMeklRSUiKfz6e6ujqv\
+p2oFK5B/TJo0SeFwWFlZWcmeCoB/aW1tld/vV21trdH5c+bMUSAQiHt8S0uLsrOze3y+urq6x+du\
+uukm3XTTTXG9TjAYVF5eXpdjfr9fo0aN6td8k4mA/CMUCikcDqupqanf5w5kqTl06FCj8way0dbS\
+0mJ03pAh5v+5mF4jrk/vTK+PZH6NTK+PZH6NotGo8WsGAgEFAoGYv6x7Gpsop0+flt/vjzmenp6u\
+UCiUsHkMBAH5R3Z2tpqamrr9A+3L66+/bvy6EyZMMDpv9+7dxq85b948o/Muvvhi49c0vUZcn96Z\
+Xh/J/BqZXh/J7BqFw+FeVwTxyMvL63Xl0KGsrExS76sMWzIyMhQOh2OOh0IhZWZmev76NrAHAsAJ\
+0Wi0z0ci5ebmxqzmwuGwTpw48Z/YQJcICAAkRXFxsZqbm3X06NHOYwcOHJAkFRUVJWta/UJAADgh\
+2SuQ9vZ2tba26syZM5KkwsJCFRUVafHixfrmm2/01Vdfafny5Zo9ezYrEAAYTJIdkEAgoNLSUlVV\
+VUmSfD6fNm7cqPz8fM2dO1eLFi3SDTfcoBUrVng6D5vYRAcAD7zwwgtd/j0/P1+NjY1djo0ZMyau\
+T6wPVgQEgBMSvUnuAm5hAQCMsAIB4ARWIPaxAgEAGGEFAiDlxfsuq2g0Kp/Pl4AZpQZWIAAAI6xA\
+ADiBPRD7CAgAJxAQ+7iFBQAwQkAAAEa4hQXACdzCso8VCADACCsQAE5gBWIfKxAAgBFWIACcwArE\
+PlYgAAAjrEAAOIEViH0EBIATCIh93MICABhhBQIg5fF17t5gBQIAMMIKBIAT2AOxjxUIAMAIKxAA\
+TmAFYh8BAeAEAmIfAQHgBAJiHwEB4AQCYh+b6AAAI6xAADiBFYh9BARAyuvPJ9ERPwICwAnEwT72\
+QAAARliBAHACKxD7CAgAJxAQ+7iFBQAwwgoEgBMikUiyp5ByCAgAJ3ALyz5uYQEAjLACAeAEViD2\
+ERAAKY9PonuDgABwAnGwjz0QAIARViAAnMAKxD4CAsAJBMQ+AgLACQTEPvZAADih451YvT0GKhKJ\
+qLKyUtOmTVNhYaHmz5+vo0eP9jh+165duvrqq2MevZ0zmLACAeCERKxANm3apB07dmjt2rXKycnR\
+unXr9OCDD2rPnj3y+/0x4xsbG1VSUqL169d3OT569GjP52oDKxAAsCAcDmvr1q1asGCBpk+froKC\
+Am3YsEHBYFD79u3r9pzDhw+roKBAWVlZXR5paWkJnr0ZAgIg5cVz+2qgt7EaGhp06tQpTZkypfPY\
+iBEjNGHCBNXU1HR7TmNjo6644grj10w2AgLACV7vgTQ3N0uS8vLyuhzPzs5WIBCIGf/HH3/ot99+\
+U01NjW699VaVlpbq8ccf108//TSgeSQSeyAA8C+BQEBlZWU9Pl9dXd3t8dOnT0tSzF5Henq6/vzz\
+z5jxhw8fliSlpaXpxRdfVFtbmzZt2qR77rlHH3/8sS644ALT30LCEBAATvB6Ez0jI0PS2b2Qjn+W\
+pFAopGHDhsWMnzJlig4ePKiRI0d2Hnvttdd044036oMPPtBDDz3k6XxtICAAnBBvQPLy8npcZfR1\
+niS1tLTokksu6Tze0tKigoKCbs/5dzwkKTMzU/n5+QoGg/1+/WRgDwSAEyKRSJ+PgSgoKNB5552n\
+AwcOdB7766+/dOjQIU2aNClm/DvvvKPJkyfrzJkzncdOnjypn3/++T+zsU5AADjB6010v9+vOXPm\
+6OWXX1Z1dbUaGhq0ePFi5ebmasaMGWpvb1dra2tnMG688UZFo1E988wzOnLkiL799lstWLBAo0eP\
+1u23327jt+w5AgLACYn4JPrChQt11113aenSpSovL1daWpq2bNkiv9+vQCCg0tJSVVVVSTp7y+ut\
+t97SqVOnVF5ernnz5mn48OF6++23u+yhDGbsgQCAJWlpaaqoqFBFRUXMc/n5+WpsbOxybPz48dqy\
+ZUuipmcdAQGQ8viJhN4gIACcQBzsIyAAnEBA7CMgAJxAQOwjIACcQEDsIyAAnDDQDwoiFgEBkPJ4\
+F5Y3+CAhAMAIKxAATmB1YR8BAeAEAmIfAQHgBAJiHwEB4AQCYh8BAeAEAmIfAQHgBAJiHwEB4AQC\
+Yh8BAZDy+CChNwgIACcQB/sICAAnEBD7CAgAJxAQ+wgIACcQEPsICAAnEBD7CAgAJxAQ+/g6dwCA\
+EVYgAFIenwPxBgEB4IT29vZkTyHlEBAATmB1YR8BAeAEAmIfAQHghEgkkuwppBwCAiDlsYnuDQIC\
+wAnEwT4CAsAJBMQ+AgLACQTEPgICwAlsottHQAA4gYDYR0AApDzeheUNAgLACaxA7CMgAJzA6sI+\
+AgLACQTEPgICwAkExD4CAsAJBMQ+AgIg5UWj0bg20YlM/xAQAE4gDvYREABO4G289hEQAE4gIPYR\
+EABO4BaWfQQEQMrjq0y8cU6yJwAAidARkd4eAxWJRFRZWalp06apsLBQ8+fP19GjR3scf/z4cS1Z\
+skTFxcUqLi7WsmXL1NbWNuB5JAoBAeCERARk06ZN2rFjh9asWaP33ntPPp9PDz74oMLhcLfjFy5c\
+qGPHjmnbtm2qrKzUF198oZUrVw54HolCQAA4IRKJ9PkYiHA4rK1bt2rBggWaPn26CgoKtGHDBgWD\
+Qe3bty9mfH19vQ4ePKi1a9dq4sSJmjp1qlatWqXdu3crGAwOaC6JQkAAOMHrFUhDQ4NOnTqlKVOm\
+dB4bMWKEJkyYoJqampjxtbW1ysrK0rhx4zqPlZSUyOfzqa6ubkBzSRQ20QE4wesN8ubmZklSXl5e\
+l+PZ2dkKBAIx44PBYMxYv9+vUaNGdTt+MCIgAFJef96FFQgEVFZW1uOY6urqbo+fPn1a0tkI/Ft6\
+err+/PPPbsf//9iO8aFQqM+5DgYEBIAT2tvbPf31MzIyJJ3dC+n4Z0kKhUIaNmxYt+O721wPhULK\
+zMz0bqIWERAAToj3FlZeXl6Pq4y+zpOklpYWXXLJJZ3HW1paVFBQEDM+NzdX+/fv73IsHA7rxIkT\
+ysnJ6ffrJwOb6ACc4PUmekFBgc477zwdOHCg89hff/2lQ4cOadKkSTHji4uL1dzc3OVzIh3nFhUV\
+DWguicIKBIATvN5E9/v9mjNnjl5++WWNHj1aF110kdatW6fc3FzNmDFD7e3t+uOPPzR8+HBlZGSo\
+sLBQRUVFWrx4sVasWKG2tjYtX75cs2fPZgUCAINJIj5IuHDhQt11111aunSpysvLlZaWpi1btsjv\
+9ysQCKi0tFRVVVWSJJ/Pp40bNyo/P19z587VokWLdMMNN2jFihUDnkeisAIBkPIS9V1YaWlpqqio\
+UEVFRcxz+fn5amxs7HJszJgxqqysHNBrJhMBAeAEvijRPgICwAkExD4CAsAJBMQ+AgLACV5/kNBF\
+BARAyuMHSnmDgABwAnGwj4AAcAIBsY+AAHACAbGPgABwAgGxj4AAcAIBsY+AAHACAbGPgABwAgGx\
+j4AASHnRaDSuDxISmf4hIACcQBzsIyAAnEBA7CMgAJxAQOwjIACcQEDsIyAAUh5fpugNAgLACcTB\
+PgICwAkExD4CAsAJBMQ+AgLACfxEQvsICAAnsAKxj4AASHm8C8sbBASAE4iDfQQEgBMIiH0EBIAT\
+CIh9BASAEwiIfQQEgBMIiH0EBIATCIh9BARAyotGo4pEInGNQ/wICAAnEAf7CAgAJxAQ+wgIACcQ\
+EPsICAAnEBD7CAgAJxAQ+wgIACcQEPsICICUx7fxeoOAAHACcbCPgABwAgGxj4AAcEI8n0RH/xAQ\
+AE5gBWIfAQHgBAJiHwEB4AQCYh8BAZDyeBuvNwgIACewiW4fAQHghMGwugiFQnrhhRe0d+9enTlz\
+RtOmTdPy5cs1ZsyYHs/ZuHGjXn311Zjj3333nYYMSe5f4QQEgBMGQ0BWrFihuro6vfrqq/L7/Vq+\
+fLmefPJJbd++vcdzGhsbddttt6mioqLL8WTHQyIgAByR7IAEg0F9+OGHevPNNzVp0iRJ0vr16zVz\
+5kx9/fXXuvbaa7s97/DhwyovL1dWVlYCZxufc5I9AQDwWsePtO3r4WVk6urqJEmTJ0/uPDZ27Fjl\
+5OSopqam23NOnz6tX375RVdccYVn8xoIViAAnBBvHAKBgMrKynp8vrq62uj1g8Ggzj//fKWnp3c5\
+np2drUAg0O05R44cUSQS0d69e7Vq1SqFw2GVlJTo6aefVnZ2ttE8bCIgAJzg9S2spqamXsPz5JNP\
+yu/3xxxPT09XKBTq9pwjR45IkoYPH67Kykr99ttvWr9+ve677z7t2rVLw4YNszN5QwQEgBPiDUhe\
+Xp7RKiMnJ0dVVVU9Pv/ZZ58pHA7HHA+FQj2G4M4779TNN9+skSNHdh678sorNX36dH366aeaNWtW\
+v+dpEwEB4ASvPwcydOhQjRs3rsfnGxsbdeLECYXD4S4rkZaWFuXm5vZ43r/jIZ0N1ahRo9Tc3Dzw\
+SQ8Qm+gAnNDxafTeHl667rrrFIlEOjfTJenHH39UMBjsfFfW/3vllVc0a9asLnNramrS8ePHB8XG\
+OgEBkPIGw7uwcnJydMstt2jp0qU6cOCAvvnmGy1ZskQlJSWdb+ENh8NqbW3tvNU1c+ZMHTt2TKtX\
+r9ZPP/2kmpoaLViwQEVFRZo2bZpnc40XAQHghGSvQCRp9erVmjp1qp544gndf//9uvzyy1VZWdn5\
+fH19vUpLS1VfXy9JmjhxojZv3qzvv/9ed9xxh5544gmNHz9eb7zxhnw+n+fz7Qt7IACcMBi+Cysz\
+M1Nr1qzRmjVrun1+8uTJamxsjDn27rvvJmJ6/UZAADhhMAQk1RAQACmvYw8knnGIHwEB4ATiYB8B\
+AeAEbmHZR0AAOIEViH0EBIATCIh9BASAE7iFZR8BAZDy4v2gIKuU/iEgAJzACsQ+AgLACQTEPgIC\
+wAkExD4CAiDlsQfiDQICwAmsQOwjIACcwOrCPgICwAmsQOwjIACcwArEPgICwAkExD4CAiDl8fNA\
+vEFAADiBONhHQAA4ob29PdlTSDkEBIATWIHYR0AApLx4P4mO/iEgAJwQT0B8Pl8CZpI6CAgAJxAQ\
++wgIACdwC8s+AgLACQTEPgICwAl8F5Z9BARAyuPngXiDgABwAisQ+wgIACewurCPgABwAgGxj4AA\
+cAK3sOwjIACcwArEPgICIOXxLixvEBAATiAO9hEQAE4gIPYREABOICD2ERAATuAnEtpHQACkPDbR\
+vUFAADiBONhHQAA4gYDYR0AAOIGA2EdAADiBrzKxj4AAcAIrEPsICAAnEBD7zkn2BADAax1v443n\
+kSjPP/+8nn322T7HNTU16eGHH1ZRUZGuv/56rVu3btB8poWAAHBCJBLp85EI7e3tevHFF7Vz584+\
+x/7999+6//775fP5tGPHDq1atUo7d+7Ua6+9loCZ9o1bWACcMBg20X/44Qc999xzOnbsmC688MI+\
+x3/yySf69ddf9f7772vEiBG66qqr9Pvvv+ull17SI488Ir/fn4BZ94wVCAAnDIbbVwcPHtT48eO1\
+Z88e5efn9zm+trZWEydO1IgRIzqPTZkyRSdPnlRDQ4OXU40LKxAAThgMm+jl5eX9Gt/c3Kzc3Nwu\
+x7KzsyVJv/76q6655hprczNBQP7R0tIiSQqHw/0+99FHHzV+3aFDhxqd19bWZvyaY8aMMTrP5Np0\
+ML1GXJ/emV4fyfwamV4fyfwadfz/aWrIkCG69NJL4xoXCARUVlbW45jq6upujzc1NfV63ueff66s\
+rKy+J/svZ86c6bL6kKT09HRJUigU6tev5QUC8o/09HT5fL5+/wEnS2ZmpvG5l112mb2JDFJcn76Z\
+XqNEX5/W1tYB3evPy8vr13jTWOXk5KiqqqrH50ePHt3vXzMjIyMmuh3hGMh/47YQkH/U1tYmewoA\
+PLB9+/aEvM7QoUM1btw4q79mbm6uDh8+3OVYR+BycnKsvpYJNtEBYJAqLi7WoUOHdPLkyc5jX375\
+pc4991wVFBQkcWZnERAAGCTC4bBaW1s7b1vdfPPNysrK0qJFi9TQ0KD9+/drw4YNmj9/ftLfwisR\
+EAAYNOrr61VaWqr6+npJZ/dmN2/erEgkorvvvlsrV67UPffco8ceeyzJMz3LFx0M720DAPznsAIB\
+ABghIAAAIwQEAGCEgAAAjBAQAIARAgIAMEJAAABGCAgAwAgBAQAYISAAACMEBABghIAAAIwQEACA\
+EQICADBCQAAARggIAMAIAQEAGCEgAAAjBAQAYISAAACMEBAAgBECAgAwQkAAAEYICADACAEBABgh\
+IAAAIwQEAGDkf7BSZI2lupdEAAAAAElFTkSuQmCC\
+"
+  frames[6] = "data:image/png;base64,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\
+EACAkf8DLaBfzjkWusAAAAAASUVORK5CYII=\
+"
+  frames[7] = "data:image/png;base64,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\
+"
+
+
+    /* set a timeout to make sure all the above elements are created before
+       the object is initialized. */
+    setTimeout(function() {
+        anim3c37a4ae791b45d98fd6d7b232faabe9 = new Animation(frames, img_id, slider_id, 50.0,
+                                 loop_select_id);
+    }, 0);
+  })()
+</script>
+</div></div>
+</div>
+</section>
+<section id="dead-neuron-detection">
+<h2>Dead neuron detection<a class="headerlink" href="#dead-neuron-detection" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stimuli</span> <span class="o">=</span> <span class="n">frames</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">end_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">stimuli</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([144, 256])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_total</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">spikes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">stimuli</span><span class="p">),</span> <span class="n">t_total</span><span class="p">,</span> <span class="mi">512</span><span class="p">))</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">stimuli</span><span class="p">),</span> <span class="n">t_total</span><span class="p">))</span>
+
+<span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reset_inference_state</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stimuli</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">t_total</span><span class="p">)):</span>
+    <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">update_time</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">xtract_ftr</span><span class="p">(</span><span class="n">stimuli</span><span class="p">,</span> <span class="n">return_extras</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">,</span> <span class="s1">&#39;r2&#39;</span><span class="p">])</span>
+    <span class="n">spikes</span><span class="p">[:,</span> <span class="n">t</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">])</span>
+    <span class="n">r2</span><span class="p">[:,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;r2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████| 1000/1000 [00:11&lt;00:00, 89.02it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">r2</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4a9cbb54bba12e39ffe58d3994db5b72f2bf79412d14d3a5072095aff536ae99.png" src="../../_images/4a9cbb54bba12e39ffe58d3994db5b72f2bf79412d14d3a5072095aff536ae99.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.88256727, 0.88004593, 0.87531322, 0.87920285, 0.88242208])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spk_mu</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">spk_sd</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">spk_snr</span> <span class="o">=</span> <span class="n">spk_mu</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">spk_sd</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">)</span>
+
+<span class="n">spk_mu</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">spk_sd</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((1000, 512), (1000, 512))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">active</span> <span class="o">=</span> <span class="n">spk_sd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="n">active</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spk_mu</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">40</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spk_mu</span><span class="p">[:,</span> <span class="n">active</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/85f51ae16c6e6d1c3871f1cd621920314820f54d1be272a26a11ee7a419c66c5.png" src="../../_images/85f51ae16c6e6d1c3871f1cd621920314820f54d1be272a26a11ee7a419c66c5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">spk_mu</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;spike mu&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">spk_sd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;spike sd&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">spk_snr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mu / sd&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">spk_mu</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">active</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;spike mu&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">spk_sd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">active</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;spike sd&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">spk_snr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">active</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mu / sd&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">add_legend</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e8ad247e76b5ecf729ceb7824b566b9bd8477a4dd141b224f9b9ffebe806870f.png" src="../../_images/e8ad247e76b5ecf729ceb7824b566b9bd8477a4dd141b224f9b9ffebe806870f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">active</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9cb4a7ea7a6d5c26bd9c9128987b1f2204a803cd5aec930e3a483a2afab3bf7c.png" src="../../_images/9cb4a7ea7a6d5c26bd9c9128987b1f2204a803cd5aec930e3a483a2afab3bf7c.png" />
+</div>
+</div>
+</section>
+<section id="experiment">
+<h2>experiment<a class="headerlink" href="#experiment" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stimuli</span> <span class="o">=</span> <span class="n">frames</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">end_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">vld_set</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">dl_vld</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">start_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">stimuli</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">vld_set</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(torch.Size([144, 256]), torch.Size([25791, 256]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_sessions</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">t_presentation</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">n_trials_per_batch</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">3000</span>
+<span class="n">n_trials</span> <span class="o">=</span> <span class="n">n_trials_per_batch</span> <span class="o">*</span> <span class="n">batch_size</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phi</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">get_weight</span><span class="p">())</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">phi</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">phi</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">norms_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">norms_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">norms_phi</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">norms_w</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((512,), (512,))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">norms_phi</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;norms_phi&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">norms_w</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;norms_w&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">add_legend</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/6aa346040f0441e395fbc1263e8b92d191bfcdc388de8eaa67038c37d73cf5db.png" src="../../_images/6aa346040f0441e395fbc1263e8b92d191bfcdc388de8eaa67038c37d73cf5db.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stim_ids</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_sessions</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">t_presentation</span> <span class="o">*</span> <span class="n">n_trials_per_batch</span><span class="p">)</span>
+<span class="n">spikes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="o">*</span><span class="n">shape</span><span class="p">,</span> <span class="mi">512</span><span class="p">))</span>
+<span class="n">metabolic_cost</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">normalzied_metabolic_cost</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">portion_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ses_i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_sessions</span><span class="p">)):</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">get_rng</span><span class="p">(</span><span class="n">ses_i</span><span class="p">)</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stimuli</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">n_trials</span><span class="p">)</span>
+    <span class="n">stim_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">stimuli</span><span class="p">[</span><span class="n">ids</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">n_trials_per_batch</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># ids = rng.choice(len(vld_set), size=n_trials, replace=False)</span>
+    <span class="c1"># x = vld_set[ids].reshape(batch_size, n_trials_per_batch, -1)</span>
+
+    <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cfg</span><span class="o">.</span><span class="n">set_seeds</span><span class="p">(</span><span class="n">ses_i</span><span class="p">)</span>
+    <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reset_inference_state</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">trial_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials_per_batch</span><span class="p">):</span>
+        <span class="n">current_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="n">trial_i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">time_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t_presentation</span><span class="p">):</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">trial_i</span> <span class="o">*</span> <span class="n">t_presentation</span> <span class="o">+</span> <span class="n">time_i</span>
+            <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">update_time</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">xtract_ftr</span><span class="p">(</span><span class="n">current_x</span><span class="p">,</span> <span class="n">return_extras</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">,</span> <span class="s1">&#39;r2&#39;</span><span class="p">])</span>
+            <span class="c1"># if trial_i == 2:  # skip first trial, treat it as warmup</span>
+            
+            <span class="n">spikes</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">])</span>
+            <span class="n">spikes</span> <span class="o">=</span> <span class="n">spikes</span><span class="p">[:,</span> <span class="n">active</span><span class="p">]</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">norms_w</span><span class="p">[</span><span class="n">active</span><span class="p">]</span>
+    
+            <span class="n">cost</span> <span class="o">=</span> <span class="n">spikes</span> <span class="o">*</span> <span class="n">n</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">cost</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">normalzied_metabolic_cost</span><span class="p">[</span><span class="n">ses_i</span><span class="p">,</span> <span class="p">:,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">cost</span>
+            <span class="n">metabolic_cost</span><span class="p">[</span><span class="n">ses_i</span><span class="p">,</span> <span class="p">:,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">portion_zeros</span><span class="p">[</span><span class="n">ses_i</span><span class="p">,</span> <span class="p">:,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">spikes</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">r2</span><span class="p">[</span><span class="n">ses_i</span><span class="p">,</span> <span class="p">:,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;r2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████████| 4/4 [01:17&lt;00:00, 19.41s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalzied_metabolic_cost</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4, 3000, 1500)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">normalzied_metabolic_cost</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9add92d2ba4ac44462ae8a39cdcabfb6ddab1e4933dbcd81886b9f6945b10719.png" src="../../_images/9add92d2ba4ac44462ae8a39cdcabfb6ddab1e4933dbcd81886b9f6945b10719.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">metabolic_cost</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">portion_zeros</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;metabolic cost</span><span class="se">\n</span><span class="s1">(avg spike counts)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;portion zeros&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4b3dbfbb1b279cc5c58296c7865544c071729ea7e4f81c8ccd813c7739d666af.png" src="../../_images/4b3dbfbb1b279cc5c58296c7865544c071729ea7e4f81c8ccd813c7739d666af.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tr</span><span class="o">.</span><span class="n">dl_vld</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([25791, 1, 16, 16])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cfg</span><span class="o">.</span><span class="n">n_iters_inner</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phase_i</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">t_repeat</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">stimuli</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">theta_i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">]:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">frames</span><span class="p">[</span><span class="n">phase_i</span><span class="p">,</span> <span class="n">theta_i</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># x = tr.dl_vld.dataset.tensors[0][theta_i].flatten().unsqueeze(0)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">expand</span><span class="p">((</span><span class="n">t_repeat</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">stimuli</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">stimuli</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">stimuli</span><span class="p">)</span>
+<span class="n">stimuli</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([1200, 256])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_trials</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">spikes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_trials</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">stimuli</span><span class="p">),</span> <span class="mi">512</span><span class="p">))</span>
+<span class="n">metabolic_cost</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_trials</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">stimuli</span><span class="p">)))</span>
+<span class="n">portion_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_trials</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">stimuli</span><span class="p">)))</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_trials</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">stimuli</span><span class="p">)))</span>
+
+<span class="k">for</span> <span class="n">trial_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
+    <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cfg</span><span class="o">.</span><span class="n">set_seeds</span><span class="p">(</span><span class="n">trial_i</span><span class="p">)</span>
+    <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reset_inference_state</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stimuli</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stimuli</span><span class="p">))):</span>
+        <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">update_time</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">xtract_ftr</span><span class="p">(</span><span class="n">stimuli</span><span class="p">[[</span><span class="n">t</span><span class="p">]],</span> <span class="n">return_extras</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">,</span> <span class="s1">&#39;r2&#39;</span><span class="p">])</span>
+        <span class="n">spikes</span><span class="p">[</span><span class="n">trial_i</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">])</span>
+        <span class="n">metabolic_cost</span><span class="p">[</span><span class="n">trial_i</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">portion_zeros</span><span class="p">[</span><span class="n">trial_i</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">tonp</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;samples&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">r2</span><span class="p">[</span><span class="n">trial_i</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;r2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|███████████████████████████████████████| 1200/1200 [00:16&lt;00:00, 74.67it/s]
+100%|███████████████████████████████████████| 1200/1200 [00:17&lt;00:00, 69.16it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="n">xs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t_repeat</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">metabolic_cost</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">xs</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">portion_zeros</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">xs</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">xs</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;metabolic cost</span><span class="se">\n</span><span class="s1">(avg spike counts)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;portion zeros&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/88aff225c5a4b6aa97a74d443f28a69e5cbf10465a718402bfdd1f9da5e6acc3.png" src="../../_images/88aff225c5a4b6aa97a74d443f28a69e5cbf10465a718402bfdd1f9da5e6acc3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="n">xs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">t_repeat</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t_repeat</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">metabolic_cost</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">xs</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">portion_zeros</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">xs</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">xs</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;metabolic cost</span><span class="se">\n</span><span class="s1">(avg spike counts)&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;portion zeros&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ba9e1fee8a43d9008646e2395759b046bd9114a3556a85eb221379e8eedbf1fb.png" src="../../_images/ba9e1fee8a43d9008646e2395759b046bd9114a3556a85eb221379e8eedbf1fb.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spikes</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 1200, 512)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_bin</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_bin</span><span class="p">,</span> <span class="n">max_bin</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">spikes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">399</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">spikes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">spikes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">425</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0cde9980be81a0aef33bf16fc2b5fdb0946560dc05727852e1ce2e171572fbbe.png" src="../../_images/0cde9980be81a0aef33bf16fc2b5fdb0946560dc05727852e1ce2e171572fbbe.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./nb/2025-04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="27_inner-lr-play.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">(27) poisson: increase inner lr</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="fig-balls.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fig: balls</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load">Load</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-gratings">Prepare gratings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dead-neuron-detection">Dead neuron detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment">experiment</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hadi Vafaii
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
