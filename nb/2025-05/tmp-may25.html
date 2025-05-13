@@ -61,7 +61,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'nb/2025-05/tmp-may25';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="(02) Retina+V1: logistic w/ warmup" href="02_retinav1-yo1.html" />
+    <link rel="prev" title="(28) Ringach fig" href="07_ringach-retina-play.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -405,6 +405,8 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../md/2025-05_updates.html">Updates</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="02_retinav1-yo0.html">(02) Retina+V1: logistic w/o warmup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_retinav1-yo1.html">(02) Retina+V1: logistic w/ warmup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_contrast-play.html">(03) contrast play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_ringach-retina-play.html">(28) Ringach fig</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">tmp — may25</a></li>
 </ul>
 </li>
@@ -656,9 +658,34 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:1</span>  ———  host: mach
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:1</span>  ———  host: yoru
 </pre>
 </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;Kyoto16-bw_m(g0+logi,p1)_t(16×(1,1))_b(8,8)_k(128,512)&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;b200-ep800-lr(0.002)_temp(0.01:0.5)_gr(1000)_(2025_05_02,21:16)&#39;</span>
+<span class="n">tr</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="n">meta</span><span class="p">[</span><span class="s1">&#39;checkpoint&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>800
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4761d51ec0ee37f3c14d9c9295627f70213b8d2a77c183741a3ed075741841bb.png" src="../../_images/4761d51ec0ee37f3c14d9c9295627f70213b8d2a77c183741a3ed075741841bb.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -881,12 +908,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02_retinav1-yo1.html"
+       href="07_ringach-retina-play.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">(02) Retina+V1: logistic w/ warmup</p>
+        <p class="prev-next-title">(28) Ringach fig</p>
       </div>
     </a>
 </div>

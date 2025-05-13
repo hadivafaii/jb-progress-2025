@@ -406,6 +406,8 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../md/2025-05_updates.html">Updates</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../2025-05/02_retinav1-yo0.html">(02) Retina+V1: logistic w/o warmup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-05/02_retinav1-yo1.html">(02) Retina+V1: logistic w/ warmup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-05/03_contrast-play.html">(03) contrast play</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2025-05/07_ringach-retina-play.html">(28) Ringach fig</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2025-05/tmp-may25.html">tmp — may25</a></li>
 </ul>
 </li>
@@ -693,7 +695,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>131
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>141
 </pre></div>
 </div>
 </div>
@@ -706,7 +708,7 @@ document.write(`
 <span class="c1"># items = [&#39;BALLS64&#39;, &#39;2025_04&#39;]</span>
 <span class="n">fits</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fits</span> <span class="k">if</span>
-    <span class="p">(</span><span class="s1">&#39;BALLS64&#39;</span> <span class="ow">in</span> <span class="n">f</span> <span class="ow">and</span> <span class="s1">&#39;2025_03&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="p">)</span>
+    <span class="p">(</span><span class="s1">&#39;gaussian+relu&#39;</span> <span class="ow">in</span> <span class="n">f</span> <span class="ow">and</span> <span class="s1">&#39;2025_03&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="p">)</span>
     <span class="c1"># &#39;vH16-wht_t-32&#39; in f</span>
     <span class="c1"># all(e in f for e in items)</span>
 <span class="p">]</span>
@@ -715,7 +717,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>124
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33
 </pre></div>
 </div>
 </div>
@@ -727,12 +729,90 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
 
-<span class="n">perform_analysis</span><span class="p">(</span><span class="n">results_dir</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">fits</span><span class="p">)</span>
+<span class="n">perform_analysis</span><span class="p">(</span><span class="n">results_dir</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">fits</span><span class="p">,</span> <span class="n">override_fits</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                   | 0/124 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                                                    | 0/33 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-4_b-1_k-[96]_chewie-0_(2025_05_01,13:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/8b08dee45101567cc890bfac32f20ccd818f651b2a850b3066dda86aa990a6f2.png" src="../../_images/8b08dee45101567cc890bfac32f20ccd818f651b2a850b3066dda86aa990a6f2.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3%|█▏                                       | 1/33 [02:29&lt;1:19:33, 149.18s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-4_b-1_k-[96]_chewie-1_(2025_05_01,13:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/dd054463c0347683ea5c3c4841742800e6cc90040bc7cb436464933b1df58cc6.png" src="../../_images/dd054463c0347683ea5c3c4841742800e6cc90040bc7cb436464933b1df58cc6.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|██▍                                      | 2/33 [04:58&lt;1:16:59, 149.03s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-8_b-1_k-[96]_chewie-0_(2025_05_01,13:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/632816970fb2a1bf62292806a55f5bc2b9dcb151519be5c7ae384efc059a82bd.png" src="../../_images/632816970fb2a1bf62292806a55f5bc2b9dcb151519be5c7ae384efc059a82bd.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9%|███▋                                     | 3/33 [07:27&lt;1:14:33, 149.13s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-8_b-1_k-[96]_chewie-1_(2025_05_01,13:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/4c193f56be62d0352653d8e0d6df7ee0b4c2130d4a50a9a249ca45ef3babdb8b.png" src="../../_images/4c193f56be62d0352653d8e0d6df7ee0b4c2130d4a50a9a249ca45ef3babdb8b.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 12%|████▉                                    | 4/33 [09:56&lt;1:12:00, 148.99s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-16_b-1_k-[96]_chewie-0_(2025_05_01,13:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/2c559aadbb52ded4f6482630ccd9f6b2b0e651a7fa0f8c49586fd254b70e9a02.png" src="../../_images/2c559aadbb52ded4f6482630ccd9f6b2b0e651a7fa0f8c49586fd254b70e9a02.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 15%|██████▏                                  | 5/33 [12:24&lt;1:09:27, 148.83s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-16_b-1_k-[96]_chewie-1_(2025_05_01,13:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/85394cee9d2fde0c189adf0d325e11fe920c9b078f56b422f5d2e858c3f23c7b.png" src="../../_images/85394cee9d2fde0c189adf0d325e11fe920c9b078f56b422f5d2e858c3f23c7b.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|███████▍                                 | 6/33 [14:53&lt;1:06:57, 148.78s/it]
 </pre></div>
 </div>
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_chewie-0_(2025_05_01,17:10).npy'</span> saved at
@@ -745,7 +825,7 @@ document.write(`
 
 
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|██▍                                        | 7/124 [02:31&lt;42:04, 21.57s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|████████▋                                | 7/33 [17:22&lt;1:04:28, 148.80s/it]
 </pre></div>
 </div>
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_chewie-1_(2025_05_01,17:10).npy'</span> saved at
@@ -758,115 +838,336 @@ document.write(`
 
 
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6%|██▋                                      | 8/124 [05:02&lt;1:24:13, 43.56s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 24%|█████████▉                               | 8/33 [19:51&lt;1:02:01, 148.86s/it]
 </pre></div>
 </div>
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-10_(2025_05_01,11:46).npy'</span> saved at
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-8_k-[96]_chewie-12_(2025_05_01,00:07).npy'</span> saved at
 <span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
 </pre>
-</div><img alt="../../_images/a2c48f5e836f4b54afa35ce9502191a22d9e7825ea98eabeb4354c2bac61f721.png" src="../../_images/a2c48f5e836f4b54afa35ce9502191a22d9e7825ea98eabeb4354c2bac61f721.png" />
+</div><img alt="../../_images/56a5e19476b13e7f96cc8d2c93d6339863c6819e57567c679f22811ce798b149.png" src="../../_images/56a5e19476b13e7f96cc8d2c93d6339863c6819e57567c679f22811ce798b149.png" />
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
 
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 16%|██████▊                                   | 20/124 [07:31&lt;35:24, 20.43s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 27%|███████████▋                               | 9/33 [22:20&lt;59:34, 148.94s/it]
 </pre></div>
 </div>
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-11_(2025_05_01,11:46).npy'</span> saved at
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-8_k-[96]_chewie-13_(2025_05_01,06:06).npy'</span> saved at
 <span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
 </pre>
-</div><img alt="../../_images/15ed6274490220c128294cc77253eca617c44fc7dd815424de6ebd7b9e7f5b94.png" src="../../_images/15ed6274490220c128294cc77253eca617c44fc7dd815424de6ebd7b9e7f5b94.png" />
+</div><img alt="../../_images/89281fdf8992ec5da8a088aad1112a8a490e93885fc182559dcfeb5f591e2832.png" src="../../_images/89281fdf8992ec5da8a088aad1112a8a490e93885fc182559dcfeb5f591e2832.png" />
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
 
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|███████                                   | 21/124 [10:00&lt;52:59, 30.87s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30%|████████████▋                             | 10/33 [24:49&lt;57:07, 149.02s/it]
 </pre></div>
 </div>
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-13_(2025_05_01,11:46).npy'</span> saved at
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-8_k-[96]_chewie-14_(2025_05_01,00:07).npy'</span> saved at
 <span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
 </pre>
-</div><img alt="../../_images/452f6a80aa797e1063e92c024a58bdd2703bd4ffa9e4ccdaba62e6a8cc44b9c8.png" src="../../_images/452f6a80aa797e1063e92c024a58bdd2703bd4ffa9e4ccdaba62e6a8cc44b9c8.png" />
+</div><img alt="../../_images/309166aef98b2c264e87f8a991a9090f66d89e8222f87599964b490b7482f5b1.png" src="../../_images/309166aef98b2c264e87f8a991a9090f66d89e8222f87599964b490b7482f5b1.png" />
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
 
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18%|███████                                 | 22/124 [12:30&lt;1:13:30, 43.24s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33%|██████████████                            | 11/33 [27:18&lt;54:39, 149.08s/it]
 </pre></div>
 </div>
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-14_(2025_05_01,11:46).npy'</span> saved at
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-8_k-[96]_chewie-15_(2025_05_01,06:06).npy'</span> saved at
 <span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
 </pre>
-</div><img alt="../../_images/f8bb222053f786c6ae246e63974dbccd45e26e8de5d95267d8aeee04037571fe.png" src="../../_images/f8bb222053f786c6ae246e63974dbccd45e26e8de5d95267d8aeee04037571fe.png" />
+</div><img alt="../../_images/0faa9a374649315ab2840a04916b14f4ad0ba401f7a2889d525eb9f675a803d4.png" src="../../_images/0faa9a374649315ab2840a04916b14f4ad0ba401f7a2889d525eb9f675a803d4.png" />
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
 
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|███████▍                                | 23/124 [15:00&lt;1:36:05, 57.09s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 36%|███████████████▎                          | 12/33 [29:47&lt;52:10, 149.05s/it]
 </pre></div>
 </div>
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-15_(2025_05_01,11:46).npy'</span> saved at
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-8_k-[96]_mach-10_(2025_05_01,00:04).npy'</span> saved at
 <span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
 </pre>
-</div><img alt="../../_images/8a385aec3bd582ced283fc79d849fd39c0ecda4ea6eda99a38e8b0621e53dfc8.png" src="../../_images/8a385aec3bd582ced283fc79d849fd39c0ecda4ea6eda99a38e8b0621e53dfc8.png" />
+</div><img alt="../../_images/412bbab46a591434f17f67e9573b57f2fee2dc51aece6d6fab7a344a72b916e3.png" src="../../_images/412bbab46a591434f17f67e9573b57f2fee2dc51aece6d6fab7a344a72b916e3.png" />
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
 
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 19%|███████▋                                | 24/124 [17:30&lt;1:59:23, 71.63s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 39%|████████████████▌                         | 13/33 [32:16&lt;49:40, 149.01s/it]
 </pre></div>
 </div>
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-17_(2025_05_01,11:46).npy'</span> saved at
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-8_k-[96]_mach-11_(2025_05_01,00:04).npy'</span> saved at
 <span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
 </pre>
-</div><img alt="../../_images/1aaff822e92ffd876ac7e87632bf4d1ffc785b84b65a5eaa34fdc7ab40da0bec.png" src="../../_images/1aaff822e92ffd876ac7e87632bf4d1ffc785b84b65a5eaa34fdc7ab40da0bec.png" />
+</div><img alt="../../_images/5d53ae989f664e753fa7178914909d9f4def6dea3c81ec5a560c15f5b0764a80.png" src="../../_images/5d53ae989f664e753fa7178914909d9f4def6dea3c81ec5a560c15f5b0764a80.png" />
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
 
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 20%|████████                                | 25/124 [20:00&lt;2:21:32, 85.79s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 42%|█████████████████▊                        | 14/33 [34:45&lt;47:09, 148.94s/it]
 </pre></div>
 </div>
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-18_(2025_05_01,11:46).npy'</span> saved at
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_mach-10_(2025_04_17,23:05).npy'</span> saved at
 <span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
 </pre>
-</div><img alt="../../_images/6de908ad77248ebb8d6d5dd9ac1d30b1b38772d8ba278274538f9a27786bb9e5.png" src="../../_images/6de908ad77248ebb8d6d5dd9ac1d30b1b38772d8ba278274538f9a27786bb9e5.png" />
+</div><img alt="../../_images/9d203a16db8340a1540ab9662bdb5a3956b835f06692549fe560c29537692875.png" src="../../_images/9d203a16db8340a1540ab9662bdb5a3956b835f06692549fe560c29537692875.png" />
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
 
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 21%|████████▍                               | 26/124 [22:29&lt;2:41:38, 98.96s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 45%|███████████████████                       | 15/33 [37:14&lt;44:42, 149.03s/it]
 </pre></div>
 </div>
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian_&lt;grad|lin&gt;_BALLS64_t-32_b-1_k-[96]_mach-19_(2025_05_01,11:46).npy'</span> saved at
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_mach-11_(2025_04_17,23:05).npy'</span> saved at
 <span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
 </pre>
-</div><img alt="../../_images/18d882fe9c8a72dc24fcd899dc84aada89c670435b4b6f9e979b1ebc2ae961ef.png" src="../../_images/18d882fe9c8a72dc24fcd899dc84aada89c670435b4b6f9e979b1ebc2ae961ef.png" />
+</div><img alt="../../_images/61832281a64b6925cd62584f05c0de8dc4e5e2a9786fb839a3da7319d46576d3.png" src="../../_images/61832281a64b6925cd62584f05c0de8dc4e5e2a9786fb839a3da7319d46576d3.png" />
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
 
 
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|█████████████████████████████████████████| 124/124 [24:58&lt;00:00, 12.09s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 48%|████████████████████▎                     | 16/33 [39:44&lt;42:15, 149.13s/it]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 36min 19s, sys: 1min 7s, total: 37min 26s
-Wall time: 24min 58s
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_mach-12_(2025_04_18,06:24).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/8bc5678d5ecfb6736ba0b0cc5e570dfdc605e5fd11562db4312cc4b1a5c055fc.png" src="../../_images/8bc5678d5ecfb6736ba0b0cc5e570dfdc605e5fd11562db4312cc4b1a5c055fc.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 52%|█████████████████████▋                    | 17/33 [42:13&lt;39:47, 149.21s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_mach-13_(2025_04_17,23:05).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/9f60ce4b7d99ddfea431f0e137c631cbb5c710a4c6b869dec3c4803eddefe5ec.png" src="../../_images/9f60ce4b7d99ddfea431f0e137c631cbb5c710a4c6b869dec3c4803eddefe5ec.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 55%|██████████████████████▉                   | 18/33 [44:42&lt;37:18, 149.21s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_BALLS64_t-32_b-128_k-[96]_mach-14_(2025_04_17,23:05).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/0a289837e3764a599a8ce2be5acbb31834ca6291ac22708a1cba55b333f23efa.png" src="../../_images/0a289837e3764a599a8ce2be5acbb31834ca6291ac22708a1cba55b333f23efa.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 58%|████████████████████████▏                 | 19/33 [47:11&lt;34:49, 149.22s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-1_k-[512]_chewie-33_(2025_05_07,13:49).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/7d3e0d7d7153d5388a4ee18e90bda7fba724812f3095bee857bbfeebde3d5c33.png" src="../../_images/7d3e0d7d7153d5388a4ee18e90bda7fba724812f3095bee857bbfeebde3d5c33.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 61%|█████████████████████████▍                | 20/33 [49:53&lt;33:09, 153.06s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-2_k-[512]_chewie-33_(2025_05_07,13:49).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/5c4d69cccd20429dcf1cc9f0fd17bf14a8c1df573e91ee905f6c88f60bdaaafb.png" src="../../_images/5c4d69cccd20429dcf1cc9f0fd17bf14a8c1df573e91ee905f6c88f60bdaaafb.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 64%|██████████████████████████▋               | 21/33 [52:36&lt;31:09, 155.79s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-4_k-[512]_chewie-33_(2025_05_07,13:49).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/58fda44b3618926b11c86f238bb4548218880c4f8bf83318b61fcf1bba4f21d4.png" src="../../_images/58fda44b3618926b11c86f238bb4548218880c4f8bf83318b61fcf1bba4f21d4.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 67%|████████████████████████████              | 22/33 [54:53&lt;27:33, 150.29s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-8_k-[512]_yoru-1_(2025_04_25,22:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/a5aebf4a807197f5fd91672ece2acfd15b0169b1d9789ae7ab52d4f24500ea23.png" src="../../_images/a5aebf4a807197f5fd91672ece2acfd15b0169b1d9789ae7ab52d4f24500ea23.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 70%|█████████████████████████████▎            | 23/33 [57:07&lt;24:13, 145.39s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-16_k-[512]_yoru-1_(2025_04_26,07:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/fab68bbf92fec5fd3f07fa8b0b6c4492bd70f3aaeaea028d7fbec8317b0372dc.png" src="../../_images/fab68bbf92fec5fd3f07fa8b0b6c4492bd70f3aaeaea028d7fbec8317b0372dc.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 73%|██████████████████████████████▌           | 24/33 [59:21&lt;21:18, 142.07s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-24_k-[512]_yoru-1_(2025_04_25,22:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/ac61c9dfa5f336e9ae141ab0df35a44e297774e0356c7e7f34e96009f430e0a6.png" src="../../_images/ac61c9dfa5f336e9ae141ab0df35a44e297774e0356c7e7f34e96009f430e0a6.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 76%|██████████████████████████████▎         | 25/33 [1:01:36&lt;18:39, 139.92s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-32_k-[512]_yoru-1_(2025_04_26,07:13).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/67ed1f5f1ef29bac3dd1574977520946506763b15b89d44de070ebd3a8d894d6.png" src="../../_images/67ed1f5f1ef29bac3dd1574977520946506763b15b89d44de070ebd3a8d894d6.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 79%|███████████████████████████████▌        | 26/33 [1:03:50&lt;16:06, 138.05s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-40_k-[512]_yoru-1_(2025_04_25,22:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/b22d65f266511a836ada757b2c1be40fe7652e936c4aadae44709d88438ae5c3.png" src="../../_images/b22d65f266511a836ada757b2c1be40fe7652e936c4aadae44709d88438ae5c3.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 82%|████████████████████████████████▋       | 27/33 [1:06:04&lt;13:41, 136.89s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-48_k-[512]_yoru-1_(2025_04_26,07:12).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/3f9ac25ab6d0de5edb367a49a98921ea55207ca995eec14cfb39da181f3273f0.png" src="../../_images/3f9ac25ab6d0de5edb367a49a98921ea55207ca995eec14cfb39da181f3273f0.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 85%|█████████████████████████████████▉      | 28/33 [1:08:18&lt;11:19, 135.96s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-64_k-[512]_yoru-1_(2025_04_25,22:08).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/5954d2aeb55aa47fc8f5f388137d1053bbfbb843bd77b7d4ef82a83c30f99c40.png" src="../../_images/5954d2aeb55aa47fc8f5f388137d1053bbfbb843bd77b7d4ef82a83c30f99c40.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 88%|███████████████████████████████████▏    | 29/33 [1:10:32&lt;09:02, 135.57s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-96_k-[512]_yoru-1_(2025_04_26,07:12).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/6939e2ded8f5474f2243c08a8bd6604579b6e6400d2e32496f6ce005c989d6b2.png" src="../../_images/6939e2ded8f5474f2243c08a8bd6604579b6e6400d2e32496f6ce005c989d6b2.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 91%|████████████████████████████████████▎   | 30/33 [1:12:46&lt;06:44, 134.83s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-128_k-[512]_chewie-33_(2025_05_07,13:49).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/2eb0c85113f37132b93944f3096414ace4f5ec59e19abda831d56d191151fc93.png" src="../../_images/2eb0c85113f37132b93944f3096414ace4f5ec59e19abda831d56d191151fc93.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 94%|█████████████████████████████████████▌  | 31/33 [1:14:59&lt;04:29, 134.54s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-192_k-[512]_chewie-33_(2025_05_07,13:49).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/f4e51d18f2963e9f799e96da7399d893b4e583f723061b6dd6f46afa27dd197a.png" src="../../_images/f4e51d18f2963e9f799e96da7399d893b4e583f723061b6dd6f46afa27dd197a.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 97%|██████████████████████████████████████▊ | 32/33 [1:17:14&lt;02:14, 134.41s/it]
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'gaussian+relu_&lt;grad|lin&gt;_vH16-wht_t-32_b-256_k-[512]_chewie-33_(2025_05_07,13:49).npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/tmp/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">results_2025-04</span>
+</pre>
+</div><img alt="../../_images/1651869af9b13772aacd3380ec5c7aa64716f583ac96a20b1b7018cd08cd45ae.png" src="../../_images/1651869af9b13772aacd3380ec5c7aa64716f583ac96a20b1b7018cd08cd45ae.png" />
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">----------------------------------------------------------------------------------------------------
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+
+
+</pre>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|████████████████████████████████████████| 33/33 [1:19:27&lt;00:00, 144.46s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1h 37min 54s, sys: 4min 49s, total: 1h 42min 44s
+Wall time: 1h 19min 27s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
