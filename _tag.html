@@ -648,7 +648,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="c1"># Collect a list of all notebooks in the content folder</span>
-<span class="n">nb_name</span> <span class="o">=</span> <span class="s1">&#39;2025-02&#39;</span>
+<span class="n">nb_name</span> <span class="o">=</span> <span class="s1">&#39;2025-06&#39;</span>
 <span class="n">notebooks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span>
     <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">nb_name</span> <span class="ow">in</span> <span class="n">x</span><span class="p">,</span>
     <span class="n">glob</span><span class="p">(</span><span class="s2">&quot;./nb/**/*.ipynb&quot;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -662,7 +662,7 @@ document.write(`
 <span class="p">}</span>
 
 <span class="c1"># Search through each notebook and look for the text, add a tag if necessary</span>
-<span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">notebooks</span><span class="p">),</span> <span class="n">leave</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">notebooks</span><span class="p">),</span> <span class="n">leave</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ipath</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">:</span>
     <span class="n">pbar</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tagging </span><span class="si">{</span><span class="n">ipath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">ntbk</span> <span class="o">=</span> <span class="n">nbf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ipath</span><span class="p">,</span> <span class="n">nbf</span><span class="o">.</span><span class="n">NO_CONVERT</span><span class="p">)</span>
@@ -681,7 +681,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tagging ./nb/2025-02/tmp-feb25.ipynb: 100%|███████████████████████████████████████████████| 1/1 [00:00&lt;00:00,  6.31it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tagging ./nb/2025-06/tmp-jun25.ipynb: 100%|███████████████| 46/46 [00:00&lt;00:00, 59.06it/s]
 </pre></div>
 </div>
 </div>
