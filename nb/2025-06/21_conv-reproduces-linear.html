@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>(21) conv latents: phi working? &#8212; Research Progress [2025]</title>
+    <title>(21) conv latents: reproduce linear case &#8212; Research Progress [2025]</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/2025-06/21_conv-phi-play';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nb/2025-06/21_conv-reproduces-linear';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="(21) conv latents: reproduce linear case" href="21_conv-reproduces-linear.html" />
-    <link rel="prev" title="(20) conv latents: first step" href="20_conv-arithmetic-play.html" />
+    <link rel="next" title="Jobs: temp stop" href="jobs-temp.html" />
+    <link rel="prev" title="(21) conv latents: phi working?" href="21_conv-phi-play.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -505,7 +505,7 @@
       
       
       
-      <li><a href="https://github.com/hadivafaii/jb-progress-2025/issues/new?title=Issue%20on%20page%20%2Fnb/2025-06/21_conv-phi-play.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/hadivafaii/jb-progress-2025/issues/new?title=Issue%20on%20page%20%2Fnb/2025-06/21_conv-reproduces-linear.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -535,7 +535,7 @@
       
       
       
-      <li><a href="../../_sources/nb/2025-06/21_conv-phi-play.ipynb" target="_blank"
+      <li><a href="../../_sources/nb/2025-06/21_conv-reproduces-linear.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -619,7 +619,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>(21) conv latents:  phi working?</h1>
+    <h1>(21) conv latents:  reproduce linear case</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -630,7 +630,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-model">Make a model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conv-arithmetic">conv arithmetic</a></li>
 </ul>
             </nav>
         </div>
@@ -642,9 +641,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="conv-latents-phi-working">
-<h1>(21) conv latents:  phi working?<a class="headerlink" href="#conv-latents-phi-working" title="Link to this heading">#</a></h1>
-<p><strong>Motivation</strong>: host = <code class="docutils literal notranslate"><span class="pre">chewie</span></code>, device = <code class="docutils literal notranslate"><span class="pre">cuda:1</span></code> <br></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="conv-latents-reproduce-linear-case">
+<h1>(21) conv latents:  reproduce linear case<a class="headerlink" href="#conv-latents-reproduce-linear-case" title="Link to this heading">#</a></h1>
+<p><strong>Motivation</strong>: host = <code class="docutils literal notranslate"><span class="pre">chewie</span></code>, device = <code class="docutils literal notranslate"><span class="pre">cuda:0</span></code> <br></p>
+<p>This means:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">K</span> <span class="pre">=</span> <span class="pre">512</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">1</span></code></p></li>
+</ul>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -685,7 +689,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">device_idx</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">device_idx</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">device</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;cuda:</span><span class="si">{</span><span class="n">device_idx</span><span class="si">}</span><span class="s1">&#39;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;device: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">  ———  host: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">uname</span><span class="p">()</span><span class="o">.</span><span class="n">nodename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -693,7 +697,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:1</span>  ———  host: chewie
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">device: cu<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">da:0</span>  ———  host: chewie
 </pre>
 </div></div>
 </div>
@@ -710,8 +714,6 @@ document.write(`
 <span class="n">cfg_vae</span><span class="p">[</span><span class="s1">&#39;kl_beta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="o">/</span><span class="mi">8</span> <span class="o">*</span> <span class="n">t_train</span>
 
 <span class="n">cfg_vae</span><span class="p">[</span><span class="s1">&#39;track_stats&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="n">cfg_tr</span><span class="p">[</span><span class="s1">&#39;eval_freq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10000000</span>
 </pre></div>
 </div>
 </div>
@@ -750,7 +752,7 @@ document.write(`
 
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">poisson_vH16-wht_t-8_b-4_k-512_m-1_<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">ngd|lin</span><span style="font-weight: bold">&gt;</span>
-b200-ep300-<span style="color: #800080; text-decoration-color: #800080; font-weight: bold">lr</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_temp</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.05</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_gr</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">200</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_</span><span style="font-weight: bold">(</span>2025_06_21,<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">20:05</span><span style="font-weight: bold">)</span>
+b200-ep300-<span style="color: #800080; text-decoration-color: #800080; font-weight: bold">lr</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_temp</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.05</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_gr</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">200</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_</span><span style="font-weight: bold">(</span>2025_06_21,<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">21:01</span><span style="font-weight: bold">)</span>
 </pre>
 </div><img alt="../../_images/5037f234192df51caa4a55c934d13d050367a7d5faa193aeb1e9f0fddeb599ef.png" src="../../_images/5037f234192df51caa4a55c934d13d050367a7d5faa193aeb1e9f0fddeb599ef.png" />
 </div>
@@ -762,14 +764,14 @@ b200-ep300-<span style="color: #800080; text-decoration-color: #800080; font-wei
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([50, 50, 50, 50, 50, 50, 50, 50], device=&#39;cuda:1&#39;, dtype=torch.int32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([50, 50, 50, 50, 50, 50, 50, 50], device=&#39;cuda:0&#39;, dtype=torch.int32)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tr</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="s1">&#39;ConvPhi:Phase2&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tr</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="s1">&#39;ConvPhi:ReproduceLinear&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -777,14 +779,14 @@ b200-ep300-<span style="color: #800080; text-decoration-color: #800080; font-wei
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: <span class=" -Color -Color-Green -Color-Green-BGRed">ERROR</span> Failed to detect the name of this notebook. You can set it manually with the WANDB_NOTEBOOK_NAME environment variable to enable code saving.
 </pre></div>
 </div>
-<div class="output text_html">Syncing run <strong><a href='https://wandb.ai/yateslab/_TemporalSC/runs/9w9kbo8v' target="_blank">poisson_vH16-wht_t-8_b-4_k-512_m-1_<ngd|lin>/b200-ep300-lr(0.001)_temp(0.05)_gr(200)_ConvPhi:Phase2_(2025_06_21,20:05)</a></strong> <br></div><div class="output text_html"> View run at <a href='https://wandb.ai/yateslab/_TemporalSC/runs/9w9kbo8v' target="_blank">https://wandb.ai/yateslab/_TemporalSC/runs/9w9kbo8v</a></div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Warning: Could not save code info: Reference at <span style="color: #008000; text-decoration-color: #008000">'refs/heads/main'</span> does not exist
+<div class="output text_html">Syncing run <strong><a href='https://wandb.ai/yateslab/_TemporalSC/runs/sh9u3xz7' target="_blank">poisson_vH16-wht_t-8_b-4_k-512_m-1_<ngd|lin>/b200-ep300-lr(0.001)_temp(0.05)_gr(200)_ConvPhi:ReproduceLinear_(2025_06_21,21:01)</a></strong> <br></div><div class="output text_html"> View run at <a href='https://wandb.ai/yateslab/_TemporalSC/runs/sh9u3xz7' target="_blank">https://wandb.ai/yateslab/_TemporalSC/runs/sh9u3xz7</a></div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Warning: Could not save code info: Reference at <span style="color: #008000; text-decoration-color: #008000">'refs/heads/main'</span> does not exist
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Warning: Could not save notebook info: Can't identify the notebook path.
 </pre>
-</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch # 300, avg loss: 118.973: 100%|███████| 300/300 [1:00:28&lt;00:00, 12.09s/it]
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch # 25, avg loss: 88.473:   8%|█           | 25/300 [04:40&lt;53:36, 11.70s/it]
 </pre></div>
 </div>
-<div class="output text_html"></div><div class="output text_html"> View run <strong style="color:#cdcd00">poisson_vH16-wht_t-8_b-4_k-512_m-1_<ngd|lin>/b200-ep300-lr(0.001)_temp(0.05)_gr(200)_ConvPhi:Phase2_(2025_06_21,20:05)</strong> at: <a href='https://wandb.ai/yateslab/_TemporalSC/runs/9w9kbo8v' target="_blank">https://wandb.ai/yateslab/_TemporalSC/runs/9w9kbo8v</a><br> View project at: <a href='https://wandb.ai/yateslab/_TemporalSC' target="_blank">https://wandb.ai/yateslab/_TemporalSC</a><br>Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 38 other file(s)</div></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,413 +794,21 @@ b200-ep300-<span style="color: #800080; text-decoration-color: #800080; font-wei
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/91643852bc142e9f823e909fc795589754ed403add0114322f157be47437bcea.png" src="../../_images/91643852bc142e9f823e909fc795589754ed403add0114322f157be47437bcea.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">histplot</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Count&#39;&gt;
-</pre></div>
-</div>
-<img alt="../../_images/8af32357fa8f4b488392c1577b72831b7bb8d660c58e9e64e5515def03e7ad46.png" src="../../_images/8af32357fa8f4b488392c1577b72831b7bb8d660c58e9e64e5515def03e7ad46.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">base.helper</span> <span class="kn">import</span> <span class="n">conv_arithmetic</span>
-<span class="kn">from</span> <span class="nn">main.layers</span> <span class="kn">import</span> <span class="n">ConvDictionary</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="conv-arithmetic">
-<h2>conv arithmetic<a class="headerlink" href="#conv-arithmetic" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">conv_arithmetic</span><span class="p">(</span>
-    <span class="n">input_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
-    <span class="n">output_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
-    <span class="c1"># kernel_size=None,</span>
-    <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">deconv</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">t_total</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">n_data_batches</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">compute_sprs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">df</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">analysis</span><span class="p">(</span><span class="n">dl</span><span class="o">=</span><span class="s1">&#39;vld&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plot_convergence</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mode</th>
-      <th>computed</th>
-      <th>parameter</th>
-      <th>value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>deconv</td>
-      <td>False</td>
-      <td>input_size</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>deconv</td>
-      <td>False</td>
-      <td>output_size</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>deconv</td>
-      <td>True</td>
-      <td>kernel_size</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>deconv</td>
-      <td>False</td>
-      <td>stride</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>deconv</td>
-      <td>False</td>
-      <td>padding</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  mode  computed   parameter  value
-deconv     <span style="color: #ff0000; text-decoration-color: #ff0000; font-style: italic">False</span>  input_size      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8</span>
-deconv     <span style="color: #ff0000; text-decoration-color: #ff0000; font-style: italic">False</span> output_size     <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16</span>
-deconv      <span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span> kernel_size      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9</span>
-deconv     <span style="color: #ff0000; text-decoration-color: #ff0000; font-style: italic">False</span>      stride      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>
-deconv     <span style="color: #ff0000; text-decoration-color: #ff0000; font-style: italic">False</span>     padding      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
-</pre>
-</div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;computed&#39;</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mode</th>
-      <th>computed</th>
-      <th>parameter</th>
-      <th>value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2</th>
-      <td>deconv</td>
-      <td>True</td>
-      <td>kernel_size</td>
-      <td>9</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-    <span class="n">in_channels</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
-    <span class="n">out_channels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">kernel_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">phi</span> <span class="o">=</span> <span class="n">ConvDictionary</span><span class="p">(</span><span class="o">**</span><span class="n">kws</span><span class="p">)</span>
-<span class="n">deconv_torch</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="o">**</span><span class="n">kws</span><span class="p">)</span>
-
-<span class="n">phi</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">deconv_torch</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(torch.Size([512, 1, 9, 9]), torch.Size([512, 1, 9, 9]))
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">123</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">x_hat</span> <span class="o">=</span> <span class="n">phi</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="n">x_hat</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([123, 1, 16, 16])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">123</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
-<span class="n">delta</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x_hat</span>
-<span class="n">delta</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([123, 1, 16, 16])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">du</span> <span class="o">=</span> <span class="n">phi</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">du</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([123, 512, 8, 8])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ConvDictionary</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_channels</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span>, <span style="color: #808000; text-decoration-color: #808000">out_channels</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">9</span><span style="font-weight: bold">)</span>
-</pre>
-</div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">conv_arithmetic</span><span class="p">(</span>
-    <span class="n">input_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-    <span class="n">output_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
-    <span class="c1"># kernel_size=None,</span>
-    <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">deconv</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mode</th>
-      <th>computed</th>
-      <th>parameter</th>
-      <th>value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>deconv</td>
-      <td>False</td>
-      <td>input_size</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>deconv</td>
-      <td>False</td>
-      <td>output_size</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>deconv</td>
-      <td>True</td>
-      <td>kernel_size</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>deconv</td>
-      <td>False</td>
-      <td>stride</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>deconv</td>
-      <td>False</td>
-      <td>padding</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;computed&#39;</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mode</th>
-      <th>computed</th>
-      <th>parameter</th>
-      <th>value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2</th>
-      <td>deconv</td>
-      <td>True</td>
-      <td>kernel_size</td>
-      <td>10</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-    <span class="n">in_channels</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
-    <span class="n">out_channels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">kernel_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">phi</span> <span class="o">=</span> <span class="n">ConvDictionary</span><span class="p">(</span><span class="o">**</span><span class="n">kws</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">123</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">x_hat</span> <span class="o">=</span> <span class="n">phi</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="n">x_hat</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([123, 1, 16, 16])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">du</span> <span class="o">=</span> <span class="n">phi</span><span class="p">(</span><span class="n">x_hat</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">du</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([123, 512, 4, 4])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ConvDictionary</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_channels</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span>, <span style="color: #808000; text-decoration-color: #808000">out_channels</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">)</span>
-</pre>
-</div></div>
 </div>
 </section>
 </section>
@@ -1234,20 +844,20 @@ deconv     <span style="color: #ff0000; text-decoration-color: #ff0000; font-sty
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="20_conv-arithmetic-play.html"
+       href="21_conv-phi-play.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">(20) conv latents:  first step</p>
+        <p class="prev-next-title">(21) conv latents:  phi working?</p>
       </div>
     </a>
     <a class="right-next"
-       href="21_conv-reproduces-linear.html"
+       href="jobs-temp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">(21) conv latents:  reproduce linear case</p>
+        <p class="prev-next-title">Jobs: temp stop</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1268,7 +878,6 @@ deconv     <span style="color: #ff0000; text-decoration-color: #ff0000; font-sty
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-model">Make a model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conv-arithmetic">conv arithmetic</a></li>
 </ul>
   </nav></div>
 
