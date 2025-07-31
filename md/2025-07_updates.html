@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'md/2025-07_updates';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -522,7 +524,19 @@
 <li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/06_paint-diff-stride.html">(06) paint w/ diff stride</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/07_paint-poisson.html">(07) paint: Poisson img</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/07_paint-static-kyoto.html">(07) paint: static Kyoto imgs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/25_deep-mnist.html">(25) deep dec — mnist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/25_deep-celeba-ch1.html">(25) deep dec — celeba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/25_deep-celeba-yo1.html">(25) deep dec — celeba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/25_deep-cifar10-ch0.html">(25) deep dec — cifar10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/25_deep-cifar-yo0.html">(25) deep dec — cifar10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/25_deep-imgnet-ch1.html">(25) deep dec — tiny imgnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/25_deep-imgnet-yo0.html">(25) deep dec — tiny imgnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/25_deep-mnist-ch0.html">(25) deep dec — mnist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/25_deep-mnist-yo1.html">(25) deep dec — mnist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/29_amort-celeba-ma1.html">(29) amort — celeba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/29_lin-celeba-ch0.html">(29) lin dec — celeba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/29_lin-celeba-yo1.html">(29) lin dec — celeba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/jobs-k.html">Jobs: latent dim (K)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/process-fits-iterative.html">process fits, save results (iterative)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nb/2025-07/tmp-jul25.html">tmp — jul25</a></li>
 </ul>
 </details></li>
@@ -737,7 +751,19 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/06_paint-diff-stride.html">(06) paint w/ diff stride</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/07_paint-poisson.html">(07) paint: Poisson img</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/07_paint-static-kyoto.html">(07) paint: static Kyoto imgs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/25_deep-mnist.html">(25) deep dec — mnist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/25_deep-celeba-ch1.html">(25) deep dec — celeba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/25_deep-celeba-yo1.html">(25) deep dec — celeba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/25_deep-cifar10-ch0.html">(25) deep dec — cifar10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/25_deep-cifar-yo0.html">(25) deep dec — cifar10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/25_deep-imgnet-ch1.html">(25) deep dec — tiny imgnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/25_deep-imgnet-yo0.html">(25) deep dec — tiny imgnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/25_deep-mnist-ch0.html">(25) deep dec — mnist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/25_deep-mnist-yo1.html">(25) deep dec — mnist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/29_amort-celeba-ma1.html">(29) amort — celeba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/29_lin-celeba-ch0.html">(29) lin dec — celeba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/29_lin-celeba-yo1.html">(29) lin dec — celeba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/jobs-k.html">Jobs: latent dim (K)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/process-fits-iterative.html">process fits, save results (iterative)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nb/2025-07/tmp-jul25.html">tmp — jul25</a></li>
 </ul>
 </div>

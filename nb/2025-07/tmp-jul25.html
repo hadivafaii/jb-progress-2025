@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'nb/2025-07/tmp-jul25';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="(25) deep dec — mnist" href="25_deep-mnist.html" />
+    <link rel="prev" title="process fits, save results (iterative)" href="process-fits-iterative.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -521,7 +521,19 @@
 <li class="toctree-l2"><a class="reference internal" href="06_paint-diff-stride.html">(06) paint w/ diff stride</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07_paint-poisson.html">(07) paint: Poisson img</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07_paint-static-kyoto.html">(07) paint: static Kyoto imgs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="25_deep-mnist.html">(25) deep dec — mnist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="25_deep-celeba-ch1.html">(25) deep dec — celeba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="25_deep-celeba-yo1.html">(25) deep dec — celeba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="25_deep-cifar10-ch0.html">(25) deep dec — cifar10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="25_deep-cifar-yo0.html">(25) deep dec — cifar10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="25_deep-imgnet-ch1.html">(25) deep dec — tiny imgnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="25_deep-imgnet-yo0.html">(25) deep dec — tiny imgnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="25_deep-mnist-ch0.html">(25) deep dec — mnist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="25_deep-mnist-yo1.html">(25) deep dec — mnist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29_amort-celeba-ma1.html">(29) amort — celeba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29_lin-celeba-ch0.html">(29) lin dec — celeba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29_lin-celeba-yo1.html">(29) lin dec — celeba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs-k.html">Jobs: latent dim (K)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process-fits-iterative.html">process fits, save results (iterative)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">tmp — jul25</a></li>
 </ul>
 </details></li>
@@ -697,7 +709,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -713,6 +727,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-dim-dep">Latent dim dep</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -725,6 +747,81 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="tmp-jul25">
 <h1>tmp — jul25<a class="headerlink" href="#tmp-jul25" title="Link to this heading">#</a></h1>
 <p><strong>Motivation</strong>: scratch notebook <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDE CODE</span>
+
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+
+<span class="c1"># tmp &amp; extras dir</span>
+<span class="n">git_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">],</span> <span class="s1">&#39;Dropbox/git&#39;</span><span class="p">)</span>
+<span class="n">extras_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/_extras&#39;</span><span class="p">)</span>
+<span class="n">fig_base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/figs&#39;</span><span class="p">)</span>
+<span class="n">tmp_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;jb-progress-2025/tmp&#39;</span><span class="p">)</span>
+
+<span class="c1"># GitHub</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">git_dir</span><span class="p">,</span> <span class="s1">&#39;_MTMST&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">vae.config_vae</span><span class="w"> </span><span class="kn">import</span> <span class="n">groups_per_scale</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">groups_per_scale</span><span class="p">(</span>
+    <span class="n">n_scales</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">n_groups_per_scale</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">is_adaptive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[20, 20, 20]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">groups_per_scale</span><span class="p">(</span>
+    <span class="n">n_scales</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">n_groups_per_scale</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">is_adaptive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[20, 10, 5]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">groups_per_scale</span><span class="p">(</span>
+    <span class="n">n_scales</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">n_groups_per_scale</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">is_adaptive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[8, 4]
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -779,36 +876,248 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">main.layers</span><span class="w"> </span><span class="kn">import</span> <span class="n">_build_conv_dec</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/hadi/Dropbox/git/IterativeVAE/results&#39;</span>
+<span class="n">df_ratedist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">results_dir</span><span class="p">,</span> <span class="s1">&#39;df_ratedist.df&#39;</span><span class="p">))</span>
+<span class="n">df_ratedist</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(139, 11)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_kws_conv</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-    <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">fit_gain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">act_fn</span><span class="o">=</span><span class="s1">&#39;swish&#39;</span><span class="p">,</span>
-    <span class="n">use_bn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>     <span class="c1"># no batch norm</span>
-    <span class="n">use_se</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>      <span class="c1"># squeeze &amp; excite</span>
-    <span class="n">n_nodes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-    <span class="n">eps</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_pois_amort</span> <span class="o">=</span> <span class="n">df_ratedist</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_ratedist</span><span class="p">[</span><span class="s1">&#39;str_model&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;poisson+amort&#39;</span><span class="p">]</span>
+<span class="n">df_pois_amort</span> <span class="o">=</span> <span class="n">df_pois_amort</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;distance&#39;</span><span class="p">)</span>
+<span class="n">df_pois_amort</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_pixels</span> <span class="o">=</span> <span class="mi">4</span>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="n">dec</span> <span class="o">=</span> <span class="n">_build_conv_dec</span><span class="p">(</span>
-    <span class="n">input_channels</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
-    <span class="n">input_pixels</span><span class="o">=</span><span class="n">input_pixels</span><span class="p">,</span>
-    <span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;ImageNet32&#39;</span><span class="p">,</span>
-    <span class="n">kws</span><span class="o">=</span><span class="n">_kws_conv</span><span class="p">,</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>latent_act</th>
+      <th>str_model</th>
+      <th>seq_len</th>
+      <th>kl_beta</th>
+      <th>amort</th>
+      <th>%-zeros</th>
+      <th>r2</th>
+      <th>r2_map</th>
+      <th>distance</th>
+      <th>distance_map</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>104</th>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson+amort</td>
+      <td>1</td>
+      <td>0.01</td>
+      <td>True</td>
+      <td>0.773717</td>
+      <td>0.696139</td>
+      <td>0.696139</td>
+      <td>0.378861</td>
+      <td>0.378861</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson+amort</td>
+      <td>1</td>
+      <td>0.10</td>
+      <td>True</td>
+      <td>0.755959</td>
+      <td>0.591308</td>
+      <td>0.591308</td>
+      <td>0.476010</td>
+      <td>0.476010</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson+amort</td>
+      <td>1</td>
+      <td>0.40</td>
+      <td>True</td>
+      <td>0.783155</td>
+      <td>0.457970</td>
+      <td>0.457970</td>
+      <td>0.583796</td>
+      <td>0.583796</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson+amort</td>
+      <td>1</td>
+      <td>0.60</td>
+      <td>True</td>
+      <td>0.846816</td>
+      <td>0.389634</td>
+      <td>0.389634</td>
+      <td>0.629295</td>
+      <td>0.629295</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson+amort</td>
+      <td>1</td>
+      <td>0.80</td>
+      <td>True</td>
+      <td>0.892864</td>
+      <td>0.333790</td>
+      <td>0.333790</td>
+      <td>0.674769</td>
+      <td>0.674769</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson+amort</td>
+      <td>1</td>
+      <td>1.00</td>
+      <td>True</td>
+      <td>0.931215</td>
+      <td>0.288270</td>
+      <td>0.288270</td>
+      <td>0.715046</td>
+      <td>0.715046</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson+amort</td>
+      <td>1</td>
+      <td>1.20</td>
+      <td>True</td>
+      <td>0.953710</td>
+      <td>0.248017</td>
+      <td>0.248017</td>
+      <td>0.753406</td>
+      <td>0.753406</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson+amort</td>
+      <td>1</td>
+      <td>1.60</td>
+      <td>True</td>
+      <td>0.976937</td>
+      <td>0.185388</td>
+      <td>0.185388</td>
+      <td>0.814938</td>
+      <td>0.814938</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson+amort</td>
+      <td>1</td>
+      <td>2.00</td>
+      <td>True</td>
+      <td>0.986626</td>
+      <td>0.138304</td>
+      <td>0.138304</td>
+      <td>0.861799</td>
+      <td>0.861799</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>poisson</td>
+      <td>None</td>
+      <td>poisson+amort</td>
+      <td>1</td>
+      <td>2.50</td>
+      <td>True</td>
+      <td>0.991291</td>
+      <td>0.095736</td>
+      <td>0.095736</td>
+      <td>0.904306</td>
+      <td>0.904306</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="s1">&#39;results_2025-03&#39;</span><span class="p">)</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">results_dir</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;poisson-&lt;grad|lin&gt;-vH16-t-16_b-24&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">]</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">fit</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;poisson-&lt;grad|lin&gt;-vH16-t-16_b-24_mach-1_(2025_03_07,07:38).npy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">load</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">results_dir</span><span class="p">,</span> <span class="n">fit</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">load</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;kl&#39;,
+ &#39;r2&#39;,
+ &#39;mse&#39;,
+ &#39;nelbo&#39;,
+ &#39;du_norm&#39;,
+ &#39;lifetime&#39;,
+ &#39;population&#39;,
+ &#39;%-zeros&#39;,
+ &#39;state_final&#39;,
+ &#39;samples_final&#39;,
+ &#39;r2_map_final&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">load</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="s1">&#39;r2&#39;</span><span class="p">])</span>
+<span class="n">postion_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">load</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="s1">&#39;%-zeros&#39;</span><span class="p">])</span>
+<span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+    <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span>
+    <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">postion_zeros</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -816,187 +1125,175 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">((</span><span class="mi">123</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">input_pixels</span><span class="p">,</span> <span class="n">input_pixels</span><span class="p">))</span>
-<span class="n">x_hat</span> <span class="o">=</span> <span class="n">dec</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="n">x_hat</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([123, 3, 32, 32])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">critical_distance</span> <span class="o">=</span> <span class="mf">0.715046</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">critical_distance</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-  <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Cell</span><span style="font-weight: bold">(</span>
-    <span style="font-weight: bold">(</span>skip<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Identity</span><span style="font-weight: bold">()</span>
-    <span style="font-weight: bold">(</span>ops<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ModuleList</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ConvLayer</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span>act_fn<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SiLU</span><span style="font-weight: bold">()</span>
-        <span style="font-weight: bold">(</span>conv<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-          <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">padding</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">))</span>
-        <span style="font-weight: bold">)</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">(</span>se<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SELayer</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span>fc<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ReLU</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">inplace</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sigmoid</span><span style="font-weight: bold">()</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Cell</span><span style="font-weight: bold">(</span>
-    <span style="font-weight: bold">(</span>skip<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Upsample</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">scale_factor</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0</span>, <span style="color: #808000; text-decoration-color: #808000">mode</span>=<span style="color: #008000; text-decoration-color: #008000">'nearest'</span><span style="font-weight: bold">)</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">))</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">(</span>ops<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ModuleList</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ConvLayer</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span>upsample<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Upsample</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">scale_factor</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0</span>, <span style="color: #808000; text-decoration-color: #808000">mode</span>=<span style="color: #008000; text-decoration-color: #008000">'nearest'</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span>act_fn<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SiLU</span><span style="font-weight: bold">()</span>
-        <span style="font-weight: bold">(</span>conv<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-          <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">padding</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">))</span>
-        <span style="font-weight: bold">)</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">(</span>se<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SELayer</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span>fc<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ReLU</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">inplace</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sigmoid</span><span style="font-weight: bold">()</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Cell</span><span style="font-weight: bold">(</span>
-    <span style="font-weight: bold">(</span>skip<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Identity</span><span style="font-weight: bold">()</span>
-    <span style="font-weight: bold">(</span>ops<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ModuleList</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ConvLayer</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span>act_fn<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SiLU</span><span style="font-weight: bold">()</span>
-        <span style="font-weight: bold">(</span>conv<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-          <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">padding</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">))</span>
-        <span style="font-weight: bold">)</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">(</span>se<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SELayer</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span>fc<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ReLU</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">inplace</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sigmoid</span><span style="font-weight: bold">()</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Cell</span><span style="font-weight: bold">(</span>
-    <span style="font-weight: bold">(</span>skip<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Upsample</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">scale_factor</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0</span>, <span style="color: #808000; text-decoration-color: #808000">mode</span>=<span style="color: #008000; text-decoration-color: #008000">'nearest'</span><span style="font-weight: bold">)</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">))</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">(</span>ops<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ModuleList</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ConvLayer</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span>upsample<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Upsample</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">scale_factor</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0</span>, <span style="color: #808000; text-decoration-color: #808000">mode</span>=<span style="color: #008000; text-decoration-color: #008000">'nearest'</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span>act_fn<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SiLU</span><span style="font-weight: bold">()</span>
-        <span style="font-weight: bold">(</span>conv<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-          <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">padding</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">))</span>
-        <span style="font-weight: bold">)</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">(</span>se<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SELayer</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span>fc<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ReLU</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">inplace</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sigmoid</span><span style="font-weight: bold">()</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Cell</span><span style="font-weight: bold">(</span>
-    <span style="font-weight: bold">(</span>skip<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Identity</span><span style="font-weight: bold">()</span>
-    <span style="font-weight: bold">(</span>ops<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ModuleList</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ConvLayer</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span>act_fn<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SiLU</span><span style="font-weight: bold">()</span>
-        <span style="font-weight: bold">(</span>conv<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-          <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">padding</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">))</span>
-        <span style="font-weight: bold">)</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">(</span>se<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SELayer</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span>fc<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ReLU</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">inplace</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">8</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sigmoid</span><span style="font-weight: bold">()</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Cell</span><span style="font-weight: bold">(</span>
-    <span style="font-weight: bold">(</span>skip<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Upsample</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">scale_factor</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0</span>, <span style="color: #808000; text-decoration-color: #808000">mode</span>=<span style="color: #008000; text-decoration-color: #008000">'nearest'</span><span style="font-weight: bold">)</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">))</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">(</span>ops<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ModuleList</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ConvLayer</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span>upsample<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Upsample</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">scale_factor</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0</span>, <span style="color: #808000; text-decoration-color: #808000">mode</span>=<span style="color: #008000; text-decoration-color: #008000">'nearest'</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span>act_fn<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SiLU</span><span style="font-weight: bold">()</span>
-        <span style="font-weight: bold">(</span>conv<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-          <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">padding</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">))</span>
-        <span style="font-weight: bold">)</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">(</span>se<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SELayer</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span>fc<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ReLU</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">inplace</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sigmoid</span><span style="font-weight: bold">()</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Cell</span><span style="font-weight: bold">(</span>
-    <span style="font-weight: bold">(</span>skip<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Identity</span><span style="font-weight: bold">()</span>
-    <span style="font-weight: bold">(</span>ops<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ModuleList</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ConvLayer</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span>act_fn<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SiLU</span><span style="font-weight: bold">()</span>
-        <span style="font-weight: bold">(</span>conv<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-          <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">padding</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">))</span>
-        <span style="font-weight: bold">)</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">(</span>se<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">SELayer</span><span style="font-weight: bold">(</span>
-      <span style="font-weight: bold">(</span>fc<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sequential</span><span style="font-weight: bold">(</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">ReLU</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">inplace</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Linear</span><span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">in_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>, <span style="color: #808000; text-decoration-color: #808000">out_features</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #808000; text-decoration-color: #808000">bias</span>=<span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span>
-        <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Sigmoid</span><span style="font-weight: bold">()</span>
-      <span style="font-weight: bold">)</span>
-    <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7</span><span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2D</span><span style="font-weight: bold">(</span>
-    <span style="font-weight: bold">(</span>_layer<span style="font-weight: bold">)</span>: <span style="color: #800080; text-decoration-color: #800080; font-weight: bold">Conv2d</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>, <span style="color: #808000; text-decoration-color: #808000">kernel_size</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">stride</span>=<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>, <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>, <span style="color: #808000; text-decoration-color: #808000">padding</span>=<span style="color: #800080; text-decoration-color: #800080">valid</span><span style="font-weight: bold">)</span>
-  <span style="font-weight: bold">)</span>
-<span style="font-weight: bold">)</span>
+<img alt="../../_images/d503ba37be111f4e51647347bf1774175dc0a84e24189cfaeee8b83490587970.png" src="../../_images/d503ba37be111f4e51647347bf1774175dc0a84e24189cfaeee8b83490587970.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">distances</span> <span class="o">&gt;=</span> <span class="n">critical_distance</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="latent-dim-dep">
+<h2>Latent dim dep<a class="headerlink" href="#latent-dim-dep" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results_dir</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="s1">&#39;results_2025-07&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">results_dir</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="n">alphanum_sort_key</span><span class="p">):</span>
+    <span class="n">load</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">results_dir</span><span class="p">,</span> <span class="n">f</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    
+    <span class="n">k</span> <span class="o">=</span> <span class="n">load</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">][</span><span class="s1">&#39;n_latents&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">load</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="s1">&#39;r2&#39;</span><span class="p">])</span>
+    <span class="n">postion_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">load</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">][</span><span class="s1">&#39;%-zeros&#39;</span><span class="p">])</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span>
+        <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">postion_zeros</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># print(f&quot;K = {k}&quot;)</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">),</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">r2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">postion_zeros</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">distances</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">postion_zeros</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="si">:</span><span class="s2">0.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">])</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;| </span><span class="si">{</span><span class="n">row</span><span class="si">}</span><span class="s2"> |&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">| <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.24</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.28</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.05</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">23.2</span> |
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">| <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">64</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.42</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.28</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.93</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">46.4</span> |
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">| <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">128</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.64</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.32</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.77</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">87.4</span> |
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">| <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.77</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.55</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.51</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">115.6</span> |
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">| <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">512</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.83</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.77</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.28</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">116.1</span> |
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">| <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">768</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.83</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.86</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.22</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">110.4</span> |
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">| <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1024</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.83</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.90</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.20</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">106.9</span> |
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">| <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2048</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.84</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.95</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.17</span> | <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">103.1</span> |
 </pre>
 </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_num_params</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">load</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;info&#39;, &#39;results&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2</span> <span class="o">=</span> <span class="mf">0.74</span>
+<span class="n">percent_zeros</span> <span class="o">=</span> <span class="mf">0.99</span>
+
+
+<span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+    <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span>
+    <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">percent_zeros</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="p">)</span>
+<span class="n">distance</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2601922366251538
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">128</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.32</span><span class="p">),</span> <span class="mi">512</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.77</span><span class="p">),</span> <span class="mi">768</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.86</span><span class="p">),</span> <span class="mi">1024</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(87.03999999999999, 117.75999999999999, 107.52000000000001, 102.39999999999998)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cpu&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_type</span> <span class="o">=</span> <span class="s1">&#39;poisson&#39;</span>
+<span class="n">cfg_vae</span><span class="p">,</span> <span class="n">cfg_tr</span> <span class="o">=</span> <span class="n">default_configs</span><span class="p">(</span><span class="s1">&#39;CelebA&#39;</span><span class="p">,</span> <span class="n">model_type</span><span class="p">,</span> <span class="s1">&#39;conv|deep&#39;</span><span class="p">)</span>
+
+<span class="n">cfg_vae</span><span class="p">[</span><span class="s1">&#39;t_train&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">cfg_vae</span><span class="p">[</span><span class="s1">&#39;kl_beta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="n">cfg_vae</span><span class="p">[</span><span class="s1">&#39;latent_channels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">cfg_vae</span><span class="p">[</span><span class="s1">&#39;latent_pixels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="n">cfg_tr</span><span class="p">[</span><span class="s1">&#39;batch_size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">cfg_tr</span><span class="p">[</span><span class="s1">&#39;epochs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="n">cfg_tr</span><span class="p">[</span><span class="s1">&#39;eval_freq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">cfg_tr</span><span class="p">[</span><span class="s1">&#39;chkpt_freq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">MODEL_CLASSES</span><span class="p">[</span><span class="n">model_type</span><span class="p">](</span><span class="n">CFG_CLASSES</span><span class="p">[</span><span class="n">model_type</span><span class="p">](</span><span class="o">**</span><span class="n">cfg_vae</span><span class="p">))</span>
+<span class="n">tr</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ConfigTrain</span><span class="p">(</span><span class="o">**</span><span class="n">cfg_tr</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">tr</span><span class="o">.</span><span class="n">n_iters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>122070
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">tr</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">tr</span><span class="o">.</span><span class="n">show_schedules</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1004,20 +1301,454 @@ document.write(`
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">+-------------+------------+
 | Module Name | Num Params |
 +-------------+------------+
-|  Sequential |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.9</span> Mil   |
+|    IPVAE    |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9</span> Mil   |
 |     ———     |    ———     |
-|      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>      |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.4</span> Mil   |
-|      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>      |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.3</span> Mil   |
-|      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>      |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">598.5</span> K   |
-|      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>      |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">330.1</span> K   |
-|      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4</span>      |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">149.8</span> K   |
-|      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>      |   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">82.6</span> K   |
-|      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">6</span>      |   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.5</span> K   |
-|      <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">7</span>      |    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">195</span>     |
+|    layer    |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9</span> Mil   |
 +-------------+------------+ 
 
 </pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">poisson_CelebA_t-1_b-1_kms-<span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>,<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16</span>,<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span><span style="font-weight: bold">)</span>_<span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">conv|deep</span><span style="font-weight: bold">&gt;</span>
+b40-ep30-<span style="color: #800080; text-decoration-color: #800080; font-weight: bold">lr</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5e-05</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_temp</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.05</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_gr</span><span style="font-weight: bold">(</span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30000</span><span style="font-weight: bold">)</span><span style="color: #800080; text-decoration-color: #800080; font-weight: bold">_</span><span style="font-weight: bold">(</span>2025_07_29,<span style="color: #00ff00; text-decoration-color: #00ff00; font-weight: bold">17:16</span><span style="font-weight: bold">)</span>
+</pre>
+</div><img alt="../../_images/a98d783bb925450851b14aa012feb5925af183e8b5ce6cd2fa5572eca7f16954.png" src="../../_images/a98d783bb925450851b14aa012feb5925af183e8b5ce6cd2fa5572eca7f16954.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_num_params</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">layer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">+--------------+------------+
+| Module Name  | Num Params |
++--------------+------------+
+| PoissonLayer |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9</span> Mil   |
+|     ———      |    ———     |
+|     enc      |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2</span> Mil   |
+|     dec      |  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">690.2</span> K   |
+|    u_init    |    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">256</span>     |
++--------------+------------+ 
+
+</pre>
 </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feeder</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">get_feeder</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">feeder</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([40, 3, 128, 128])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;loss_kl&#39;, &#39;loss_recon&#39;, &#39;posterior&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;posterior&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Poisson(rate: torch.Size([40, 256, 16, 16]), temp: 1.0, n_exp: 10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">n_exp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([10], dtype=torch.int32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">base.helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">conv_arithmetic</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conv_arithmetic</span><span class="p">(</span>
+    <span class="n">deconv</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">input_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">output_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="n">kernel_size</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span>
+    <span class="n">stride</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mode</th>
+      <th>computed</th>
+      <th>parameter</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>deconv</td>
+      <td>False</td>
+      <td>input_size</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>deconv</td>
+      <td>False</td>
+      <td>output_size</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>deconv</td>
+      <td>False</td>
+      <td>kernel_size</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>deconv</td>
+      <td>True</td>
+      <td>stride</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>deconv</td>
+      <td>False</td>
+      <td>padding</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>deconv</td>
+      <td>False</td>
+      <td>output_padding</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># noinspection PyTypeChecker</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_build_conv_enc</span><span class="p">(</span>
+		<span class="n">output_channels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+		<span class="n">output_pixels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+		<span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+		<span class="n">kws</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+
+	<span class="n">input_channels</span><span class="p">,</span> <span class="n">input_pixels</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">dataset_dims</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+	<span class="k">assert</span> <span class="n">output_pixels</span> <span class="o">&lt;=</span> <span class="n">input_pixels</span>
+
+	<span class="c1"># infer number of layers</span>
+	<span class="n">total_downsample_factor</span> <span class="o">=</span> <span class="n">input_pixels</span> <span class="o">/</span> <span class="n">output_pixels</span>
+	<span class="n">n_layers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">total_downsample_factor</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">MULT</span><span class="p">)</span>
+	<span class="n">n_layers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">n_layers</span><span class="p">))</span>
+
+	<span class="c1"># infer number of starting channels</span>
+	<span class="n">nch</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">output_channels</span> <span class="o">/</span> <span class="n">MULT</span> <span class="o">**</span> <span class="n">n_layers</span><span class="p">)</span>
+
+	<span class="c1"># stem</span>
+	<span class="n">kws_stem</span> <span class="o">=</span> <span class="n">filter_kwargs</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">,</span> <span class="n">kws</span><span class="p">)</span>
+	<span class="n">kws_stem</span><span class="p">[</span><span class="s1">&#39;kernel_size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+
+	<span class="k">if</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;MNIST&#39;</span><span class="p">,</span> <span class="s1">&#39;EMNIST&#39;</span><span class="p">,</span> <span class="s1">&#39;Omniglot&#39;</span><span class="p">]:</span>
+		<span class="n">kws_stem</span><span class="p">[</span><span class="s1">&#39;padding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;valid&#39;</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="n">kws_stem</span><span class="p">[</span><span class="s1">&#39;padding&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+	<span class="n">layers</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="n">Conv2D</span><span class="p">(</span><span class="n">input_channels</span><span class="p">,</span> <span class="n">nch</span><span class="p">,</span> <span class="o">**</span><span class="n">kws_stem</span><span class="p">),</span>
+		<span class="n">Cell</span><span class="p">(</span><span class="n">nch</span><span class="p">,</span> <span class="n">nch</span><span class="p">,</span> <span class="s1">&#39;normal_pre&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">),</span>
+	<span class="p">]</span>
+	<span class="c1"># conv</span>
+	<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_layers</span><span class="p">):</span>
+		<span class="n">nch_now</span> <span class="o">=</span> <span class="n">nch</span>
+		<span class="n">nch</span> <span class="o">*=</span> <span class="n">MULT</span>
+		<span class="n">layers</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+			<span class="n">Cell</span><span class="p">(</span><span class="n">nch_now</span><span class="p">,</span> <span class="n">nch</span><span class="p">,</span> <span class="s1">&#39;down_enc&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">),</span>
+			<span class="n">Cell</span><span class="p">(</span><span class="n">nch</span><span class="p">,</span> <span class="n">nch</span><span class="p">,</span> <span class="s1">&#39;normal_pre&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">),</span>
+		<span class="p">])</span>
+	<span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">layers</span><span class="p">),</span> <span class="n">nch</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">base.common</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fit_gain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">act_fn</span><span class="o">=</span><span class="s1">&#39;swish&#39;</span><span class="p">,</span>
+    <span class="n">use_bn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>     <span class="c1"># no batch norm</span>
+    <span class="n">use_se</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>     <span class="c1"># squeeze &amp; excite</span>
+    <span class="n">n_nodes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">eps</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">MULT</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">enc</span><span class="p">,</span> <span class="n">nch</span> <span class="o">=</span> <span class="n">_build_conv_enc</span><span class="p">(</span>
+    <span class="n">output_channels</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+    <span class="n">output_pixels</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;CelebA&#39;</span><span class="p">,</span>
+    <span class="n">kws</span><span class="o">=</span><span class="n">kws</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">enc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">z</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([40, 256, 16, 16])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kws_stem</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;normalize&#39;: False, &#39;fit_gain&#39;: False, &#39;kernel_size&#39;: 3, &#39;padding&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">in_channels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">out_channels</span><span class="o">=</span><span class="n">n_channels</span><span class="p">,</span>
+    <span class="c1"># kernel_size=3,</span>
+    <span class="c1"># padding=padding,</span>
+    <span class="c1"># normalize=False,</span>
+    <span class="c1"># fit_gain=False,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;/home/hadi/Datasets/CelebA/processed&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span><span style="color: #008000; text-decoration-color: #008000">'x_trn.npy'</span>, <span style="color: #008000; text-decoration-color: #008000">'x_tst.npy'</span>, <span style="color: #008000; text-decoration-color: #008000">'x_vld.npy'</span>, <span style="color: #008000; text-decoration-color: #008000">'y_trn.npy'</span>, <span style="color: #008000; text-decoration-color: #008000">'y_tst.npy'</span>, <span style="color: #008000; text-decoration-color: #008000">'y_vld.npy'</span><span style="font-weight: bold">]</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dim</span> <span class="o">=</span> <span class="mi">128</span>
+
+<span class="n">tgt_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">tgt_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">tgt_dir</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[]</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">fname</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;x_&#39;</span><span class="p">):</span>
+        <span class="c1"># load</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">fname</span><span class="p">))</span>
+        <span class="c1"># crop</span>
+        <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="n">ctr_h</span><span class="p">,</span> <span class="n">ctr_w</span> <span class="o">=</span> <span class="n">h</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">w</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">h_start</span><span class="p">,</span> <span class="n">h_end</span> <span class="o">=</span> <span class="n">ctr_h</span> <span class="o">-</span> <span class="n">dim</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ctr_h</span> <span class="o">+</span> <span class="n">dim</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">w_start</span><span class="p">,</span> <span class="n">w_end</span> <span class="o">=</span> <span class="n">ctr_w</span> <span class="o">-</span> <span class="n">dim</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ctr_w</span> <span class="o">+</span> <span class="n">dim</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">x_crop</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">h_start</span><span class="p">:</span><span class="n">h_end</span><span class="p">,</span> <span class="n">w_start</span><span class="p">:</span><span class="n">w_end</span><span class="p">]</span>
+        <span class="c1"># save</span>
+        <span class="n">save_obj</span><span class="p">(</span>
+            <span class="n">obj</span><span class="o">=</span><span class="n">x_crop</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span>
+            <span class="n">save_dir</span><span class="o">=</span><span class="n">tgt_dir</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">fname</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;y_&#39;</span><span class="p">):</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span>
+            <span class="n">src</span><span class="o">=</span><span class="n">pjoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">fname</span><span class="p">),</span>
+            <span class="n">dst</span><span class="o">=</span><span class="n">pjoin</span><span class="p">(</span><span class="n">tgt_dir</span><span class="p">,</span> <span class="n">fname</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'x_trn.npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Datasets/CelebA/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">processed_128</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'x_tst.npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Datasets/CelebA/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">processed_128</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'x_vld.npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Datasets/CelebA/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">processed_128</span>
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3min 11s, sys: 1min 3s, total: 4min 14s
+Wall time: 4min 25s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_vld</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pjoin</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s1">&#39;x_vld.npy&#39;</span><span class="p">))</span>
+<span class="n">x_vld</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(19867, 3, 218, 178)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trn</span><span class="p">,</span> <span class="n">vld</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_dataset</span><span class="p">(</span><span class="s1">&#39;CelebA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trn</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([162770, 3, 218, 178])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">histplot</span><span class="p">(</span><span class="n">trn</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">150</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/42837718feb69baabe70a0b02525a1fb56d2ee7d846121fd7730fd65b80a208e.png" src="../../_images/42837718feb69baabe70a0b02525a1fb56d2ee7d846121fd7730fd65b80a208e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_i</span> <span class="o">=</span> <span class="mi">1900</span>
+<span class="n">x2p</span> <span class="o">=</span> <span class="n">tonp</span><span class="p">(</span><span class="n">trn</span><span class="o">.</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">sample_i</span><span class="p">])</span>
+<span class="n">x2p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x2p</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">x2p</span> <span class="o">=</span> <span class="p">(</span><span class="n">x2p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="n">x2p</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(218, 178, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">x2p</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">center_h</span><span class="p">,</span> <span class="n">center_w</span> <span class="o">=</span> <span class="n">h</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">w</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">x2p_crop</span> <span class="o">=</span> <span class="n">x2p</span><span class="p">[</span><span class="n">center_h</span><span class="o">-</span><span class="mi">64</span><span class="p">:</span><span class="n">center_h</span><span class="o">+</span><span class="mi">64</span><span class="p">,</span> <span class="n">center_w</span><span class="o">-</span><span class="mi">64</span><span class="p">:</span><span class="n">center_w</span><span class="o">+</span><span class="mi">64</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x2p</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x2p_crop</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/318463190ef902952d1c376735179ab5aac43ad10245207e3f76ab9384845def.png" src="../../_images/318463190ef902952d1c376735179ab5aac43ad10245207e3f76ab9384845def.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1160,6 +1891,7 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1192,12 +1924,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="25_deep-mnist.html"
+       href="process-fits-iterative.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">(25) deep dec — mnist</p>
+        <p class="prev-next-title">process fits, save results (iterative)</p>
       </div>
     </a>
 </div>
@@ -1206,6 +1938,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-dim-dep">Latent dim dep</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
