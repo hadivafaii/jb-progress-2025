@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'nb/2025-12/gra-signum-outlier-0';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Relaxed Poisson Distribution" href="relaxed-poisson-hadi.html" />
-    <link rel="prev" title="GRA: signum" href="gra-signum-cifar-0.html" />
+    <link rel="next" title="GRA: signum imgnet (resnet)" href="gra-signum-resnet-1.html" />
+    <link rel="prev" title="GRA: signum - MNIST" href="gra-signum-mnist-0.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -667,10 +667,13 @@
 <li class="toctree-l2"><a class="reference internal" href="gra-lion-play.html">GRA tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-nl-0.html">GRA: nested learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-permuted-mnist-2.html">GRA: magnetic steering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gra-rel-all-cifar-0.html">GRA: rel vs non-rel (lion &amp; signum)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-rosenbrock-1.html">GRA: rosenbrock tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-signum-cifar-0.html">GRA: signum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gra-signum-cifar-1.html">GRA: signum cifar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gra-signum-mnist-0.html">GRA: signum - MNIST</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">GRA: RelSignum + synthetic tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gra-signum-resnet-1.html">GRA: signum imgnet (resnet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pvae-revisit-1.html">P-VAE revisit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="relaxed-poisson-hadi.html">Relaxed Poisson Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tmp-dec25.html">tmp — dec25</a></li>
 </ul>
@@ -872,6 +875,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main">Main</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier-test">Outlier test</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lion-family">Lion family</a></li>
 </ul>
             </nav>
@@ -954,16 +958,22 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rosenbrock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_rosenbrock_fun</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_rosenbrock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">run_canyon_experiment</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">3_000</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_rosenbrock</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_canyon_experiment</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">3_000</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Running Canyon (Rosenbrock) ===&quot;</span><span class="p">)</span>
+    
+    <span class="n">rosenbrock</span> <span class="o">=</span> <span class="n">get_rosenbrock_fun</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>
 
     <span class="c1"># Start at a tricky point (-2, 2) far from optimum (1, 1)</span>
     <span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span>
     
-    <span class="n">lr</span> <span class="o">=</span> <span class="mf">1e-3</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span>
     <span class="n">momentum</span> <span class="o">=</span> <span class="mf">0.9</span>
     <span class="n">opt_kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">momentum</span><span class="p">)</span>
     
@@ -1028,31 +1038,28 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_canyon_experiment</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_canyon_experiment</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
-=== Running Experiment <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>: The Canyon <span style="font-weight: bold">(</span>Rosenbrock<span style="font-weight: bold">)</span> ===
+=== Running Canyon <span style="font-weight: bold">(</span>Rosenbrock<span style="font-weight: bold">)</span> ===
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Hypothesis: Inertial Sourcing <span style="font-weight: bold">(</span><span style="color: #00ff00; text-decoration-color: #00ff00; font-style: italic">True</span><span style="font-weight: bold">)</span> traverses curved valleys faster than Gradient Sourcing <span style="font-weight: bold">(</span><span style="color: #ff0000; text-decoration-color: #ff0000; font-style: italic">False</span><span style="font-weight: bold">)</span>.
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Signum Final Loss: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.078115</span>
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Signum Final Loss: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001709</span>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Rel Signum <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">M</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span><span style="font-weight: bold">)</span> Final Loss: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.051781</span>
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Rel Signum <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">M</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span><span style="font-weight: bold">)</span> Final Loss: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001071</span>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Rel Signum <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">M</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span><span style="font-weight: bold">)</span> Final Loss: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.053531</span>
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Rel Signum <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">M</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span><span style="font-weight: bold">)</span> Final Loss: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.002841</span>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Rel Signum <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">M</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span><span style="font-weight: bold">)</span> Final Loss: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.077861</span>
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Rel Signum <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">M</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span><span style="font-weight: bold">)</span> Final Loss: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.000928</span>
-</pre>
-</div><img alt="../../_images/03b075d434d94ad1262961cc1a84fefc77bff04fc17a60797b951a12eeeb8734.png" src="../../_images/03b075d434d94ad1262961cc1a84fefc77bff04fc17a60797b951a12eeeb8734.png" />
-<img alt="../../_images/e1f5e026639c961031f8f4ef7a7a25b44c85fd1a7405988e00edf51e860ec473.png" src="../../_images/e1f5e026639c961031f8f4ef7a7a25b44c85fd1a7405988e00edf51e860ec473.png" />
+</div><img alt="../../_images/9ab5cb9ad538297ea2d3ad5583d7860db71ad1e67feaaed9a29709d7853cf4ff.png" src="../../_images/9ab5cb9ad538297ea2d3ad5583d7860db71ad1e67feaaed9a29709d7853cf4ff.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_heavy_tail_experiment_v2_synchronized</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_heavy_tail_experiment_v2_synchronized</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Running Experiment 1 (Synchronized): Additive Shock Noise ===&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hypothesis: Finite coupling (Relativistic) prevents &#39;Variance Poisoning&#39; from outlier shocks.&quot;</span><span class="p">)</span>
 
@@ -1064,12 +1071,16 @@ document.write(`
     <span class="n">spike_magnitude</span> <span class="o">=</span> <span class="mf">100.0</span>
 
     <span class="n">start_params</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">10.0</span><span class="p">])</span>
-
-    <span class="n">configs</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Standard Adam&quot;</span><span class="p">,</span> <span class="s2">&quot;coupling&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="s2">&quot;inertial&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span> <span class="s2">&quot;:&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Inertial Adam (C=inf)&quot;</span><span class="p">,</span> <span class="s2">&quot;coupling&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="s2">&quot;inertial&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span> <span class="s2">&quot;--&quot;</span><span class="p">},</span>
-        <span class="c1"># Using C=0.5 as in your previous run for strong clipping effect</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Relativistic (C=0.5)&quot;</span><span class="p">,</span> <span class="s2">&quot;coupling&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;inertial&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">},</span>
+    
+    <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="n">momentum</span> <span class="o">=</span> <span class="mf">0.9</span>
+    <span class="n">opt_kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">momentum</span><span class="p">)</span>
+    <span class="n">configs</span> <span class="o">=</span> <span class="n">configs</span> <span class="ow">or</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="n">lr</span><span class="p">,</span> <span class="s1">&#39;betas&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">momentum</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">)},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Signum&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Rel Signum (M=10.0)&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Rel Signum (M=1.0)&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Rel Signum (M=0.1)&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
     <span class="p">]</span>
 
     <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1097,6 +1108,8 @@ document.write(`
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running configuration: </span><span class="si">{</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="c1"># Reset model parameters to starting point</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">start_params</span><span class="o">.</span><span class="n">clone</span><span class="p">())</span>
+        
+        
 
         <span class="n">opt</span> <span class="o">=</span> <span class="n">RelativisticAdam</span><span class="p">(</span>
             <span class="p">[</span><span class="n">params</span><span class="p">],</span>
@@ -1131,6 +1144,123 @@ document.write(`
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="n">configs</span><span class="p">:</span>
         <span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;coupling&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="mf">1.5</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]],</span> <span class="n">label</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;ls&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Impact of Synchronized Additive Gradient Shocks (Magnitude 100.0)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Step&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Loss (Log Scale)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="c1"># Add vertical lines to mark where spikes happened for clarity</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">spike_map</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_heavy_tail_experiment_v2_synchronized</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Running Experiment 1 (Synchronized): Additive Shock Noise ===&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hypothesis: Finite coupling (Relativistic) prevents &#39;Variance Poisoning&#39; from outlier shocks.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 1. Setup parameters</span>
+    <span class="n">dim</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="mi">2000</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">spike_prob</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="n">spike_magnitude</span> <span class="o">=</span> <span class="mf">100.0</span>
+
+    <span class="n">start_params</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">10.0</span><span class="p">])</span>
+    
+    <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="n">momentum</span> <span class="o">=</span> <span class="mf">0.9</span>
+    <span class="n">opt_kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">momentum</span><span class="p">)</span>
+    <span class="n">configs</span> <span class="o">=</span> <span class="n">configs</span> <span class="ow">or</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;AdamW&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Signum&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Rel Signum (M=10.0)&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Rel Signum (M=1.0)&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Rel Signum (M=0.1)&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+    <span class="p">]</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># 2. Pre-generate spike schedule and noise vectors guarantees synchronization.</span>
+    <span class="c1"># Set seed once here for the whole experiment&#39;s noise generation.</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+    <span class="n">spike_map</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">dummy_grad</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="c1"># Template for noise shape</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generating spikes...&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="c1"># Decide if a spike happens at this step</span>
+        <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">spike_prob</span><span class="p">:</span>
+            <span class="c1"># Generate the exact noise vector for this step ahead of time</span>
+            <span class="n">noise</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">dummy_grad</span><span class="p">)</span>
+            <span class="c1"># Normalize and scale to fixed magnitude</span>
+            <span class="n">noise</span> <span class="o">=</span> <span class="n">noise</span> <span class="o">/</span> <span class="p">(</span><span class="n">noise</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">)</span> <span class="o">*</span> <span class="n">spike_magnitude</span>
+            <span class="n">spike_map</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">noise</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Spike scheduled at step </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 3. Run loop for each configuration</span>
+    <span class="k">for</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="n">configs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running configuration: </span><span class="si">{</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># Reset model parameters to starting point</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">start_params</span><span class="o">.</span><span class="n">clone</span><span class="p">())</span>
+        
+        <span class="k">if</span> <span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;AdamW&#39;</span><span class="p">):</span>
+            <span class="n">opt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">AdamW</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">params</span><span class="p">],</span>
+                <span class="n">lr</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">],</span> 
+                <span class="n">betas</span><span class="o">=</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;momentum&#39;</span><span class="p">],</span> <span class="mf">0.999</span><span class="p">),</span> 
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;Signum&#39;</span><span class="p">):</span>
+            <span class="n">opt</span> <span class="o">=</span> <span class="n">SignSGD</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">params</span><span class="p">],</span>
+                <span class="n">lr</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">],</span> 
+                <span class="n">momentum</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;momentum&#39;</span><span class="p">],</span> 
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">opt</span> <span class="o">=</span> <span class="n">RelativisticSignum</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">params</span><span class="p">],</span>
+                <span class="n">lr</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">],</span> 
+                <span class="n">momentum</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;momentum&#39;</span><span class="p">],</span> 
+                <span class="n">mass</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;mass&#39;</span><span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Note: No need to set seed here anymore, as noise is pre-calculated.</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+            <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="c1"># Simple quadratic loss</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+
+            <span class="c1"># --- Inject synchronized ADDITIVE noise ---</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">spike_map</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+                    <span class="c1"># Add the pre-calculated noise vector specific to this step</span>
+                    <span class="n">params</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">spike_map</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="c1"># ------------------------------------------</span>
+
+            <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+        <span class="n">results</span><span class="p">[</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">losses</span>
+
+    <span class="c1"># 4. Plotting</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="n">configs</span><span class="p">:</span>
+        <span class="c1">#lw = 2 if cfg[&#39;coupling&#39;] != float(&#39;inf&#39;) else 1.5</span>
+        <span class="n">lw</span> <span class="o">=</span> <span class="mf">1.5</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]],</span> <span class="n">label</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;ls&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
@@ -1197,13 +1327,31 @@ document.write(`
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Spike scheduled at step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">952</span>
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running configuration: Standard Adam
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Spike scheduled at step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1053</span>
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running configuration: Inertial Adam <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">C</span>=<span style="color: #800080; text-decoration-color: #800080">inf</span><span style="font-weight: bold">)</span>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Spike scheduled at step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1215</span>
 </pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running configuration: Relativistic <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">C</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.5</span><span style="font-weight: bold">)</span>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Spike scheduled at step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1229</span>
 </pre>
-</div><img alt="../../_images/215112479e904d9e96b78efc57de0496a3b63521b4326e3d8a0860735bccda76.png" src="../../_images/215112479e904d9e96b78efc57de0496a3b63521b4326e3d8a0860735bccda76.png" />
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Spike scheduled at step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1341</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Spike scheduled at step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1718</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Spike scheduled at step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1800</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Spike scheduled at step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1816</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running configuration: AdamW
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running configuration: Signum
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running configuration: Rel Signum <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">M</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span><span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running configuration: Rel Signum <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">M</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span><span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running configuration: Rel Signum <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">M</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span><span style="font-weight: bold">)</span>
+</pre>
+</div><img alt="../../_images/3dc7e7cfe2a546a93b1be2f1ebe3933542190dd72c2b838cfc1bb5e660846ed8.png" src="../../_images/3dc7e7cfe2a546a93b1be2f1ebe3933542190dd72c2b838cfc1bb5e660846ed8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1302,7 +1450,7 @@ document.write(`
     <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">run_transformer_experiment</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_transformer_experiment</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Experiment 3: The &#39;No-Warmup&#39; Transformer Test ===&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hypothesis: RelativisticAdam can survive high-LR initialization without warmup.&quot;</span><span class="p">)</span>
     
@@ -1318,11 +1466,15 @@ document.write(`
     <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>
     <span class="n">high_lr</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># Very aggressive for a Transformer</span>
     
-    <span class="n">configs</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Standard Adam&quot;</span><span class="p">,</span> <span class="s2">&quot;coupling&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="s2">&quot;inertial&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span> <span class="s2">&quot;:&quot;</span><span class="p">},</span>
-        <span class="c1"># {&quot;name&quot;: &quot;Inertial Adam (C=inf)&quot;, &quot;coupling&quot;: float(&#39;inf&#39;), &quot;inertial&quot;: True, &quot;color&quot;: &quot;blue&quot;, &quot;ls&quot;: &quot;--&quot;},</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;RelAdam (C=1.0)&quot;</span><span class="p">,</span> <span class="s2">&quot;coupling&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;inertial&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;RelAdam (C=0.5)&quot;</span><span class="p">,</span> <span class="s2">&quot;coupling&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;inertial&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span> <span class="s2">&quot;--&quot;</span><span class="p">},</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="n">momentum</span> <span class="o">=</span> <span class="mf">0.9</span>
+    <span class="n">opt_kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">momentum</span><span class="p">)</span>
+    <span class="n">configs</span> <span class="o">=</span> <span class="n">configs</span> <span class="ow">or</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;AdamW&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Signum&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;dimgrey&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Rel Signum (M=10.0)&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Rel Signum (M=1.0)&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Rel Signum (M=0.1)&#39;</span><span class="p">,</span> <span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;ls&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">opt_kws</span><span class="p">},</span>
     <span class="p">]</span>
 
     <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1388,247 +1540,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">run_transformer_experiment</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
-=== Experiment <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>: The <span style="color: #008000; text-decoration-color: #008000">'No-Warmup'</span> Transformer Test ===
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Hypothesis: RelativisticAdam can survive high-LR initialization without warmup.
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Training Standard Adam<span style="color: #808000; text-decoration-color: #808000">...</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.3345</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2262</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">200</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2205</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">300</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2316</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">400</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2549</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">500</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2806</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Training RelAdam <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">C</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span><span style="font-weight: bold">)</span><span style="color: #808000; text-decoration-color: #808000">...</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.3345</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2838</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">200</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2414</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">300</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2577</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">400</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2676</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">500</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.3165</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Training RelAdam <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">C</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.5</span><span style="font-weight: bold">)</span><span style="color: #808000; text-decoration-color: #808000">...</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.3345</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.4327</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">200</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2291</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">300</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2498</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">400</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.2527</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  Step <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">500</span>: Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.3001</span>
-</pre>
-</div><img alt="../../_images/3f267504cbfc9584c31ecc65b7582cef45d9bae7ed545ac949d785d49c50c7af.png" src="../../_images/3f267504cbfc9584c31ecc65b7582cef45d9bae7ed545ac949d785d49c50c7af.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==========================================</span>
-<span class="c1"># 2. Data: Shakespeare Snippet</span>
-<span class="c1"># ==========================================</span>
-<span class="n">TEXT_DATA</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">To be, or not to be, that is the question:</span>
-<span class="s2">Whether &#39;tis nobler in the mind to suffer</span>
-<span class="s2">The slings and arrows of outrageous fortune,</span>
-<span class="s2">Or to take arms against a sea of troubles</span>
-<span class="s2">And by opposing end them. To die—to sleep,</span>
-<span class="s2">No more; and by a sleep to say we end</span>
-<span class="s2">The heart-ache and the thousand natural shocks</span>
-<span class="s2">That flesh is heir to: &#39;tis a consummation</span>
-<span class="s2">Devoutly to be wish&#39;d. To die, to sleep;</span>
-<span class="s2">To sleep, perchance to dream—ay, there&#39;s the rub:</span>
-<span class="s2">For in that sleep of death what dreams may come,</span>
-<span class="s2">When we have shuffled off this mortal coil,</span>
-<span class="s2">Must give us pause—there&#39;s the respect</span>
-<span class="s2">That makes calamity of so long life.</span>
-<span class="s2">&quot;&quot;&quot;</span> <span class="o">*</span> <span class="mi">50</span>  <span class="c1"># Repeat to make dataset large enough</span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">CharLSTM</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">n_layers</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lstm</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LSTM</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">hidden</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">out</span><span class="p">,</span> <span class="n">hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lstm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">hidden</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="c1"># Decode all time steps</span>
-        <span class="k">return</span> <span class="n">out</span><span class="p">,</span> <span class="n">hidden</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run_transformer_experiment()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_lstm_experiment</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Real-World Test: The Exploding LSTM ===&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hypothesis: RelAdam (Unclipped) matches Adam (Clipped) stability.&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Data Prep</span>
-    <span class="n">chars</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">TEXT_DATA</span><span class="p">)))</span>
-    <span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span>
-    <span class="n">char_to_ix</span> <span class="o">=</span> <span class="p">{</span><span class="n">ch</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chars</span><span class="p">)}</span>
-    <span class="n">data_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">char_to_ix</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">TEXT_DATA</span><span class="p">]</span>
-    <span class="n">data_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_indices</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
-
-    <span class="c1"># Config</span>
-    <span class="n">seq_len</span> <span class="o">=</span> <span class="mi">50</span>   <span class="c1"># Long enough to cause BPTT instability</span>
-    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
-    <span class="n">n_batches</span> <span class="o">=</span> <span class="mi">500</span>
-    <span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">128</span>
-    
-    <span class="c1"># We use a HIGH LR to provoke explosions</span>
-    <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span> 
-    
-    <span class="n">configs</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Adam (Unclipped)&quot;</span><span class="p">,</span> <span class="s2">&quot;opt&quot;</span><span class="p">:</span> <span class="s2">&quot;Adam&quot;</span><span class="p">,</span> <span class="s2">&quot;clip&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span> <span class="s2">&quot;:&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Adam (Clipped=1.0)&quot;</span><span class="p">,</span> <span class="s2">&quot;opt&quot;</span><span class="p">:</span> <span class="s2">&quot;Adam&quot;</span><span class="p">,</span> <span class="s2">&quot;clip&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span> <span class="s2">&quot;--&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;RelAdam (C=1.0)&quot;</span><span class="p">,</span> <span class="s2">&quot;opt&quot;</span><span class="p">:</span> <span class="s2">&quot;RelAdam&quot;</span><span class="p">,</span> <span class="s2">&quot;clip&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;ls&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">},</span>
-    <span class="p">]</span>
-    
-    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">for</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="n">configs</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running </span><span class="si">{</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
-        <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">CharLSTM</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-        
-        <span class="c1"># Select Optimizer</span>
-        <span class="k">if</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;opt&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Adam&quot;</span><span class="p">:</span>
-            <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Note: Inertial Sourcing=True + Coupling=1.0 is the &quot;Robust&quot; config</span>
-            <span class="n">optimizer</span> <span class="o">=</span> <span class="n">RelativisticAdam</span><span class="p">(</span>
-                <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span>
-                <span class="n">coupling</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-                <span class="n">inertial_sourcing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">betas</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">),</span>
-            <span class="p">)</span>
-            
-        <span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">hidden</span> <span class="o">=</span> <span class="kc">None</span>
-        
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_batches</span><span class="p">):</span>
-            <span class="c1"># Random batch sampling</span>
-            <span class="n">starts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_tensor</span><span class="p">)</span> <span class="o">-</span> <span class="n">seq_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">batch_size</span><span class="p">,))</span>
-            <span class="n">x_batch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">data_tensor</span><span class="p">[</span><span class="n">s</span> <span class="p">:</span> <span class="n">s</span><span class="o">+</span><span class="n">seq_len</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">starts</span><span class="p">])</span>
-            <span class="n">y_batch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">data_tensor</span><span class="p">[</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span> <span class="p">:</span> <span class="n">s</span><span class="o">+</span><span class="n">seq_len</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">starts</span><span class="p">])</span>
-            
-            <span class="n">x_batch</span> <span class="o">=</span> <span class="n">x_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-            <span class="n">y_batch</span> <span class="o">=</span> <span class="n">y_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-            
-            <span class="c1"># Forward</span>
-            <span class="c1"># Detach hidden state to simulate truncated BPTT, but instability remains within the sequence</span>
-            <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_batch</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
-            
-            <span class="c1"># Reshape for loss</span>
-            <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">),</span> <span class="n">y_batch</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-            
-            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-            
-            <span class="c1"># --- The Crucial Difference ---</span>
-            <span class="k">if</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;clip&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">clip_grad_norm_</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;clip&quot;</span><span class="p">])</span>
-            <span class="c1"># ------------------------------</span>
-            
-            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-            <span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
-
-        <span class="n">results</span><span class="p">[</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">losses</span>
-
-    <span class="c1"># Plot</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="n">configs</span><span class="p">:</span>
-        <span class="c1"># Simple smoothing</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]])</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">smoothed</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">smoothed</span><span class="p">))</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="n">smoothed</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> 
-                     <span class="n">color</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;ls&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-            
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;LSTM Training Stability (High LR=0.01)&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Step&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Loss&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    
-    <span class="k">return</span> <span class="n">results</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">run_lstm_experiment</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
-=== Real-World Test: The Exploding LSTM ===
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Hypothesis: RelAdam <span style="font-weight: bold">(</span>Unclipped<span style="font-weight: bold">)</span> matches Adam <span style="font-weight: bold">(</span>Clipped<span style="font-weight: bold">)</span> stability.
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running Adam <span style="font-weight: bold">(</span>Unclipped<span style="font-weight: bold">)</span><span style="color: #808000; text-decoration-color: #808000">...</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running Adam <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">Clipped</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span><span style="font-weight: bold">)</span><span style="color: #808000; text-decoration-color: #808000">...</span>
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Running RelAdam <span style="font-weight: bold">(</span><span style="color: #808000; text-decoration-color: #808000">C</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.0</span><span style="font-weight: bold">)</span><span style="color: #808000; text-decoration-color: #808000">...</span>
-</pre>
-</div><img alt="../../_images/2c1a01a7d4dea796c4040f35d7b2e79a02e247bd9d2ac5d83635e51eb01e9fc9.png" src="../../_images/2c1a01a7d4dea796c4040f35d7b2e79a02e247bd9d2ac5d83635e51eb01e9fc9.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Adam (Unclipped)&#39;, &#39;Adam (Clipped=1.0)&#39;, &#39;RelAdam (C=1.0)&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;Adam (Clipped=1.0)&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x73a45045a350&gt;]
-</pre></div>
-</div>
-<img alt="../../_images/aa33ce2893100ca033e14b996a780de65a2dfd9e0324018d363dad4620c0f217.png" src="../../_images/aa33ce2893100ca033e14b996a780de65a2dfd9e0324018d363dad4620c0f217.png" />
-</div>
-</div>
+</section>
+<section id="outlier-test">
+<h2>Outlier test<a class="headerlink" href="#outlier-test" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_data</span><span class="p">(</span>
@@ -2251,20 +2170,20 @@ Wall time: 52.8 s
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="gra-signum-cifar-0.html"
+       href="gra-signum-mnist-0.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">GRA: signum</p>
+        <p class="prev-next-title">GRA: signum - MNIST</p>
       </div>
     </a>
     <a class="right-next"
-       href="relaxed-poisson-hadi.html"
+       href="gra-signum-resnet-1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Relaxed Poisson Distribution</p>
+        <p class="prev-next-title">GRA: signum imgnet (resnet)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2286,6 +2205,7 @@ Wall time: 52.8 s
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goals">Goals:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main">Main</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier-test">Outlier test</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lion-family">Lion family</a></li>
 </ul>
   </nav></div>
