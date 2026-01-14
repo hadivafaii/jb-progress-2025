@@ -654,6 +654,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gra-adam-synthetic-1.html">GRA: GR-Adam + synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-adam-synthetic-particle-zoo-0.html">GRA: GR-Adam + synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-ewc-cifar-0.html">GRA: EWC + cifar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gra-figs-vision-signum.html">GRA: signum figs (mnist, cifar, imgnet)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-lion-cifar-0.html">GRA: lion + cifar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-lion-gr-1.html">GRA: lion — Rel vs GR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-lion-gr-brickwall-2.html">GRA: lion + GR + rosenbrock</a></li>
@@ -7398,7 +7399,7 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">save_obj</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;CIFAR10_results_jan03.npy&#39;</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">tmp_dir</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save_obj(results, file_name=&#39;CIFAR10_results_jan03.npy&#39;, save_dir=tmp_dir)</span>
 </pre></div>
 </div>
 </div>
@@ -7412,86 +7413,86 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.5)&#39;: 10.08,
- &#39;Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.0)&#39;: 10.28,
- &#39;Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.0)&#39;: 10.28,
- &#39;Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.1)&#39;: 10.28,
- &#39;Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.5)&#39;: 10.28,
- &#39;Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.0)&#39;: 10.64,
- &#39;Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.5)&#39;: 10.64,
- &#39;Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.1)&#39;: 10.71,
- &#39;Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.1)&#39;: 17.6,
- &#39;Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.0)&#39;: 18.89,
- &#39;Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=0.1)&#39;: 35.84,
- &#39;Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.5)&#39;: 37.42,
- &#39;Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.1)&#39;: 37.48,
- &#39;Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=1)&#39;: 85.42,
- &#39;Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=0.1)&#39;: 85.68,
- &#39;Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=0.1)&#39;: 86.78,
- &#39;Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=1)&#39;: 91.89,
- &#39;Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=0.1)&#39;: 96.4,
- &#39;AdamW (lr=0.01,beta=0.8,wd=0.1)&#39;: 96.4,
- &#39;AdamW (lr=0.01,beta=0.95,wd=0.1)&#39;: 96.67,
- &#39;Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=1)&#39;: 96.77,
- &#39;Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=10)&#39;: 96.82,
- &#39;Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=5)&#39;: 97.17,
- &#39;Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.0)&#39;: 97.21,
- &#39;Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=5)&#39;: 97.21,
- &#39;Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.5)&#39;: 97.3,
- &#39;Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.1)&#39;: 97.32,
- &#39;Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=10)&#39;: 97.34,
- &#39;AdamW (lr=0.005,beta=0.8,wd=0.1)&#39;: 97.54,
- &#39;Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=5)&#39;: 97.63,
- &#39;Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=10)&#39;: 97.68,
- &#39;Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.1)&#39;: 97.73,
- &#39;Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.1)&#39;: 97.77,
- &#39;Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=1)&#39;: 97.8,
- &#39;AdamW (lr=0.005,beta=0.95,wd=0.1)&#39;: 97.8,
- &#39;Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.0)&#39;: 97.82,
- &#39;Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=5)&#39;: 97.85,
- &#39;Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.5)&#39;: 97.88,
- &#39;Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=10)&#39;: 97.88,
- &#39;Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.5)&#39;: 97.96,
- &#39;Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.1)&#39;: 98.0,
- &#39;Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=0.1)&#39;: 98.05,
- &#39;Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.0)&#39;: 98.06,
- &#39;Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=1)&#39;: 98.08,
- &#39;Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.0)&#39;: 98.15,
- &#39;Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.1)&#39;: 98.18,
- &#39;Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.5)&#39;: 98.18,
- &#39;Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=0.1)&#39;: 98.21,
- &#39;Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=1)&#39;: 98.3,
- &#39;Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.0)&#39;: 98.32,
- &#39;Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.1)&#39;: 98.33,
- &#39;Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.5)&#39;: 98.33,
- &#39;Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.1)&#39;: 98.34,
- &#39;Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=10)&#39;: 98.34,
- &#39;Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=5)&#39;: 98.36,
- &#39;Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.0)&#39;: 98.38,
- &#39;Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.5)&#39;: 98.39,
- &#39;Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=0.1)&#39;: 98.4,
- &#39;AdamW (lr=0.001,beta=0.8,wd=0.1)&#39;: 98.4,
- &#39;Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=10)&#39;: 98.41,
- &#39;AdamW (lr=0.0001,beta=0.8,wd=0.1)&#39;: 98.42,
- &#39;AdamW (lr=0.0001,beta=0.95,wd=0.1)&#39;: 98.42,
- &#39;Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=1)&#39;: 98.42,
- &#39;Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=10)&#39;: 98.44,
- &#39;AdamW (lr=0.0005,beta=0.8,wd=0.1)&#39;: 98.45,
- &#39;Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=5)&#39;: 98.45,
- &#39;Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=5)&#39;: 98.48,
- &#39;Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=0.1)&#39;: 98.51,
- &#39;Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=0.1)&#39;: 98.51,
- &#39;Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=10)&#39;: 98.53,
- &#39;Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=1)&#39;: 98.54,
- &#39;Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=1)&#39;: 98.54,
- &#39;AdamW (lr=0.0005,beta=0.95,wd=0.1)&#39;: 98.54,
- &#39;AdamW (lr=0.001,beta=0.95,wd=0.1)&#39;: 98.54,
- &#39;Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=10)&#39;: 98.56,
- &#39;Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=5)&#39;: 98.57,
- &#39;Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=1)&#39;: 98.57,
- &#39;Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=10)&#39;: 98.57,
- &#39;Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=5)&#39;: 98.6,
- &#39;Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=5)&#39;: 98.64}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.0)&#39;: 10.0,
+ &#39;Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.1)&#39;: 10.0,
+ &#39;Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.5)&#39;: 10.0,
+ &#39;Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.0)&#39;: 10.0,
+ &#39;Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.1)&#39;: 10.0,
+ &#39;Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.5)&#39;: 10.0,
+ &#39;Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.0)&#39;: 10.0,
+ &#39;Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.1)&#39;: 10.0,
+ &#39;Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.5)&#39;: 10.0,
+ &#39;Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=0.1)&#39;: 10.0,
+ &#39;Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.0)&#39;: 10.0,
+ &#39;Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.1)&#39;: 10.0,
+ &#39;Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.5)&#39;: 10.0,
+ &#39;Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=0.1)&#39;: 18.88,
+ &#39;AdamW (lr=0.01,beta=0.8,wd=0.1)&#39;: 76.64,
+ &#39;Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=10)&#39;: 78.48,
+ &#39;AdamW (lr=0.01,beta=0.95,wd=0.1)&#39;: 78.62,
+ &#39;Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=5)&#39;: 78.95,
+ &#39;Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=0.1)&#39;: 79.02,
+ &#39;AdamW (lr=0.005,beta=0.8,wd=0.1)&#39;: 80.7,
+ &#39;Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=0.1)&#39;: 80.71,
+ &#39;Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=1)&#39;: 81.57,
+ &#39;Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=1)&#39;: 81.91,
+ &#39;Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=10)&#39;: 81.93,
+ &#39;AdamW (lr=0.0001,beta=0.8,wd=0.1)&#39;: 82.18,
+ &#39;Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=5)&#39;: 82.28,
+ &#39;Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=1)&#39;: 82.38,
+ &#39;Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=5)&#39;: 82.75,
+ &#39;AdamW (lr=0.0001,beta=0.95,wd=0.1)&#39;: 82.84,
+ &#39;AdamW (lr=0.005,beta=0.95,wd=0.1)&#39;: 82.99,
+ &#39;Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.1)&#39;: 83.46,
+ &#39;Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=10)&#39;: 83.59,
+ &#39;Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.0)&#39;: 83.6,
+ &#39;Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=1)&#39;: 83.62,
+ &#39;Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.5)&#39;: 83.84,
+ &#39;Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.5)&#39;: 83.9,
+ &#39;Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.1)&#39;: 83.93,
+ &#39;Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.1)&#39;: 84.17,
+ &#39;Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.0)&#39;: 84.33,
+ &#39;Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.0)&#39;: 84.43,
+ &#39;AdamW (lr=0.001,beta=0.8,wd=0.1)&#39;: 84.47,
+ &#39;Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.1)&#39;: 84.57,
+ &#39;Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.5)&#39;: 84.75,
+ &#39;Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=5)&#39;: 84.77,
+ &#39;Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=10)&#39;: 84.82,
+ &#39;AdamW (lr=0.0005,beta=0.8,wd=0.1)&#39;: 84.97,
+ &#39;AdamW (lr=0.001,beta=0.95,wd=0.1)&#39;: 85.01,
+ &#39;Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=0.1)&#39;: 85.17,
+ &#39;Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.1)&#39;: 85.24,
+ &#39;AdamW (lr=0.0005,beta=0.95,wd=0.1)&#39;: 85.26,
+ &#39;Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.5)&#39;: 85.36,
+ &#39;Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=1)&#39;: 85.37,
+ &#39;Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=0.1)&#39;: 85.49,
+ &#39;Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=10)&#39;: 85.58,
+ &#39;Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.0)&#39;: 85.67,
+ &#39;Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=5)&#39;: 85.9,
+ &#39;Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=0.1)&#39;: 85.93,
+ &#39;Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=0.1)&#39;: 85.94,
+ &#39;Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.0)&#39;: 85.99,
+ &#39;Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.1)&#39;: 86.01,
+ &#39;Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=10)&#39;: 86.09,
+ &#39;Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.5)&#39;: 86.27,
+ &#39;Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=1)&#39;: 86.32,
+ &#39;Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=1)&#39;: 86.4,
+ &#39;Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=5)&#39;: 86.45,
+ &#39;Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=1)&#39;: 86.45,
+ &#39;Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=10)&#39;: 86.5,
+ &#39;Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=5)&#39;: 86.73,
+ &#39;Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.0)&#39;: 86.84,
+ &#39;Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.1)&#39;: 86.85,
+ &#39;Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.5)&#39;: 86.98,
+ &#39;Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=5)&#39;: 87.13,
+ &#39;Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=0.1)&#39;: 87.19,
+ &#39;Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=1)&#39;: 87.24,
+ &#39;Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=10)&#39;: 87.33,
+ &#39;Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=5)&#39;: 87.35,
+ &#39;Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=1)&#39;: 87.57,
+ &#39;Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=10)&#39;: 87.84,
+ &#39;Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=5)&#39;: 87.92,
+ &#39;Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=10)&#39;: 88.04}
 </pre></div>
 </div>
 </div>
@@ -7503,7 +7504,7 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/474743de2adb559fb073557a818f0432cd8c35386bf9bfad1d98d78253a79512.png" src="../../_images/474743de2adb559fb073557a818f0432cd8c35386bf9bfad1d98d78253a79512.png" />
+<img alt="../../_images/02f2d83cee395855b563e79a81b3348871162f7e15dff7ffdc864fd509f14627.png" src="../../_images/02f2d83cee395855b563e79a81b3348871162f7e15dff7ffdc864fd509f14627.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -7552,90 +7553,90 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 <div class="cell_output docutils container">
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
     <span style="color: #008000; text-decoration-color: #008000">'AdamW'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.01,beta=0.8,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">96.39566666666667</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.01,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">96.666</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.005,beta=0.8,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.52933333333335</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.005,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.76333333333332</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.001,beta=0.8,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.37166666666666</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0001,beta=0.8,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.41066666666666</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0001,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.41266666666667</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0005,beta=0.8,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.43966666666668</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.001,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.471</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0005,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.54133333333334</span>
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.01,beta=0.8,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">76.95533333333334</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.01,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">78.56666666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.005,beta=0.8,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80.54866666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0001,beta=0.8,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">82.19033333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0001,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">82.927</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.005,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">82.95966666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.001,beta=0.8,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">84.67633333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0005,beta=0.8,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">84.95433333333332</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.001,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.119</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0005,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.35999999999999</span>
     <span style="font-weight: bold">}</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.562333333333335</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.548</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.71300000000001</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.571</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">92.04</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">96.35266666666668</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">96.646</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">96.85</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.19533333333334</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.22633333333333</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.40433333333335</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.63933333333333</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.68433333333334</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.78333333333333</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.79366666666667</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.84233333333333</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.86533333333334</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.06</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.10333333333332</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.22166666666666</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.31166666666667</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.349</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.36366666666666</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.36433333333333</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.39133333333334</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.42033333333333</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.44833333333334</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.466</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.46700000000001</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.50166666666667</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.50833333333333</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.52133333333333</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.52166666666668</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.55233333333334</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.56099999999999</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.567</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.57600000000001</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.57666666666667</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.58200000000001</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.62833333333333</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.031666666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.29566666666667</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">78.63666666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">78.76266666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">79.52066666666668</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80.80966666666667</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">81.42633333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">81.47400000000002</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">81.827</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">82.321</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">82.36666666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">82.65400000000001</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.01,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">83.28366666666668</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">83.49699999999999</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">83.67033333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">84.36733333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">84.77366666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.23966666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.37233333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.38899999999998</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.64433333333334</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.94766666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.99666666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.00733333333334</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.14200000000001</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.32433333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.403</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.417</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.49033333333334</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.58033333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.79433333333334</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">87.02133333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">87.13</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">87.15866666666666</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">87.33700000000002</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">87.49766666666667</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">87.575</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">87.84566666666667</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">87.94333333333334</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">88.081</span>
     <span style="font-weight: bold">}</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Signum'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.123999999999999</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.28</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.28</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.28</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.28</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.636666666666665</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.671666666666665</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.708</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">17.838333333333335</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.95066666666667</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.312666666666665</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.331</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.249</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.292</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.31733333333332</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.76399999999998</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.81533333333331</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.832</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.96</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.99733333333333</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.02033333333334</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.15166666666666</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.16233333333334</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.16366666666667</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.32266666666666</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.33233333333334</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.33933333333334</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.35166666666666</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.38166666666667</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.389</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.8,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.01,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.0</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.8,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10.000333333333334</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">83.664</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">83.70200000000001</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">83.94899999999998</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">83.96833333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">84.10833333333332</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.8,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">84.19266666666667</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">84.44733333333335</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">84.516</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.8,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">84.71633333333332</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.29666666666667</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.41333333333334</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.57633333333332</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.99966666666668</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.06133333333334</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.8,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.21666666666667</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.83933333333333</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.90966666666667</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.94200000000001</span>
     <span style="font-weight: bold">}</span>
 <span style="font-weight: bold">}</span>
 </pre>
@@ -7648,7 +7649,7 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'AdamW'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">97.90013333333334</span>, <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">95.46950833333332</span>, <span style="color: #008000; text-decoration-color: #008000">'Signum'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65.28448888888889</span><span style="font-weight: bold">}</span>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'AdamW'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">82.42573333333334</span>, <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">81.25139999999999</span>, <span style="color: #008000; text-decoration-color: #008000">'Signum'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">55.08397777777778</span><span style="font-weight: bold">}</span>
 </pre>
 </div></div>
 </div>
@@ -7667,16 +7668,16 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 <div class="cell_output docutils container">
 <div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
     <span style="color: #008000; text-decoration-color: #008000">'AdamW'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.001,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.471</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0005,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.54133333333334</span>
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.001,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.119</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0005,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85.35999999999999</span>
     <span style="font-weight: bold">}</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.8,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.58200000000001</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.62833333333333</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">87.94333333333334</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0001,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">88.081</span>
     <span style="font-weight: bold">}</span>,
     <span style="color: #008000; text-decoration-color: #008000">'Signum'</span>: <span style="font-weight: bold">{</span>
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.38166666666667</span>,
-        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">98.389</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.90966666666667</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0001,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">86.94200000000001</span>
     <span style="font-weight: bold">}</span>
 <span style="font-weight: bold">}</span>
 </pre>
@@ -7701,7 +7702,7 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5153a43971a3e7d19f9df8a1d63370f0e16130ae2a2d24180e55c5108d87f08b.png" src="../../_images/5153a43971a3e7d19f9df8a1d63370f0e16130ae2a2d24180e55c5108d87f08b.png" />
+<img alt="../../_images/3e43778fd7b305526d8fd11bf6b77418536091dbb25d65c471e68da438af42ba.png" src="../../_images/3e43778fd7b305526d8fd11bf6b77418536091dbb25d65c471e68da438af42ba.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -7716,7 +7717,37 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/45e73f6d453da99dc7fc8ece55c4b869190aaf18681ac0e46d9e73dd19355fd2.png" src="../../_images/45e73f6d453da99dc7fc8ece55c4b869190aaf18681ac0e46d9e73dd19355fd2.png" />
+<img alt="../../_images/5e008975f773a25c858f566ca12af2a0395f0cd9f5f121c53aed923b03e5d8dc.png" src="../../_images/5e008975f773a25c858f566ca12af2a0395f0cd9f5f121c53aed923b03e5d8dc.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_results</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s1">&#39;lr=0.0001,beta=0.95&#39;</span> <span class="ow">in</span> <span class="n">k</span>
+<span class="p">}</span>
+
+<span class="n">_plot</span><span class="p">(</span><span class="n">selected_results</span><span class="p">,</span> <span class="n">intvl</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">86</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/69acd5b991ed388c08964ff9409260ca494c21510552909f722705a3c204036f.png" src="../../_images/69acd5b991ed388c08964ff9409260ca494c21510552909f722705a3c204036f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_results</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s1">&#39;lr=0.01,beta=0.95&#39;</span> <span class="ow">in</span> <span class="n">k</span>
+<span class="p">}</span>
+
+<span class="n">_plot</span><span class="p">(</span><span class="n">selected_results</span><span class="p">,</span> <span class="n">intvl</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e3e076f561fce41150aa92fe07d46b665eb355fe91f68134ab244db45d2753cb.png" src="../../_images/e3e076f561fce41150aa92fe07d46b665eb355fe91f68134ab244db45d2753cb.png" />
 </div>
 </div>
 </section>

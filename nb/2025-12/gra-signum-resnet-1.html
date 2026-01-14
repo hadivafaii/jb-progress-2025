@@ -654,6 +654,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gra-adam-synthetic-1.html">GRA: GR-Adam + synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-adam-synthetic-particle-zoo-0.html">GRA: GR-Adam + synthetic tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-ewc-cifar-0.html">GRA: EWC + cifar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gra-figs-vision-signum.html">GRA: signum figs (mnist, cifar, imgnet)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-lion-cifar-0.html">GRA: lion + cifar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-lion-gr-1.html">GRA: lion — Rel vs GR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gra-lion-gr-brickwall-2.html">GRA: lion + GR + rosenbrock</a></li>
@@ -877,6 +878,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main">Main</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagenet32">ImageNet32</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#signum">Signum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results-with-seed">plot results_with_seed</a></li>
 </ul>
 </li>
 </ul>
@@ -938,15 +940,15 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDE CODE</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">intvl</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;test_acc&#39;</span><span class="p">,</span> <span class="n">intvl</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
 
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
         <span class="n">color</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
 
-        <span class="n">mu</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;test_acc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">sd</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;test_acc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">sd</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">smooth</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">mu</span> <span class="o">=</span> <span class="n">smooth_savgol</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">polyorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -1975,7 +1977,539 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 </pre>
 </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6912</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.99</span>%
 </pre>
-</div></div>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">70</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6811</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.78</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">75</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6746</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.12</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6672</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.90</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6594</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.29</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">90</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6526</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.65</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">95</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6485</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.19</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6454</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.60</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Finished in <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16158.</span>9s
+
+
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+--- Training <span style="font-weight: bold">(</span>ImageNet32<span style="font-weight: bold">)</span> ---
+
+Model: ResNet18 | <span style="color: #808000; text-decoration-color: #808000">seed</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>
+Optimizer: RelativisticSignum
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">RelativisticSignum <span style="font-weight: bold">(</span>
+Parameter Group <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
+    lr: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    mass: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.01</span>
+    momentum: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.95</span>
+    weight_decay: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>
+<span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.9486</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.44</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.3847</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.30</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0092</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.32</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8967</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.24</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8416</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.48</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8021</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.45</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7701</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.65</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7456</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.64</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">40</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7254</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.83</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">45</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7080</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.77</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">50</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6932</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.84</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">55</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6799</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.77</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">60</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6681</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.78</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6574</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.72</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">70</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6514</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.72</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">75</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6419</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.18</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6363</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.90</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6291</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.15</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">90</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6222</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.13</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">95</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6174</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.24</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6124</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.52</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Finished in <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16182.</span>8s
+
+
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+--- Training <span style="font-weight: bold">(</span>ImageNet32<span style="font-weight: bold">)</span> ---
+
+Model: ResNet18 | <span style="color: #808000; text-decoration-color: #808000">seed</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>
+Optimizer: RelativisticSignum
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">RelativisticSignum <span style="font-weight: bold">(</span>
+Parameter Group <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
+    lr: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    mass: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.01</span>
+    momentum: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.95</span>
+    weight_decay: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>
+<span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.9390</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.25</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.3656</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.59</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9706</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.97</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8509</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.89</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7920</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.63</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7466</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.75</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7149</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.56</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6896</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.15</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">40</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6683</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.34</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">45</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6514</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.41</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">50</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6364</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.27</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">55</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6239</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.39</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">60</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6105</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.32</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6017</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.16</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">75</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.5845</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.56</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.5777</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.57</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.5724</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.05</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">90</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.5655</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.22</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">95</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.5578</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.46</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.5555</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.19</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Finished in <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16204.</span>3s
+
+
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+--- Training <span style="font-weight: bold">(</span>ImageNet32<span style="font-weight: bold">)</span> ---
+
+Model: ResNet18 | <span style="color: #808000; text-decoration-color: #808000">seed</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>
+Optimizer: RelativisticSignum
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">RelativisticSignum <span style="font-weight: bold">(</span>
+Parameter Group <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
+    lr: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    mass: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.01</span>
+    momentum: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.95</span>
+    weight_decay: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>
+<span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.0577</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.67</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.4335</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.01</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0461</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.09</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9343</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.85</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8729</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.36</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8310</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.67</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7978</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.27</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7714</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.90</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">40</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7508</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.11</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">45</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7361</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.94</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">50</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7219</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.84</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">55</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7103</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.42</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">60</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6960</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.00</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6873</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.51</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">70</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6784</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.18</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">75</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6684</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.89</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6618</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.85</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6536</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.72</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">90</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6483</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.03</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">95</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6424</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.06</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6355</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.53</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Finished in <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16198.</span>6s
+
+
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+--- Training <span style="font-weight: bold">(</span>ImageNet32<span style="font-weight: bold">)</span> ---
+
+Model: ResNet18 | <span style="color: #808000; text-decoration-color: #808000">seed</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
+Optimizer: RelativisticSignum
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">RelativisticSignum <span style="font-weight: bold">(</span>
+Parameter Group <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
+    lr: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    mass: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    momentum: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.95</span>
+    weight_decay: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>
+<span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.0316</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.24</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.4705</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.13</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0931</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.76</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9803</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.17</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9173</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.96</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8740</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.63</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8398</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.33</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8149</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.04</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">40</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7935</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.47</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">45</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7766</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.58</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">50</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7616</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.94</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">55</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7488</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.19</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">60</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7366</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.60</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7272</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.24</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">70</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7165</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.48</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">75</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7079</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.82</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6996</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.61</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6923</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.46</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">90</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6867</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.20</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">95</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6806</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.55</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6763</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.92</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Finished in <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16176.</span>6s
+
+
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+--- Training <span style="font-weight: bold">(</span>ImageNet32<span style="font-weight: bold">)</span> ---
+
+Model: ResNet18 | <span style="color: #808000; text-decoration-color: #808000">seed</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>
+Optimizer: RelativisticSignum
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">RelativisticSignum <span style="font-weight: bold">(</span>
+Parameter Group <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
+    lr: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    mass: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    momentum: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.95</span>
+    weight_decay: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>
+<span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.9480</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.07</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.4140</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.56</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0379</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.38</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9290</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.60</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8667</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.48</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8269</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.54</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7943</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.21</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7683</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.46</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">40</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7462</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.06</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">45</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7296</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.41</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">50</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7161</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.42</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">55</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7024</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.91</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6857</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.62</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">70</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6732</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.65</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">75</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6665</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.45</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6582</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.75</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6530</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.76</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">90</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6462</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.56</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">95</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6396</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.71</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6359</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.99</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Finished in <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16099.</span>4s
+
+
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+--- Training <span style="font-weight: bold">(</span>ImageNet32<span style="font-weight: bold">)</span> ---
+
+Model: ResNet18 | <span style="color: #808000; text-decoration-color: #808000">seed</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>
+Optimizer: RelativisticSignum
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">RelativisticSignum <span style="font-weight: bold">(</span>
+Parameter Group <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
+    lr: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    mass: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    momentum: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.95</span>
+    weight_decay: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>
+<span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.9454</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20.15</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.3903</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.82</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0150</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.47</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9037</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.03</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8456</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.81</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7710</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.47</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7462</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.24</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">40</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7230</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.21</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">45</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7079</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.25</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">50</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6925</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.47</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">55</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6812</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.12</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">60</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6696</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.05</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6592</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.05</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">70</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6478</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.79</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">75</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6419</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.59</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6335</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.64</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6283</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.82</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">90</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6205</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.18</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">95</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6173</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.29</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6114</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.91</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Finished in <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">16133.</span>9s
+
+
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+--- Training <span style="font-weight: bold">(</span>ImageNet32<span style="font-weight: bold">)</span> ---
+
+Model: ResNet18 | <span style="color: #808000; text-decoration-color: #808000">seed</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>
+Optimizer: RelativisticSignum
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">RelativisticSignum <span style="font-weight: bold">(</span>
+Parameter Group <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
+    lr: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    mass: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    momentum: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.95</span>
+    weight_decay: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>
+<span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.9883</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.83</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.4314</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.33</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0499</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.15</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9398</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.75</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8826</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.10</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8373</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.60</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8075</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.17</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7823</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.01</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">40</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7591</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.94</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">45</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7435</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.68</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">50</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7265</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.69</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">55</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7143</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.71</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">60</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7037</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.24</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6944</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.78</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">70</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6845</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.44</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">75</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6744</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.44</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">60</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7380</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.65</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6841</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.14</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">75</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6637</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.68</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">95</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6479</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.99</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6287</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.51</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Finished in <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15778.</span>6s
+
+
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+--- Training <span style="font-weight: bold">(</span>ImageNet32<span style="font-weight: bold">)</span> ---
+
+Model: ResNet18 | <span style="color: #808000; text-decoration-color: #808000">seed</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span>
+Optimizer: SignSGD
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SignSGD <span style="font-weight: bold">(</span>
+Parameter Group <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
+    dampening: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.05</span>
+    lr: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    momentum: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.95</span>
+    weight_decay: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>
+<span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5.0350</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">18.52</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.4673</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">33.86</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0829</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">33.38</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9868</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.65</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9079</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.47</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6918</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.53</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6896</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.62</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">90</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6701</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.15</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6583</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.22</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Finished in <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15700.</span>6s
+
+
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">
+--- Training <span style="font-weight: bold">(</span>ImageNet32<span style="font-weight: bold">)</span> ---
+
+Model: ResNet18 | <span style="color: #808000; text-decoration-color: #808000">seed</span>=<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3</span>
+Optimizer: SignSGD
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">SignSGD <span style="font-weight: bold">(</span>
+Parameter Group <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0</span>
+    dampening: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.05</span>
+    lr: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.001</span>
+    momentum: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.95</span>
+    weight_decay: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">0.1</span>
+<span style="font-weight: bold">)</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">4.9810</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">19.56</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch    <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">5</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.4094</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.83</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">10</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2.0547</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.04</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.9250</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.89</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">20</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8645</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.36</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">25</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8334</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.12</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">30</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.8054</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.27</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7680</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.14</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">40</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7546</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.19</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">45</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7364</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.74</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">50</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7432</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.69</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">55</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7119</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.72</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">60</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7148</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.83</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">65</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6813</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.43</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">70</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6715</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.86</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">75</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.7088</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.95</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">80</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6581</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.73</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">85</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6576</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.36</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">90</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6404</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.67</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch   <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">95</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6722</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.35</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Epoch  <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>/<span style="color: #008080; text-decoration-color: #008080; font-weight: bold">100</span>:  Train Loss <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">1.6481</span>  |  Test Acc <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.78</span>%
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Finished in <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">15699.</span>1s
+
+
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2d 5h 23min 27s, sys: 5min 39s, total: 2d 5h 29min 7s
+Wall time: 2d 5h 25min 22s
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1990,12 +2524,249 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">[</span>PROGRESS<span style="font-weight: bold">]</span> <span style="color: #008000; text-decoration-color: #008000">'ImageNet32_results_jan08.npy'</span> saved at
+<span style="color: #800080; text-decoration-color: #800080">/home/hadi/Dropbox/git/jb-progress-2025/</span><span style="color: #ff00ff; text-decoration-color: #ff00ff">tmp</span>
+</pre>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_results</span><span class="p">(</span><span class="n">results_final</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;ImageNet32 (mean ± std over seeds)&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d0ad3eb61afdb01468ac225a6e7846a684c1cfa84c8c5b6285cff91b6ac783ec.png" src="../../_images/d0ad3eb61afdb01468ac225a6e7846a684c1cfa84c8c5b6285cff91b6ac783ec.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_last_timepoints</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">model_accuracies</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">results_final</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;test_acc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="o">-</span><span class="n">n_last_timepoints</span><span class="p">:]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">model_accuracies</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">acc</span>
+
+<span class="n">model_accuracies</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">model_accuracies</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+    
+<span class="n">model_accuracies</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">model_accuracies</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">model_accuracies</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'AdamW'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.005,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28.692</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0005,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">31.3728</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.001,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.544</span>
+    <span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29.386600000000005</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.005,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">29.961199999999998</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">31.816399999999998</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.0005,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.014</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=10)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.28600000000001</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.89500000000001</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.5)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.13080000000001</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.6742</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.001)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.96510000000001</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.01)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.1014</span>
+    <span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Signum'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.005,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">3.4453999999999994</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.262</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.05)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.881899999999995</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.230000000000004</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">model_accuracies</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'AdamW'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">31.869600000000002</span>, <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">34.123070000000006</span>, <span style="color: #008000; text-decoration-color: #008000">'Signum'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">27.454825</span><span style="font-weight: bold">}</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_top_fits</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">best_n_models</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())[</span><span class="o">-</span><span class="n">n_top_fits</span><span class="p">:])</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">model_accuracies</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">best_n_models</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'AdamW'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.005,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">28.692</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.0005,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">31.3728</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'AdamW (lr=0.001,beta=0.95,wd=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">35.544</span>
+    <span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.1)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.6742</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.001)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.96510000000001</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.01)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.1014</span>
+    <span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Signum'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.0005,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">32.262</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.05)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.881899999999995</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.0)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.230000000000004</span>
+    <span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_n_models_strings</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">best_n_models</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_results</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">results_final</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">best_n_models_strings</span>
+<span class="p">}</span>
+
+<span class="n">_plot</span><span class="p">(</span><span class="n">selected_results</span><span class="p">,</span> <span class="n">intvl</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/22087b51204c2b8b030c9aaf6409a25efe80d6eb49187d883515fd3f0ba78d26.png" src="../../_images/22087b51204c2b8b030c9aaf6409a25efe80d6eb49187d883515fd3f0ba78d26.png" />
+</div>
+</div>
+</section>
+<section id="plot-results-with-seed">
+<h3>plot results_with_seed<a class="headerlink" href="#plot-results-with-seed" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_last_timepoints</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">model_accuracies</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">results_with_seed</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;test_acc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="o">-</span><span class="n">n_last_timepoints</span><span class="p">:]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">model_accuracies</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">acc</span>
+
+<span class="n">model_accuracies</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">model_accuracies</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+    
+<span class="n">model_accuracies</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">model_accuracies</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">model_accuracies</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.001)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.96510000000001</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.01)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.1014</span>
+    <span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Signum'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.05)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.881899999999995</span><span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">model_accuracies</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'Rel. Signum'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.03325</span>, <span style="color: #008000; text-decoration-color: #008000">'Signum'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.881899999999995</span><span style="font-weight: bold">}</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_top_fits</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">best_n_models</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())[</span><span class="o">-</span><span class="n">n_top_fits</span><span class="p">:])</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">model_accuracies</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">best_n_models</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">{</span>
+    <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum'</span>: <span style="font-weight: bold">{</span>
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.001)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.96510000000001</span>,
+        <span style="color: #008000; text-decoration-color: #008000">'Rel. Signum (lr=0.001,beta=0.95,wd=0.1,mass=0.01)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">37.1014</span>
+    <span style="font-weight: bold">}</span>,
+    <span style="color: #008000; text-decoration-color: #008000">'Signum'</span>: <span style="font-weight: bold">{</span><span style="color: #008000; text-decoration-color: #008000">'Signum (lr=0.001,beta=0.95,wd=0.1,dampening=0.05)'</span>: <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">36.881899999999995</span><span style="font-weight: bold">}</span>
+<span style="font-weight: bold">}</span>
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_n_models_strings</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">best_n_models</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_results</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">results_final</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">best_n_models_strings</span>
+<span class="p">}</span>
+
+<span class="n">_plot</span><span class="p">(</span><span class="n">selected_results</span><span class="p">,</span> <span class="n">intvl</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">21</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/584e49c283403a63d359d9ccc7989e1ef00d606947b42a936eb2e24cba2ef030.png" src="../../_images/584e49c283403a63d359d9ccc7989e1ef00d606947b42a936eb2e24cba2ef030.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_plot</span><span class="p">(</span><span class="n">selected_results</span><span class="p">,</span> <span class="s1">&#39;train_loss&#39;</span><span class="p">,</span> <span class="n">intvl</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">81</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/83439a6fc1409b9539975df7de0d36cbdc3e78f4af3c50d4bedbee5d14adbb1a.png" src="../../_images/83439a6fc1409b9539975df7de0d36cbdc3e78f4af3c50d4bedbee5d14adbb1a.png" />
 </div>
 </div>
 </section>
@@ -2070,6 +2841,7 @@ Parameter Group <span style="color: #008080; text-decoration-color: #008080; fon
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main">Main</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imagenet32">ImageNet32</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#signum">Signum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-results-with-seed">plot results_with_seed</a></li>
 </ul>
 </li>
 </ul>
